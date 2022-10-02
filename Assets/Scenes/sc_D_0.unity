@@ -1219,6 +1219,40 @@ MonoBehaviour:
   anchorHand: {fileID: 1436180632}
   anchorPendulum: {fileID: 2015992189}
   rotOuterPendulum: -56
+  pendMoveIterations: 2000
+  curvePend:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5000185
+      value: 0.5000277
+      inSlope: 2.7193341
+      outSlope: 2.7193341
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.048692834
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2015992188
 GameObject:
   m_ObjectHideFlags: 0
