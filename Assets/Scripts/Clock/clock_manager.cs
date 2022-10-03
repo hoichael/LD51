@@ -5,7 +5,10 @@ public class clock_manager : MonoBehaviour
     [SerializeField] Transform anchorHand, anchorPendulum;
     [SerializeField] float rotOuterPendulum;
 
-    int currentRotHand = 180;
+    [SerializeField] AnimationCurve curveHand;
+    [SerializeField] float handMoveSpeed;
+    float handLerpVal = 1;
+    float handCurrent, handFrom, handTo;
 
     [SerializeField] float pendMoveIterations; // basically the pendulum anim "framerate" -> amount of individual rot displacements
     [SerializeField] AnimationCurve curvePend;
@@ -22,11 +25,13 @@ public class clock_manager : MonoBehaviour
         t0 = Time.time;
 
         // set initial anchor rotations for fresh clock cycle
-        anchorHand.localRotation = Quaternion.Euler(new Vector3(0, 0, currentRotHand));
+        anchorHand.localRotation = Quaternion.Euler(new Vector3(0, 0, 180));
+        handFrom = handCurrent = 180;
+        handTo = -134;
         //anchorPendulum.localRotation = Quaternion.Euler(new Vector3(0, 0, rotOuterPendulum));
 
         //StartCoroutine(HandRoutine());
-        InvokeRepeating("HandleHandLol", 1, 1);
+        InvokeRepeating("HandleHandLol", 0.925f, 1);
 
         //pendAnimnActive = true;
         pendCurrentIncr = 1;
@@ -58,57 +63,28 @@ public class clock_manager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(handLerpVal < 1) MoveHand();
+    }
+
     private void HandleHandLol()
     {
-        currentRotHand -= 36;
-        if (currentRotHand == -180)
-        {
-            currentRotHand = 180;
-            //print(Time.time - t0);
-            //t0 = Time.time;
-        }
-        anchorHand.localRotation = Quaternion.Euler(new Vector3(0, 0, currentRotHand));
+        handFrom = handCurrent;
+        handTo = handCurrent - 36;
+        handLerpVal = 0;
     }
 
-    /*
-    private IEnumerator PendelumRoutine()
+    private void MoveHand()
     {
-        yield return new WaitForSeconds(pendInterval);
+        handLerpVal = Mathf.MoveTowards(handLerpVal, 1, handMoveSpeed * Time.deltaTime);
 
-        pendCurrentIteration += pendCurrentIncr;
-
-        float t = pendCurrentIteration / pendMoveIterations;
-
-        anchorPendulum.localRotation = Quaternion.Lerp(
-            Quaternion.Euler(new Vector3(0, 0, rotOuterPendulum)),
-            Quaternion.Euler(new Vector3(0, 0, -rotOuterPendulum)),
-            curvePend.Evaluate(t)
+        handCurrent = Mathf.Lerp(
+            handFrom,
+            handTo,
+            curveHand.Evaluate(handLerpVal)
             );
 
-        // if cycle finished flip direction
-        if (pendCurrentIteration >= pendMoveIterations || pendCurrentIteration <= 0)
-        {
-            pendCurrentIncr *= -1;
-            print(Time.time - t0);
-            t0 = Time.time;
-        }
-
-        StartCoroutine(PendelumRoutine());
+        anchorHand.localRotation = Quaternion.Euler(0, 0, handCurrent);
     }
-
-    private IEnumerator HandRoutine()
-    {
-        yield return new WaitForSeconds(1);
-
-        currentRotHand -= 36;
-        if (currentRotHand == -180)
-        {
-            currentRotHand = 180;
-            //print(Time.time - t0);
-            //t0 = Time.time;
-        }
-        anchorHand.localRotation = Quaternion.Euler(new Vector3(0, 0, currentRotHand));
-        StartCoroutine(HandRoutine());
-    }
-    */
 }

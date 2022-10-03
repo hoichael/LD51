@@ -1219,7 +1219,50 @@ MonoBehaviour:
   anchorHand: {fileID: 1436180632}
   anchorPendulum: {fileID: 2015992189}
   rotOuterPendulum: -56
-  pendMoveIterations: 2000
+  curveHand:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5131947
+      value: 0.7619041
+      inSlope: 1.3823113
+      outSlope: 1.3823113
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.067994654
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6713406
+      value: 0.92402214
+      inSlope: 0.6970451
+      outSlope: 0.6970451
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29260847
+      outWeight: 0.13066763
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  handMoveSpeed: 10
+  pendMoveIterations: 1200
   curvePend:
     serializedVersion: 2
     m_Curve:
