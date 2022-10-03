@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class clock_manager : MonoBehaviour
 {
+    [SerializeField] light_manager lightManager;
+
     [SerializeField] Transform anchorHand, anchorPendulum;
     [SerializeField] float rotOuterPendulum;
 
@@ -18,6 +20,8 @@ public class clock_manager : MonoBehaviour
     int pendCurrentIncr; // either 1 or -1 depending on current "direction" of pendulum
 
     float t0;
+
+    int secCounter;
 
     private void Start()
     {
@@ -39,6 +43,8 @@ public class clock_manager : MonoBehaviour
         pendInterval = 10 / pendMoveIterations;
         //StartCoroutine(PendelumRoutine());
         InvokeRepeating("HandlePendulum", 0, pendInterval);
+
+        InvokeRepeating("ActualTimer", 1, 1);
 
     }
 
@@ -66,6 +72,19 @@ public class clock_manager : MonoBehaviour
     private void Update()
     {
         if(handLerpVal < 1) MoveHand();
+    }
+
+    private void ActualTimer()
+    {
+        secCounter++;
+
+        if(secCounter == 10)
+        {
+            // init foreground light flash
+            lightManager.InitFlash();
+
+            secCounter = 0;
+        }
     }
 
     private void HandleHandLol()
