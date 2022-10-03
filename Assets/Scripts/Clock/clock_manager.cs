@@ -15,6 +15,9 @@ public class clock_manager : MonoBehaviour
     [SerializeField] float pendMoveIterations; // basically the pendulum anim "framerate" -> amount of individual rot displacements
     [SerializeField] AnimationCurve curvePend;
 
+    [SerializeField] AudioSource audioSourceGong, audioSourceTick;
+    [SerializeField] AudioClip audioClipGong, audioClipTick;
+
     float pendInterval;
     int pendCurrentIteration;
     int pendCurrentIncr; // either 1 or -1 depending on current "direction" of pendulum
@@ -35,7 +38,7 @@ public class clock_manager : MonoBehaviour
         //anchorPendulum.localRotation = Quaternion.Euler(new Vector3(0, 0, rotOuterPendulum));
 
         //StartCoroutine(HandRoutine());
-        InvokeRepeating("HandleHandLol", 0.925f, 1);
+        InvokeRepeating("HandleHandLol", 0.92f, 1);
 
         //pendAnimnActive = true;
         pendCurrentIncr = 1;
@@ -78,10 +81,16 @@ public class clock_manager : MonoBehaviour
     {
         secCounter++;
 
+        // play ticking sound
+        audioSourceTick.PlayOneShot(audioClipTick);
+
         if(secCounter == 10)
         {
             // init foreground light flash
             lightManager.InitFlash();
+
+            // play gong sound
+            audioSourceGong.PlayOneShot(audioClipGong);
 
             secCounter = 0;
         }
