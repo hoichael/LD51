@@ -12,6 +12,9 @@ public class pl_jump : MonoBehaviour
 
     private void ApplyForce()
     {
+        // reset y vel before applying jump force for consistent jump
+        refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+
         refs.rb.AddForce(Vector2.up * refs.settings.jumpForceBase, ForceMode2D.Impulse);
     }
 }

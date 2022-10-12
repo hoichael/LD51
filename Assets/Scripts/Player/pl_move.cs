@@ -25,6 +25,6 @@ public class pl_move : MonoBehaviour
 
     private void ApplyForce()
     {
-        refs.rb.AddForce(Vector2.right * refs.settings.moveForceGround * currentInput, ForceMode2D.Force);
+        refs.rb.AddForce(Vector2.right * refs.info.moveForceCurrent * currentInput, ForceMode2D.Force);
     }
 }
