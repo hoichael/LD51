@@ -10,6 +10,6 @@ public class pl_refs : MonoBehaviour
 
     public pl_gravity gravity;
 
-
+    public Transform spriteTrans;
     public Transform groundcheckTrans;
 }

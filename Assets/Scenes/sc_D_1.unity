@@ -410,7 +410,7 @@ Transform:
   m_Children:
   - {fileID: 1096690384}
   m_Father: {fileID: 1655109901}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961739749
 GameObject:
@@ -562,7 +562,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1655109901}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1006106122
 MonoBehaviour:
@@ -594,6 +594,7 @@ MonoBehaviour:
   settings: {fileID: 1006106124}
   rb: {fileID: 2091789149}
   gravity: {fileID: 1096690383}
+  spriteTrans: {fileID: 586636307}
   groundcheckTrans: {fileID: 1611541466}
 --- !u!114 &1006106124
 MonoBehaviour:
@@ -607,6 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51960af5c18e5294fafd6efa221828d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveForceGround: 32
+  jumpForceBase: 24
   gravBase: 24
   groundcheckSize: {x: 2.98, y: 0.2}
 --- !u!1 &1096690382
@@ -620,6 +623,8 @@ GameObject:
   - component: {fileID: 1096690384}
   - component: {fileID: 1096690383}
   - component: {fileID: 1096690385}
+  - component: {fileID: 1096690386}
+  - component: {fileID: 1096690387}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -671,6 +676,32 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1096690386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096690382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275920b5be0abac4a991f80a79b10552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+--- !u!114 &1096690387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096690382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65137b525a10afe4db486e17e077e2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
 --- !u!1 &1611541465
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,12 +757,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655109900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 697680732}
   - {fileID: 1006106121}
+  - {fileID: 697680732}
   - {fileID: 2091789148}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -857,11 +888,11 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.4
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7a2cc8204951da64b8f3674e1f5378c4, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
