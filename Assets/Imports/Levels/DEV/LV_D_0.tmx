@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="8" tileheight="8" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="8" tileheight="8" infinite="0" nextlayerid="3" nextobjectid="7">
  <tileset firstgid="1" source="../../Sprites/Tiles/DEV/Metrics/T_metrics.tsx"/>
- <layer id="1" name="Base" width="64" height="36">
+ <layer id="1" name="Main" width="64" height="36">
   <data encoding="csv">
 233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,233,234,235,236,
 261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,261,262,263,264,
@@ -41,4 +41,10 @@
 217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224,217,218,219,220,221,222,223,224
 </data>
  </layer>
+ <objectgroup id="2" name="Col">
+  <object id="3" x="0" y="224" width="512" height="64"/>
+  <object id="4" x="0" y="0" width="512" height="32"/>
+  <object id="5" x="0" y="32" width="32" height="192"/>
+  <object id="6" x="480" y="32" width="32" height="192"/>
+ </objectgroup>
 </map>

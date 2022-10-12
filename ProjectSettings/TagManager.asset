@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Solid
   - Water
   - UI
-  - 
+  - Player
   - Clock
   - Floor
   - ForegroundObject
