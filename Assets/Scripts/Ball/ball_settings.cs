@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class ball_settings : MonoBehaviour
 {
-    [Header("General")]
+    [Header("Throw")]
     public float throwForceBase;
+    public float playerVelThrowForceMult;
+    public float throwForceAdd, throwForceMax;
+
+    [Header("General")]
     public float colEnableDelay;
 
     [Header("Rigidbody")]

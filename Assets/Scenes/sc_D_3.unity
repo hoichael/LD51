@@ -361,7 +361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310e1bdf370cbcc478a1e9ba0164770b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForceBase: 36
+  throwForceBase: 12
+  playerVelThrowForceMult: 0.8
+  throwForceAdd: 22
+  throwForceMax: 60
   colEnableDelay: 0.4
   rbGravityScale: 5.6
   rbPhMat: {fileID: 6200000, guid: 4ca424d12e6ac3141851f1d320e06ce6, type: 2}
@@ -472,7 +475,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.82606924, b: 0.23113209, a: 1}
-      key1: {r: 0.9960785, g: 0.6156863, b: 0, a: 1}
+      key1: {r: 1, g: 0.82745105, b: 0.23137257, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -744,6 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 395312969}
   thrower: {fileID: 686162642}
+  throwForceCurrent: 0
 --- !u!114 &686162642
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,8 @@ using UnityEngine;
 public class ball_throw : MonoBehaviour
 {
     [SerializeField] ball_refs refs;
-    public void Init(Vector2 dir)
+    
+    public void Init(Vector2 dir, float force)
     {
         refs.trans.SetParent(null);
         refs.colSolid.enabled = true;
@@ -14,20 +15,23 @@ public class ball_throw : MonoBehaviour
         //refs.rb.bodyType = RigidbodyType2D.Dynamic;
         CreateRB();
 
-        ApplyForce(dir);
+        ApplyForce(dir, force);
 
         StartCoroutine(DelayedColHandler());
     }
 
-    private void ApplyForce(Vector2 dir)
+    private void ApplyForce(Vector2 dir, float force)
     {
-        // apply main force into passed dir
-        refs.rb.AddForce(dir * refs.settings.throwForceBase, ForceMode2D.Impulse);
+        // apply main force based on player input
+        refs.rb.AddForce(dir * force, ForceMode2D.Impulse);
 
-        // if dir doesnt point downwards apply slight secondary upwards force
+        // apply secondary force based on player vel
+        refs.rb.AddForce(refs_global.Instance.playerRB.velocity * refs.settings.playerVelThrowForceMult, ForceMode2D.Impulse);
+
+        // if dir doesnt point downwards apply slight tertiary upwards force
         if(dir.y >= 0)
         {
-            refs.rb.AddForce(Vector2.up * (refs.settings.throwForceBase * 0.22f), ForceMode2D.Impulse);
+            refs.rb.AddForce(Vector2.up * (refs.settings.throwForceBase * 0.18f), ForceMode2D.Impulse);
         }
     }
 
@@ -47,6 +51,4 @@ public class ball_throw : MonoBehaviour
         yield return new WaitForSeconds(refs.settings.colEnableDelay);
         refs.colTrigger.enabled = true;
     }
-
-
 }
