@@ -7,4 +7,5 @@ public class ball_refs : MonoBehaviour
     public Transform trans;
     public Rigidbody2D rb;
     public Collider2D colSolid, colTrigger;
+    public TrailRenderer trail;
 }

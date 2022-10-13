@@ -8,6 +8,8 @@ public class ball_throw : MonoBehaviour
     {
         refs.trans.SetParent(null);
         refs.colSolid.enabled = true;
+        refs.trail.emitting = true;
+
         //refs.rb.isKinematic = false;
         //refs.rb.bodyType = RigidbodyType2D.Dynamic;
         CreateRB();

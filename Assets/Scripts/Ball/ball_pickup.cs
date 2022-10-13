@@ -15,6 +15,8 @@ public class ball_pickup : MonoBehaviour
 
         refs.trans.localPosition = Vector3.zero;
 
+        refs.trail.emitting = false;
+
         refs.manager.HandlePickup();
     }
 }
