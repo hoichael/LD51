@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a984e986fe5d5408f6633d36657743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refs: {fileID: 395312969}
   thrower: {fileID: 686162642}
 --- !u!114 &686162642
 MonoBehaviour:
@@ -1576,6 +1577,7 @@ MonoBehaviour:
   playerRB: {fileID: 2091789149}
   ballHolderTrans: {fileID: 1164260507}
   playerDir: 0
+  currentBallTrans: {fileID: 61844453}
 --- !u!1 &1929512372
 GameObject:
   m_ObjectHideFlags: 0
