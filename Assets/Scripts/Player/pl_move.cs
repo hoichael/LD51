@@ -12,7 +12,7 @@ public class pl_move : MonoBehaviour
         // update info dir and flip sprite accordingly
         if (currentInput != 0)
         {
-            refs.info.dir = (int)currentInput;
+            refs.info.dir = refs_global.Instance.playerDir = (int)currentInput;
             refs.spriteTrans.localScale = new Vector3(refs.info.dir, 1, 1);
         }
     }
