@@ -22,8 +22,11 @@ public class ball_throw : MonoBehaviour
         // apply main force into passed dir
         refs.rb.AddForce(dir * refs.settings.throwForceBase, ForceMode2D.Impulse);
 
-        // apply secondary upwards force
-        refs.rb.AddForce(Vector2.up * (refs.settings.throwForceBase * 0.4f), ForceMode2D.Impulse);
+        // if dir doesnt point downwards apply slight secondary upwards force
+        if(dir.y >= 0)
+        {
+            refs.rb.AddForce(Vector2.up * (refs.settings.throwForceBase * 0.22f), ForceMode2D.Impulse);
+        }
     }
 
     private void CreateRB()

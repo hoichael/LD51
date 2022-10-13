@@ -3,6 +3,8 @@ using UnityEngine;
 public class pl_jump : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
+    [SerializeField] Transform topcheckTrans;
+    [SerializeField] LayerMask groundMask;
 
     // public for debug
     public bool jumpActive;
@@ -26,6 +28,7 @@ public class pl_jump : MonoBehaviour
         else
         {
             ApplyForceAdd();
+            HandleTopcheck();
         }
     }
 
@@ -55,6 +58,14 @@ public class pl_jump : MonoBehaviour
             refs.settings.jumpForceBase
             ),
             ForceMode2D.Impulse);
+    }
+
+    private void HandleTopcheck()
+    {
+        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, groundMask) != null)
+        {
+            TerminateJump();
+        }
     }
 
     private void ApplyForceAdd()
