@@ -7,7 +7,7 @@ public class ball_manager : MonoBehaviour
 
     private void Update()
     {
-        if (currentlyHeld && Input.GetKeyDown(KeyCode.K)) HandleThrow(); 
+        if (currentlyHeld && (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(0) )) HandleThrow(); 
     }
 
     public void HandlePickup()

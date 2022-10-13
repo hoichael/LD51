@@ -8,6 +8,7 @@ public class ball_settings : MonoBehaviour
 
     [Header("Rigidbody")]
     public float rbGravityScale;
+    public PhysicsMaterial2D rbPhMat;
     public RigidbodyInterpolation2D rbInterp;
     public CollisionDetectionMode2D rbColDetectMode;
 }

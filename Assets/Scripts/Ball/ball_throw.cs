@@ -12,14 +12,24 @@ public class ball_throw : MonoBehaviour
         //refs.rb.bodyType = RigidbodyType2D.Dynamic;
         CreateRB();
 
-        refs.rb.AddForce(dir * refs.settings.throwForceBase, ForceMode2D.Impulse);
+        ApplyForce(dir);
 
         StartCoroutine(DelayedColHandler());
+    }
+
+    private void ApplyForce(Vector2 dir)
+    {
+        // apply main force into passed dir
+        refs.rb.AddForce(dir * refs.settings.throwForceBase, ForceMode2D.Impulse);
+
+        // apply secondary upwards force
+        refs.rb.AddForce(Vector2.up * (refs.settings.throwForceBase * 0.4f), ForceMode2D.Impulse);
     }
 
     private void CreateRB()
     {
         Rigidbody2D rb = refs.trans.gameObject.AddComponent<Rigidbody2D>();
+        rb.sharedMaterial = refs.settings.rbPhMat;
         rb.gravityScale = refs.settings.rbGravityScale;
         rb.collisionDetectionMode = refs.settings.rbColDetectMode;
         rb.interpolation = refs.settings.rbInterp;
