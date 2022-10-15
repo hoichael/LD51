@@ -34,7 +34,7 @@ public class pl_jump : MonoBehaviour
 
     private void InitJump()
     {
-        refs.info.grounded = false; // hmmmmmm
+        //refs.info.grounded = false; // hmmmmmm
 
         ApplyForceBase();
         jumpActive = true;

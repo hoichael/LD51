@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class lv_manager : MonoBehaviour
 {
     [SerializeField] List<lv_info> levelInfoList;
     [SerializeField] GameObject ballPrefab;
+    public TextMeshProUGUI timerText;
 
     int currentActiveLV;
 
