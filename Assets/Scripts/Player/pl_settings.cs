@@ -13,6 +13,12 @@ public class pl_settings : MonoBehaviour
     public float jumpAddDuration;
     public float jumpTermMult; // mult with y vel when jump terminated. needs to be between 0 and 1
 
+    [Header("Wall Jump")]
+    public Vector3 wallCheckOffset;
+    public Vector2 wallCheckSize;
+    public Vector2 wallJumpDir;
+    public Vector2 wallJumpForce;
+
     [Header("Gravity")]
     public float gravBase;
     public float gravAdd;
