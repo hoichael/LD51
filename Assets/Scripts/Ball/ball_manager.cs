@@ -56,6 +56,11 @@ public class ball_manager : MonoBehaviour
         refs_global.Instance.currentBallTrans = refs.trans;
     }
 
+    public bool CurrentlyHoldingBall()
+    {
+        return ballInHand;
+    }
+
     private void HandleThrow()
     {
         ballInHand = currentlyChargingThrow = false;
