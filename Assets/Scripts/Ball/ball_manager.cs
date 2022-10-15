@@ -21,7 +21,7 @@ public class ball_manager : MonoBehaviour
                 throwForceCurrent = refs.settings.throwForceBase;
                 //HandleThrow();
             }
-            else if(refs_global.Instance.currentBallTrans != null)
+            else if(refs_global.Instance.currentBallTrans == refs.trans)
             {
                 HandleTeleport();
             }
@@ -54,6 +54,7 @@ public class ball_manager : MonoBehaviour
     {
         ballInHand = true;
         refs_global.Instance.currentBallTrans = refs.trans;
+        refs_global.Instance.currentHeldBallObj = refs.trans.gameObject;
     }
 
     public bool CurrentlyHoldingBall()

@@ -13,8 +13,8 @@ public class ball_pickup : MonoBehaviour
 
         refs.colSolid.enabled = false;
         refs.colTrigger.enabled = false;
-        refs.trans.SetParent(refs_global.Instance.ballHolderTrans);
 
+        refs.trans.SetParent(refs_global.Instance.ballHolderTrans);
         refs.trans.localPosition = Vector3.zero;
 
         refs.trail.emitting = false;

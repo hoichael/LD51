@@ -35,6 +35,7 @@ public class lv_manager : MonoBehaviour
     {
         // dispose of currently active level
         refs_global.Instance.currentBallTrans = null;
+        Destroy(refs_global.Instance.currentHeldBallObj);
         levelInfoList[currentActiveLV].levelContainer.SetActive(false);
 
         // init new level

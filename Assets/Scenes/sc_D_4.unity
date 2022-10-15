@@ -894,14 +894,14 @@ MonoBehaviour:
   - levelContainer: {fileID: 757631487}
     plSpawnPos: {x: 0, y: 0, z: 0}
     ballSpawnPosArr:
-    - {x: -4, y: 10, z: 0}
+    - {x: -32, y: 10, z: 0}
     - {x: 0, y: 10, z: 0}
-    - {x: 4, y: 10, z: 0}
+    - {x: 32, y: 10, z: 0}
     ballsContainer: {fileID: 1429356316}
   - levelContainer: {fileID: 1352270801}
-    plSpawnPos: {x: 0, y: 0, z: 0}
+    plSpawnPos: {x: -37, y: 0, z: 0}
     ballSpawnPosArr:
-    - {x: 0, y: 10, z: 0}
+    - {x: -28, y: 10, z: 0}
     ballsContainer: {fileID: 1642281431}
   ballPrefab: {fileID: 159648763285764023, guid: 4c3cabc3c39cef44290bb046d11ce3bd, type: 3}
 --- !u!1 &782648073
@@ -2020,6 +2020,7 @@ MonoBehaviour:
   ballHolderTrans: {fileID: 1164260507}
   playerDir: 0
   currentBallTrans: {fileID: 61844453}
+  currentHeldBallObj: {fileID: 0}
 --- !u!1 &1929512372
 GameObject:
   m_ObjectHideFlags: 0

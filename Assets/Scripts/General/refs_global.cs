@@ -11,4 +11,5 @@ public class refs_global : ut_singleton<refs_global>
     public int playerDir = 1; // kinda ugly but whtv
 
     public Transform currentBallTrans;
+    public GameObject currentHeldBallObj;
 }
