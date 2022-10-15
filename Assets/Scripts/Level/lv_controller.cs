@@ -6,23 +6,23 @@ public class lv_controller : MonoBehaviour
     [SerializeField] lv_manager manager;
 
     Stopwatch timer;
-    string currentTimeAsString;
     bool playerHasMoved, playerHasCompleted;
 
     private void OnEnable()
     {
         print("enter level");
-        currentTimeAsString = manager.timerText.text = "0:00";
+        manager.timerText.color = Color.white;
+        manager.timerText.text = "0:00";
         playerHasMoved = playerHasCompleted = false;
     }
 
     private void Update()
     {
         // wait for player input to start timer
-        if (playerHasMoved)
+        if (playerHasMoved && !playerHasCompleted)
         {
             //currentTimeAsString = manager.timerText.text = timer.Elapsed.ToString();
-            currentTimeAsString = manager.timerText.text = $"{timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds.ToString().Substring(0, 1)}";
+            manager.timerText.text = $"{timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds.ToString().Substring(0, 1)}";
         }
         else if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space))
         {
@@ -43,6 +43,9 @@ public class lv_controller : MonoBehaviour
         playerHasCompleted = true;
 
         timer.Stop();
-        UnityEngine.Debug.Log($"level completed in {timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds}");
+        string finalTime = $"{timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds}";
+        manager.timerText.color = Color.green;
+        manager.timerText.text = finalTime;
+        print($"level completed in {finalTime}");
     }
 }
