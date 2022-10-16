@@ -61,15 +61,4 @@ public class lv_manager : MonoBehaviour
             newBall.transform.SetParent(newBallsContainer.transform);
         }
     }
-
-
-}
-
-[System.Serializable]
-public class lv_info
-{
-    public GameObject levelContainer;
-    public Vector3 plSpawnPos;
-    public Vector3[] ballSpawnPosArr;
-    public Transform ballsContainer;
 }
