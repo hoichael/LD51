@@ -26,7 +26,7 @@ public class ball_throw : MonoBehaviour
         refs.rb.AddForce(dir * force, ForceMode2D.Impulse);
 
         // apply secondary force based on player vel
-        refs.rb.AddForce(refs_global.Instance.playerRB.velocity * refs.settings.playerVelThrowForceMult, ForceMode2D.Impulse);
+        // refs.rb.AddForce(refs_global.Instance.playerRB.velocity * refs.settings.playerVelThrowForceMult, ForceMode2D.Impulse);
 
         // if dir doesnt point downwards apply slight tertiary upwards force
         if(dir.y >= 0)

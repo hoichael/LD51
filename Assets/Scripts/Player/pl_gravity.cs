@@ -19,4 +19,9 @@ public class pl_gravity : MonoBehaviour
 
         refs.rb.AddForce(Vector2.down * gravCurrent, ForceMode2D.Force);
     }
+
+    public void HandleWalljump()
+    {
+        gravCurrent = refs.settings.gravBaseWallJump;
+    }
 }

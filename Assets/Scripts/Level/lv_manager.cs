@@ -18,6 +18,11 @@ public class lv_manager : MonoBehaviour
     private void Update()
     {
         ListenForNumInput();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            InitLevel(currentActiveLV);
+        }
     }
 
     private void ListenForNumInput()

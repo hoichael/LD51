@@ -16,3 +16,4 @@ world (mechanic) ideas:
 	- gravity fields: areas / collisions within which gravity is reversed. probably only affects ball.
 	- moving platforms: may seem too basic to be a world mechanic but dynamic level layouts make a BIG difference in combination with ball mechanic
 	- no ball gravity: ball throwing becomes billard! ...or minigolf. or smth. no gravity, but drag, to prevent perpetual motion.
+	- toxic tiles: 2 different types of solids - one toxic to player, one toxic to ball.

@@ -25,6 +25,13 @@ public class pl_move : MonoBehaviour
 
     private void ApplyForce()
     {
+        // apply base force
         refs.rb.AddForce(Vector2.right * refs.info.moveForceCurrent * currentInput, ForceMode2D.Force);
+
+        // if air turn, apply add force
+        if(!refs.info.grounded && Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))
+        {
+            refs.rb.AddForce(Vector2.right * refs.settings.moveForceAddAirTurn * currentInput, ForceMode2D.Force);
+        }
     }
 }

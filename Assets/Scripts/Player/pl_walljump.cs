@@ -4,12 +4,18 @@ public class pl_walljump : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] LayerMask wallMask;
+    [SerializeField] pl_gravity grav;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && !refs.info.grounded)
         {
             int wallCheckInt = CheckForWall();
-            if (wallCheckInt != 0) ApplyForce(wallCheckInt);
+            if (wallCheckInt != 0)
+            {
+                grav.HandleWalljump(); // a lil too tightly coupled but whtv
+                ApplyForce(wallCheckInt);
+            }
         }
     }
 

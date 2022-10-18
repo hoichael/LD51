@@ -6,6 +6,7 @@ public class pl_settings : MonoBehaviour
     public float moveForceGround;
     public float moveForceAir;
     public float dragGround, dragAir;
+    public float moveForceAddAirTurn;
 
     [Header("Jump")]
     public float jumpForceBase;
@@ -23,6 +24,7 @@ public class pl_settings : MonoBehaviour
     public float gravBase;
     public float gravAdd;
     public float gravMax;
+    public float gravBaseWallJump;
 
     [Header("Misc")]
     public Vector2 groundcheckSize;
