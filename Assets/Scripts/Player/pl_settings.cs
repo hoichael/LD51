@@ -26,6 +26,10 @@ public class pl_settings : MonoBehaviour
     public float gravMax;
     public float gravBaseWallJump;
 
+    [Header("Crosshair")]
+    public float xHairClamp;
+    public float xHairSens;
+
     [Header("Misc")]
     public Vector2 groundcheckSize;
 }

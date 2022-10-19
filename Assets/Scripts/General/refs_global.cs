@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class refs_global : ut_singleton<refs_global>
 {
+    public Camera cam;
+
     public Transform playerTrans;
     public Rigidbody2D playerRB;
     public Transform ballHolderTrans;
@@ -12,4 +14,6 @@ public class refs_global : ut_singleton<refs_global>
 
     public Transform currentBallTrans;
     public GameObject currentHeldBallObj;
+
+    public Transform xHairTrans;
 }

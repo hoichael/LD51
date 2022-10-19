@@ -10,30 +10,72 @@ public class ball_manager : MonoBehaviour
     // public for debug
     public float throwForceCurrent;
 
+    float lastAimX, lastAimY;
+
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(0))
+    //    {
+    //        if(ballInHand)
+    //        {
+    //            currentlyChargingThrow = true;
+    //            throwForceCurrent = refs.settings.throwForceBase;
+    //        }
+    //        else if(refs_global.Instance.currentBallTrans == refs.trans)
+    //        {
+    //            HandleTeleport();
+    //        }
+    //    }
+
+    //    if(Input.GetKeyUp(KeyCode.K) || Input.GetMouseButtonUp(0))
+    //    {
+    //        // strange ifcheck but necessary to prevent rare but possible edge case
+    //        // that should intuitively not be possible, but is,
+    //        // and is easy to reproduce if tried to cause intentionally
+    //        // whtv ¯\_(^.^)_/¯
+    //        if (currentlyChargingThrow) HandleThrow();
+    //    }
+    //}
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(0))
+        if(!ballInHand && Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if(ballInHand)
-            {
-                currentlyChargingThrow = true;
-                throwForceCurrent = refs.settings.throwForceBase;
-                //HandleThrow();
-            }
-            else if(refs_global.Instance.currentBallTrans == refs.trans)
+            if (refs_global.Instance.currentBallTrans == refs.trans)
             {
                 HandleTeleport();
             }
         }
 
-        if(Input.GetKeyUp(KeyCode.K) || Input.GetMouseButtonUp(0))
+        //if (currentlyChargingThrow)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.LeftShift))
+        //    {
+        //        HandleThrow();
+        //    }
+        //    lastAimX = Input.GetAxisRaw("Aim Horizontal");
+        //    lastAimY = Input.GetAxisRaw("Aim Vertical");
+        //}
+        if (currentlyChargingThrow)
         {
-            // strange ifcheck but necessary to prevent rare but possible edge case
-            // that should intuitively not be possible, but is,
-            // and is easy to reproduce if tried to cause intentionally
-            // whtv ¯\_(^.^)_/¯
-            if (currentlyChargingThrow) HandleThrow();
+            if (Input.GetKeyUp(KeyCode.UpArrow) ||
+                Input.GetKeyUp(KeyCode.DownArrow) ||
+                Input.GetKeyUp(KeyCode.LeftArrow) ||
+                Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                HandleThrow();
+            }
+            lastAimX = Input.GetAxisRaw("Aim Horizontal");
+            lastAimY = Input.GetAxisRaw("Aim Vertical");
+        }
+        else if (Input.GetAxisRaw("Aim Horizontal") != 0 || Input.GetAxisRaw("Aim Vertical") != 0)
+        {
+            if (ballInHand)
+            {
+                currentlyChargingThrow = true;
+                throwForceCurrent = refs.settings.throwForceBase;
+            }
         }
     }
 
@@ -65,7 +107,7 @@ public class ball_manager : MonoBehaviour
     private void HandleThrow()
     {
         ballInHand = currentlyChargingThrow = false;
-
+        /*
         Vector2 throwDir = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
@@ -75,6 +117,14 @@ public class ball_manager : MonoBehaviour
         {
             throwDir = new Vector2(refs_global.Instance.playerDir, 0);
         }
+
+        thrower.Init(throwDir, throwForceCurrent);
+        */
+
+        Vector2 throwDir = new Vector2(
+            lastAimX,
+            lastAimY
+            ).normalized;
 
         thrower.Init(throwDir, throwForceCurrent);
     }

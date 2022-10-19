@@ -11,6 +11,8 @@ public class ball_pickup : MonoBehaviour
         //refs.rb.bodyType = RigidbodyType2D.Kinematic;
         Destroy(refs.rb);
 
+        //refs_global.Instance.xHairTrans.gameObject.SetActive(true);
+
         refs.colSolid.enabled = false;
         refs.colTrigger.enabled = false;
 

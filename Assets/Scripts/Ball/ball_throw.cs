@@ -5,16 +5,19 @@ public class ball_throw : MonoBehaviour
 {
     [SerializeField] ball_refs refs;
     
-    public void Init(Vector2 dir, float force)
+    public void Init(Vector2 dir , float force)
     {
         refs.trans.SetParent(null);
         refs.colSolid.enabled = true;
         refs.trail.emitting = true;
 
+        refs_global.Instance.xHairTrans.gameObject.SetActive(false);
+
         //refs.rb.isKinematic = false;
         //refs.rb.bodyType = RigidbodyType2D.Dynamic;
         CreateRB();
 
+        //ApplyForce(GetThrowDir(), force);
         ApplyForce(dir, force);
 
         StartCoroutine(DelayedColHandler());
@@ -33,6 +36,13 @@ public class ball_throw : MonoBehaviour
         {
             refs.rb.AddForce(Vector2.up * (refs.settings.throwForceBase * 0.18f), ForceMode2D.Impulse);
         }
+    }
+
+    private Vector2 GetThrowDir()
+    {
+        //Vector3 pointerInWorldPos = refs_global.Instance.cam.ScreenToWorldPoint(Input.mousePosition);
+        //return (pointerInWorldPos - refs_global.Instance.playerTrans.position).normalized;
+        return (refs_global.Instance.xHairTrans.position - refs_global.Instance.playerTrans.position).normalized;
     }
 
     private void CreateRB()
