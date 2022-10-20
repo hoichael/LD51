@@ -4,7 +4,8 @@ using UnityEngine;
 public class ball_throw : MonoBehaviour
 {
     [SerializeField] ball_refs refs;
-    
+ 
+    /*
     public void Init(Vector2 dir , float force)
     {
         refs.trans.SetParent(null);
@@ -61,4 +62,5 @@ public class ball_throw : MonoBehaviour
         yield return new WaitForSeconds(refs.settings.colEnableDelay);
         refs.colTrigger.enabled = true;
     }
+    */
 }

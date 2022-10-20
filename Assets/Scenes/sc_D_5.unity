@@ -2348,7 +2348,6 @@ MonoBehaviour:
   gravity: {fileID: 1096690383}
   FlipContainerTrans: {fileID: 1236178008}
   groundcheckTrans: {fileID: 1611541466}
-  xHairTrans: {fileID: 1493944759}
 --- !u!114 &1006106124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2378,6 +2377,9 @@ MonoBehaviour:
   gravAdd: 36
   gravMax: 102
   gravBaseWallJump: 76
+  throwForceBase: 12
+  throwForceAdd: 48
+  throwForceMax: 64
   xHairClamp: 8
   xHairSens: 20
   groundcheckSize: {x: 1.75, y: 0.2}
@@ -3662,7 +3664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399d47224f1f8bb40860c6cf4a0ff017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texCursor: {fileID: 2800000, guid: 3c6749a506517154a902c26b8196d95d, type: 3}
 --- !u!1 &1493944758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,9 +4406,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679384557}
-  - component: {fileID: 1679384558}
+  - component: {fileID: 1679384559}
+  - component: {fileID: 1679384561}
+  - component: {fileID: 1679384560}
+  - component: {fileID: 1679384562}
   m_Layer: 0
-  m_Name: Misc
+  m_Name: Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4428,7 +4432,7 @@ Transform:
   m_Father: {fileID: 697680732}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1679384558
+--- !u!114 &1679384559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4437,10 +4441,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 1679384556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d46ead47e71d442afa1052de918c45, type: 3}
+  m_Script: {fileID: 11500000, guid: d60028b9817c3dc4f989c695bbef73b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
+--- !u!114 &1679384560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679384556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e69fb2785da6334a825cf47049859b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  texCursor: {fileID: 2800000, guid: 3c6749a506517154a902c26b8196d95d, type: 3}
+--- !u!114 &1679384561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679384556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9a150a77504944aadbcd0950ac45af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+--- !u!114 &1679384562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679384556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5414ec14d93d2409deaa5c1185d62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  xHairTrans: {fileID: 1493944759}
 --- !u!1 &1692280957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,8 +4645,8 @@ MonoBehaviour:
   playerRB: {fileID: 2091789149}
   ballHolderTrans: {fileID: 1164260507}
   playerDir: 0
-  currentBallTrans: {fileID: 61844453}
-  currentHeldBallObj: {fileID: 0}
+  currentBallRefs: {fileID: 0}
+  ballInHand: 0
   xHairTrans: {fileID: 1493944759}
 --- !u!1 &1733265855
 GameObject:

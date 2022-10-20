@@ -40,8 +40,10 @@ public class lv_manager : MonoBehaviour
     private void InitLevel(int idx)
     {
         // dispose of currently active level
-        refs_global.Instance.currentBallTrans = null;
-        Destroy(refs_global.Instance.currentHeldBallObj);
+        //refs_global.Instance.currentBallTrans = null;
+        Destroy(refs_global.Instance.currentBallRefs?.trans.gameObject);
+        refs_global.Instance.currentBallRefs = null;
+        refs_global.Instance.ballInHand = false;
         levelInfoList[currentActiveLV].levelContainer.SetActive(false);
 
         // init new level

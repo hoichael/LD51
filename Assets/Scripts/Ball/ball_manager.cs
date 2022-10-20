@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ball_manager : MonoBehaviour
@@ -15,7 +16,7 @@ public class ball_manager : MonoBehaviour
 
     //private void Update()
     //{
-    //    if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(0))
+    //    if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(0))s
     //    {
     //        if(ballInHand)
     //        {
@@ -38,105 +39,109 @@ public class ball_manager : MonoBehaviour
     //    }
     //}
 
-    private void Update()
-    {
-        if(!ballInHand && Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            if (refs_global.Instance.currentBallTrans == refs.trans)
-            {
-                HandleTeleport();
-            }
-        }
+    //private void Update()
+    //{
+    //    if(!ballInHand && Input.GetKeyDown(KeyCode.LeftShift))
+    //    {
+    //        if (refs_global.Instance.currentBallTrans == refs.trans)
+    //        {
+    //            HandleTeleport();
+    //        }
+    //    }
 
-        //if (currentlyChargingThrow)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.LeftShift))
-        //    {
-        //        HandleThrow();
-        //    }
-        //    lastAimX = Input.GetAxisRaw("Aim Horizontal");
-        //    lastAimY = Input.GetAxisRaw("Aim Vertical");
-        //}
-        if (currentlyChargingThrow)
-        {
-            if (Input.GetKeyUp(KeyCode.UpArrow) ||
-                Input.GetKeyUp(KeyCode.DownArrow) ||
-                Input.GetKeyUp(KeyCode.LeftArrow) ||
-                Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                HandleThrow();
-            }
-            lastAimX = Input.GetAxisRaw("Aim Horizontal");
-            lastAimY = Input.GetAxisRaw("Aim Vertical");
-        }
-        else if (Input.GetAxisRaw("Aim Horizontal") != 0 || Input.GetAxisRaw("Aim Vertical") != 0)
-        {
-            if (ballInHand)
-            {
-                currentlyChargingThrow = true;
-                throwForceCurrent = refs.settings.throwForceBase;
-            }
-        }
-    }
+    //    //if (currentlyChargingThrow)
+    //    //{
+    //    //    if (Input.GetKeyDown(KeyCode.LeftShift))
+    //    //    {
+    //    //        HandleThrow();
+    //    //    }
+    //    //    lastAimX = Input.GetAxisRaw("Aim Horizontal");
+    //    //    lastAimY = Input.GetAxisRaw("Aim Vertical");
+    //    //}
+    //    if (currentlyChargingThrow)
+    //    {
+    //        if (Input.GetKeyUp(KeyCode.UpArrow) ||
+    //            Input.GetKeyUp(KeyCode.DownArrow) ||
+    //            Input.GetKeyUp(KeyCode.LeftArrow) ||
+    //            Input.GetKeyUp(KeyCode.RightArrow))
+    //        {
+    //            HandleThrow();
+    //        }
+    //        lastAimX = Input.GetAxisRaw("Aim Horizontal");
+    //        lastAimY = Input.GetAxisRaw("Aim Vertical");
+    //    }
+    //    else if (Input.GetAxisRaw("Aim Horizontal") != 0 || Input.GetAxisRaw("Aim Vertical") != 0)
+    //    {
+    //        if (ballInHand)
+    //        {
+    //            currentlyChargingThrow = true;
+    //            throwForceCurrent = refs.settings.throwForceBase;
+    //        }
+    //    }
+    //}
 
-    private void FixedUpdate()
-    {
-        if (!currentlyChargingThrow) return;
+    //private void FixedUpdate()
+    //{
+    //    if (!currentlyChargingThrow) return;
 
-        throwForceCurrent += refs.settings.throwForceAdd * Time.fixedDeltaTime;
+    //    throwForceCurrent += refs.settings.throwForceAdd * Time.fixedDeltaTime;
 
-        if(throwForceCurrent >= refs.settings.throwForceMax)
-        {
-            throwForceCurrent = refs.settings.throwForceMax;
-            HandleThrow();
-        }
-    }
+    //    if(throwForceCurrent >= refs.settings.throwForceMax)
+    //    {
+    //        throwForceCurrent = refs.settings.throwForceMax;
+    //        HandleThrow();
+    //    }
+    //}
 
     public void HandlePickup()
     {
-        ballInHand = true;
-        refs_global.Instance.currentBallTrans = refs.trans;
-        refs_global.Instance.currentHeldBallObj = refs.trans.gameObject;
+        //ballInHand = true;
+        refs_global.Instance.ballInHand = true;
+        //refs_global.Instance.currentBallTrans = refs.trans;
+        //refs_global.Instance.currentHeldBallObj = refs.trans.gameObject;
     }
 
-    public bool CurrentlyHoldingBall()
+    //public bool CurrentlyHoldingBall()
+    //{
+    //    return ballInHand;
+    //}
+
+    public void HandleThrow()
     {
-        return ballInHand;
+        refs.trans.SetParent(null);
+        refs.colSolid.enabled = true;
+        refs.trail.emitting = true;
+
+        CreateRB();
+
+        StartCoroutine(DelayedColHandler());
     }
 
-    private void HandleThrow()
+    private void CreateRB()
     {
-        ballInHand = currentlyChargingThrow = false;
-        /*
-        Vector2 throwDir = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
-            ).normalized;
+        Rigidbody2D rb = refs.trans.gameObject.AddComponent<Rigidbody2D>();
+        rb.sharedMaterial = refs.settings.rbPhMat;
+        rb.gravityScale = refs.settings.rbGravityScale;
+        rb.collisionDetectionMode = refs.settings.rbColDetectMode;
+        rb.interpolation = refs.settings.rbInterp;
 
-        if(throwDir == Vector2.zero)
-        {
-            throwDir = new Vector2(refs_global.Instance.playerDir, 0);
-        }
-
-        thrower.Init(throwDir, throwForceCurrent);
-        */
-
-        Vector2 throwDir = new Vector2(
-            lastAimX,
-            lastAimY
-            ).normalized;
-
-        thrower.Init(throwDir, throwForceCurrent);
+        refs.rb = rb;
     }
 
-    private void HandleTeleport()
+    private IEnumerator DelayedColHandler()
     {
-        // set player pos and vel to ball
-        refs_global.Instance.playerTrans.position = refs.trans.position;
-        refs_global.Instance.playerRB.velocity = refs.rb.velocity * 1.15f;
-
-        // dispose of ball
-        refs_global.Instance.currentBallTrans = null;
-        Destroy(refs.trans.gameObject);
+        yield return new WaitForSeconds(refs.settings.colEnableDelay);
+        refs.colTrigger.enabled = true;
     }
+
+    //private void HandleTeleport()
+    //{
+    //    // set player pos and vel to ball
+    //    refs_global.Instance.playerTrans.position = refs.trans.position;
+    //    refs_global.Instance.playerRB.velocity = refs.rb.velocity * 1.15f;
+
+    //    // dispose of ball
+    //    refs_global.Instance.currentBallTrans = null;
+    //    Destroy(refs.trans.gameObject);
+    //}
 }

@@ -26,7 +26,10 @@ public class pl_settings : MonoBehaviour
     public float gravMax;
     public float gravBaseWallJump;
 
-    [Header("Crosshair")]
+    [Header("Throw")]
+    public float throwForceBase;
+    public float throwForceAdd;
+    public float throwForceMax;
     public float xHairClamp;
     public float xHairSens;
 
