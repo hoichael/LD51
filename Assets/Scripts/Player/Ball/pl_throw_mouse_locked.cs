@@ -10,10 +10,11 @@ public class pl_throw_mouse_locked : pl_throw_base
 
         if (currentlyCharging)
         {
+            currentAimDir = GetAimDir();
+
             // check for throw
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                currentAimDir = GetAimDir();
                 InitThrow();
             }
         }
