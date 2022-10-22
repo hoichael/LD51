@@ -32,6 +32,8 @@ public class pl_settings : MonoBehaviour
     public float throwForceMax;
     public float xHairClamp;
     public float xHairSens;
+    public float throwIndicatorLength;
+    public float throwIndicatorOffset;
 
     [Header("Misc")]
     public Vector2 groundcheckSize;

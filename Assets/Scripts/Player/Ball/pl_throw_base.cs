@@ -8,7 +8,7 @@ public class pl_throw_base : MonoBehaviour
 
     protected Vector2 currentAimDir;
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (!currentlyCharging) return;
 
