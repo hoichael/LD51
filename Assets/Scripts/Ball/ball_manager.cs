@@ -114,6 +114,8 @@ public class ball_manager : MonoBehaviour
 
         CreateRB();
 
+        refs.trans.position = refs_global.Instance.playerTrans.position;
+
         StartCoroutine(DelayedColHandler());
     }
 
