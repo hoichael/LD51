@@ -16,11 +16,11 @@ public class menu_worldselect : MonoBehaviour
     private float selectMoveOffsetX;
     private float enterCamOffsetY = -54;
 
-    [SerializeField] float transitionSpeed;
+    [SerializeField] float transitionSpeedSwitch, transitionSpeedEnter;
     [SerializeField] AnimationCurve animCurve;
     float currentTransitionFactor;
     Vector2 elementContainerPosFrom, elementContainerPosTo;
-    bool inTransition;
+    bool inSwitchTransition, inEnterTransition;
 
     private void Start()
     {
@@ -34,9 +34,15 @@ public class menu_worldselect : MonoBehaviour
 
     private void Update()
     {
-        if(inTransition)
+        if(inSwitchTransition)
         {
-            HandleTransition();
+            HandleSwitchTransition();
+            return;
+        }
+
+        if(inEnterTransition)
+        {
+            HandleEnterTransition();
             return;
         }
 
@@ -63,47 +69,72 @@ public class menu_worldselect : MonoBehaviour
         elementContainerPosFrom = elementContainer.localPosition;
         elementContainerPosTo = new Vector2(elementContainer.localPosition.x + (selectMoveOffsetX * -switchDirection), elementContainer.localPosition.y);
         currentTransitionFactor = 0;
-        inTransition = true;
+        inSwitchTransition = true;
     }
 
-    private void HandleTransition()
+    private void HandleSwitchTransition()
     {
-        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, 1, transitionSpeed * Time.deltaTime);
+        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, 1, transitionSpeedSwitch * Time.deltaTime);
 
         worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = Vector2.Lerp(
             elementScaleActive,
             elementScaleDefault,
-            animCurve.Evaluate(currentTransitionFactor)
+            //animCurve.Evaluate(currentTransitionFactor)
+            currentTransitionFactor
             );
 
         worldInfoList[newSelectedWorldIXD].selectElement.transform.localScale = Vector2.Lerp(
             elementScaleDefault,
             elementScaleActive,
-            animCurve.Evaluate(currentTransitionFactor)
+            //animCurve.Evaluate(currentTransitionFactor)
+            currentTransitionFactor
             );
 
         elementContainer.localPosition = Vector2.Lerp(
             elementContainerPosFrom,
             elementContainerPosTo,
-            animCurve.Evaluate(currentTransitionFactor)
+            //animCurve.Evaluate(currentTransitionFactor)
+            currentTransitionFactor
             );
+
+        // ugly but whtv
+        if(currentTransitionFactor > 0.49f && currentTransitionFactor < 0.51f)
+        {
+            worldInfoList[currentlySelectedWorldIDX].text.SetActive(false);
+            worldInfoList[newSelectedWorldIXD].text.SetActive(true);
+        }
 
         if (currentTransitionFactor == 1)
         {
-            inTransition = false;
+            inSwitchTransition = false;
             currentlySelectedWorldIDX = newSelectedWorldIXD;
+        }
+    }
+
+    private void HandleEnterTransition()
+    {
+        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, 1, transitionSpeedEnter * Time.deltaTime);
+
+        camTrans.localPosition = Vector3.Lerp(
+            new Vector3(0, 0, -10),
+            new Vector3(0, enterCamOffsetY, -10),
+            animCurve.Evaluate(currentTransitionFactor)
+            );
+
+        if(currentTransitionFactor == 1)
+        {
+            inEnterTransition = false;
+            navigator.enabled = true;
+            this.enabled = false;
         }
     }
 
     private void EnterWorld(menu_worldinfo worldToEnter)
     {
-        navigator.currentSelection = worldToEnter.initSelectable;
         worldToEnter.levelSelectContainer.SetActive(true);
-
-        camTrans.localPosition = new Vector3(0, enterCamOffsetY, -10);
-
-        navigator.enabled = true;
-        this.enabled = false;
+        navigator.currentSelection = worldToEnter.initSelectable;
+        currentTransitionFactor = 0;
+        inEnterTransition = true;
     }
 
 }
@@ -112,6 +143,7 @@ public class menu_worldselect : MonoBehaviour
 public class menu_worldinfo
 {
     public GameObject selectElement;
+    public GameObject text;
     public GameObject levelSelectContainer;
     public menu_selectable initSelectable;
 }
