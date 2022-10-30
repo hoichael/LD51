@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class menu_button_TEST : menu_selectable
 {
-    [SerializeField] private Color colorDefault, colorActive;
-    [SerializeField] private SpriteRenderer sprRenderer;
+    [SerializeField] Color colorDefault, colorActive;
+    [SerializeField] SpriteRenderer sprRenderer;
 
     protected override void Enter()
     {

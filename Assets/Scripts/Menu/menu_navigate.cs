@@ -6,10 +6,10 @@ public class menu_navigate : MonoBehaviour
 {
     public menu_selectable currentSelection;
 
-    private bool canSwitch;
-    private float switchCooldown = 0.14f;
+    bool canSwitch;
+    float switchCooldown = 0.14f;
 
-    private void Start()
+    private void OnEnable()
     {
         SwitchSelection(currentSelection);
         canSwitch = true;
