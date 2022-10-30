@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 34583691}
   - component: {fileID: 34583692}
   m_Layer: 0
-  m_Name: Element_7
+  m_Name: Element_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ Transform:
   m_Children:
   - {fileID: 1366444676}
   m_Father: {fileID: 2001656731}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &34583692
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectorLeft: {fileID: 1690760296}
   connectorRight: {fileID: 1345359937}
-  connectorTop: {fileID: 0}
+  connectorTop: {fileID: 1698035952}
   connectorBottom: {fileID: 0}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
@@ -804,6 +804,31 @@ MonoBehaviour:
   elementContainer: {fileID: 263505987}
   navigator: {fileID: 475296265}
   camTrans: {fileID: 961739753}
+  transitionSpeed: 5.2
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &604265587
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +872,7 @@ GameObject:
   - component: {fileID: 807452853}
   - component: {fileID: 807452852}
   m_Layer: 0
-  m_Name: Element_6
+  m_Name: Element_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,9 +890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e3bb1120c41d84eb2ef43281a2a3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorLeft: {fileID: 0}
+  connectorLeft: {fileID: 1713000838}
   connectorRight: {fileID: 1690760296}
-  connectorTop: {fileID: 0}
+  connectorTop: {fileID: 1841005268}
   connectorBottom: {fileID: 0}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
@@ -886,7 +911,7 @@ Transform:
   m_Children:
   - {fileID: 1820435349}
   m_Father: {fileID: 2001656731}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863839276
 GameObject:
@@ -920,7 +945,7 @@ MonoBehaviour:
   connectorLeft: {fileID: 1841005268}
   connectorRight: {fileID: 1698035952}
   connectorTop: {fileID: 0}
-  connectorBottom: {fileID: 0}
+  connectorBottom: {fileID: 1690760296}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
   sprRenderer: {fileID: 977110121}
@@ -1534,7 +1559,7 @@ GameObject:
   - component: {fileID: 1345359938}
   - component: {fileID: 1345359937}
   m_Layer: 0
-  m_Name: Element_5
+  m_Name: Element_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,7 +1579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectorLeft: {fileID: 34583692}
   connectorRight: {fileID: 0}
-  connectorTop: {fileID: 0}
+  connectorTop: {fileID: 1713000838}
   connectorBottom: {fileID: 0}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
@@ -1566,14 +1591,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345359936}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -18, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2082741045}
   m_Father: {fileID: 2001656731}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354798367
 GameObject:
@@ -2038,7 +2063,7 @@ GameObject:
   - component: {fileID: 1690760297}
   - component: {fileID: 1690760296}
   m_Layer: 0
-  m_Name: Element_4
+  m_Name: Element_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2058,7 +2083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectorLeft: {fileID: 807452852}
   connectorRight: {fileID: 34583692}
-  connectorTop: {fileID: 0}
+  connectorTop: {fileID: 863839277}
   connectorBottom: {fileID: 0}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
@@ -2077,7 +2102,7 @@ Transform:
   m_Children:
   - {fileID: 324402841}
   m_Father: {fileID: 2001656731}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698035951
 GameObject:
@@ -2111,7 +2136,7 @@ MonoBehaviour:
   connectorLeft: {fileID: 863839277}
   connectorRight: {fileID: 1713000838}
   connectorTop: {fileID: 0}
-  connectorBottom: {fileID: 0}
+  connectorBottom: {fileID: 34583692}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
   sprRenderer: {fileID: 1640496108}
@@ -2177,9 +2202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectorLeft: {fileID: 1698035952}
-  connectorRight: {fileID: 0}
+  connectorRight: {fileID: 807452852}
   connectorTop: {fileID: 0}
-  connectorBottom: {fileID: 0}
+  connectorBottom: {fileID: 1345359937}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
   sprRenderer: {fileID: 2123610754}
@@ -2299,7 +2324,7 @@ MonoBehaviour:
   connectorLeft: {fileID: 0}
   connectorRight: {fileID: 863839277}
   connectorTop: {fileID: 0}
-  connectorBottom: {fileID: 0}
+  connectorBottom: {fileID: 807452852}
   colorDefault: {r: 1, g: 1, b: 1, a: 1}
   colorActive: {r: 1, g: 0, b: 0, a: 1}
   sprRenderer: {fileID: 1503227414}
@@ -2351,10 +2376,10 @@ Transform:
   - {fileID: 863839278}
   - {fileID: 1698035953}
   - {fileID: 1713000837}
-  - {fileID: 1690760297}
-  - {fileID: 1345359938}
   - {fileID: 807452853}
+  - {fileID: 1690760297}
   - {fileID: 34583691}
+  - {fileID: 1345359938}
   m_Father: {fileID: 1274153594}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

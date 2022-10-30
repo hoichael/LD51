@@ -8,6 +8,7 @@ public class menu_worldselect : MonoBehaviour
     Vector2 elementScaleDefault, elementScaleActive;
     [SerializeField] Transform elementContainer;
     int currentlySelectedWorldIDX;
+    int newSelectedWorldIXD; // used for transition
 
     [SerializeField] menu_navigate navigator;
     [SerializeField] Transform camTrans;
@@ -15,7 +16,11 @@ public class menu_worldselect : MonoBehaviour
     private float selectMoveOffsetX;
     private float enterCamOffsetY = -54;
 
-    bool canSwitch = true;
+    [SerializeField] float transitionSpeed;
+    [SerializeField] AnimationCurve animCurve;
+    float currentTransitionFactor;
+    Vector2 elementContainerPosFrom, elementContainerPosTo;
+    bool inTransition;
 
     private void Start()
     {
@@ -24,33 +29,70 @@ public class menu_worldselect : MonoBehaviour
         elementScaleActive = worldInfoList[0].selectElement.transform.localScale;
         elementScaleDefault = worldInfoList[1].selectElement.transform.localScale;
         selectMoveOffsetX = elementScaleDefault.x * 2;
-        SwitchSelection(-1);
+        //InitSelectionSwitch(-1);
     }
 
     private void Update()
     {
+        if(inTransition)
+        {
+            HandleTransition();
+            return;
+        }
+
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             EnterWorld(worldInfoList[currentlySelectedWorldIDX]);
         }
 
-        if (!canSwitch) return;
-
         float inputX = Input.GetAxisRaw("Horizontal");
-        if (inputX != 0) SwitchSelection((int)inputX);
+        if (inputX != 0) InitSelectionSwitch((int)inputX);
 
     }
 
-    private void SwitchSelection(int switchDirection)
+    private void InitSelectionSwitch(int switchDirection)
     {
         if (currentlySelectedWorldIDX + switchDirection < 0 || currentlySelectedWorldIDX + switchDirection == worldInfoList.Count) return;
-        worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleDefault;
-        currentlySelectedWorldIDX += switchDirection;
-        worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleActive;
+        //worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleDefault;
 
-        elementContainer.localPosition = new Vector2(elementContainer.localPosition.x + (selectMoveOffsetX * -switchDirection), elementContainer.localPosition.y);
+        newSelectedWorldIXD += switchDirection;
 
-        StartCoroutine(HandleCooldown());
+        //worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleActive;
+
+        //elementContainer.localPosition = new Vector2(elementContainer.localPosition.x + (selectMoveOffsetX * -switchDirection), elementContainer.localPosition.y);
+        elementContainerPosFrom = elementContainer.localPosition;
+        elementContainerPosTo = new Vector2(elementContainer.localPosition.x + (selectMoveOffsetX * -switchDirection), elementContainer.localPosition.y);
+        currentTransitionFactor = 0;
+        inTransition = true;
+    }
+
+    private void HandleTransition()
+    {
+        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, 1, transitionSpeed * Time.deltaTime);
+
+        worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = Vector2.Lerp(
+            elementScaleActive,
+            elementScaleDefault,
+            animCurve.Evaluate(currentTransitionFactor)
+            );
+
+        worldInfoList[newSelectedWorldIXD].selectElement.transform.localScale = Vector2.Lerp(
+            elementScaleDefault,
+            elementScaleActive,
+            animCurve.Evaluate(currentTransitionFactor)
+            );
+
+        elementContainer.localPosition = Vector2.Lerp(
+            elementContainerPosFrom,
+            elementContainerPosTo,
+            animCurve.Evaluate(currentTransitionFactor)
+            );
+
+        if (currentTransitionFactor == 1)
+        {
+            inTransition = false;
+            currentlySelectedWorldIDX = newSelectedWorldIXD;
+        }
     }
 
     private void EnterWorld(menu_worldinfo worldToEnter)
@@ -62,13 +104,6 @@ public class menu_worldselect : MonoBehaviour
 
         navigator.enabled = true;
         this.enabled = false;
-    }
-
-    private IEnumerator HandleCooldown()
-    {
-        canSwitch = false;
-        yield return new WaitForSeconds(0.12f);
-        canSwitch = true;
     }
 
 }
