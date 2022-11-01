@@ -8,13 +8,16 @@ public class pl_walljump : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !refs.info.grounded)
+        if(!refs.info.grounded)
         {
-            int wallCheckInt = CheckForWall();
-            if (wallCheckInt != 0)
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
             {
-                grav.HandleWalljump(); // a lil too tightly coupled but whtv
-                ApplyForce(wallCheckInt);
+                int wallCheckInt = CheckForWall();
+                if (wallCheckInt != 0)
+                {
+                    grav.HandleWalljump(); // a lil too tightly coupled but whtv
+                    ApplyForce(wallCheckInt);
+                }
             }
         }
     }

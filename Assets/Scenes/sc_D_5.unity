@@ -3321,7 +3321,7 @@ MonoBehaviour:
   throwForceBase: 12
   throwForceAdd: 48
   throwForceMax: 64
-  xHairClamp: 8
+  xHairClamp: 7
   xHairSens: 20
   throwIndicatorLength: 0
   throwIndicatorOffset: 0
@@ -4890,7 +4890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1493944759
 Transform:
   m_ObjectHideFlags: 0
@@ -4899,7 +4899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493944758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5895,10 +5895,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1679384557}
   - component: {fileID: 1679384559}
+  - component: {fileID: 1679384563}
   - component: {fileID: 1679384561}
   - component: {fileID: 1679384560}
   - component: {fileID: 1679384562}
-  - component: {fileID: 1679384563}
+  - component: {fileID: 1679384564}
   m_Layer: 0
   m_Name: Throw
   m_TagString: Untagged
@@ -5982,12 +5983,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679384556}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aff5b6af60ea18744877b3b21c5c0c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
+  indicatorAnchor: {fileID: 280041327}
+  indicatorFG: {fileID: 861824076}
+--- !u!114 &1679384564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679384556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa75a9b27fbd29d418d7a0bab35bdd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  deadThreshold: 0.19
+  xHairTrans: {fileID: 1493944759}
   indicatorAnchor: {fileID: 280041327}
   indicatorFG: {fileID: 861824076}
 --- !u!1 &1692280957

@@ -13,8 +13,20 @@ public class pl_jump : MonoBehaviour
 
     private void Update()
     {
-        if (refs.info.grounded && Input.GetKeyDown(KeyCode.Space)) InitJump();
-        if (Input.GetKeyUp(KeyCode.Space)) TerminateJump();
+        //if (refs.info.grounded && Input.GetKeyDown(KeyCode.Space)) InitJump();
+        //if (Input.GetKeyUp(KeyCode.Space)) TerminateJump();
+
+        if(refs.info.grounded)
+        {
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+            {
+                InitJump();
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
+        {
+            TerminateJump();
+        }
     }
 
     private void FixedUpdate()

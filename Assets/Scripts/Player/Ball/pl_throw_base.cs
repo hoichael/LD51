@@ -32,7 +32,7 @@ public class pl_throw_base : MonoBehaviour
     protected virtual void ApplyForce()
     {
         // apply main force based on player input
-        refs_global.Instance.currentBallRefs.rb.AddForce(currentAimDir * currentCharge, ForceMode2D.Impulse);
+        refs_global.Instance.currentBallRefs.rb.AddForce(currentAimDir.normalized * currentCharge, ForceMode2D.Impulse);
 
         // if dir doesnt point downwards apply slight secondary upwards force
         if (currentAimDir.y >= 0)
