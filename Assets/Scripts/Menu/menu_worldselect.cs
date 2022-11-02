@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class menu_worldselect : MonoBehaviour
 {
-    [SerializeField] private InputServer input;
-    [SerializeField] private List<menu_worldinfo> worldInfoList;
+    [SerializeField] InputServer input;
+    [SerializeField] menu_lvselect_manager lvSelectManager;
+    [SerializeField] List<menu_worldselectinfo> worldInfoList;
     Vector2 elementScaleDefault, elementScaleActive;
     [SerializeField] Transform elementContainer;
     int currentlySelectedWorldIDX;
-    int newSelectedWorldIXD; // used for transition
+    int newSelectedWorldIDX; // used for transition
 
     [SerializeField] menu_navigate navigator;
     [SerializeField] Transform camTrans;
 
-    private float selectMoveOffsetX;
-    private float enterCamOffsetY = -54;
+    float selectMoveOffsetX;
+    float enterCamOffsetY = -54;
 
     [SerializeField] float transitionSpeedSwitch, transitionSpeedEnter;
     [SerializeField] AnimationCurve animCurve;
@@ -72,7 +73,7 @@ public class menu_worldselect : MonoBehaviour
         if (currentlySelectedWorldIDX + switchDirection < 0 || currentlySelectedWorldIDX + switchDirection == worldInfoList.Count) return;
         //worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleDefault;
 
-        newSelectedWorldIXD += switchDirection;
+        newSelectedWorldIDX += switchDirection;
 
         //worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleActive;
 
@@ -94,7 +95,7 @@ public class menu_worldselect : MonoBehaviour
             currentTransitionFactor
             );
 
-        worldInfoList[newSelectedWorldIXD].selectElement.transform.localScale = Vector2.Lerp(
+        worldInfoList[newSelectedWorldIDX].selectElement.transform.localScale = Vector2.Lerp(
             elementScaleDefault,
             elementScaleActive,
             //animCurve.Evaluate(currentTransitionFactor)
@@ -112,13 +113,13 @@ public class menu_worldselect : MonoBehaviour
         if(currentTransitionFactor > 0.49f && currentTransitionFactor < 0.51f)
         {
             worldInfoList[currentlySelectedWorldIDX].text.SetActive(false);
-            worldInfoList[newSelectedWorldIXD].text.SetActive(true);
+            worldInfoList[newSelectedWorldIDX].text.SetActive(true);
         }
 
         if (currentTransitionFactor == 1)
         {
             inSwitchTransition = false;
-            currentlySelectedWorldIDX = newSelectedWorldIXD;
+            currentlySelectedWorldIDX = newSelectedWorldIDX;
         }
     }
 
@@ -140,18 +141,21 @@ public class menu_worldselect : MonoBehaviour
         }
     }
 
-    private void EnterWorld(menu_worldinfo worldToEnter)
+    private void EnterWorld(menu_worldselectinfo worldToEnter)
     {
-        worldToEnter.levelSelectContainer.SetActive(true);
-        navigator.currentSelection = worldToEnter.initSelectable;
+        //worldToEnter.levelSelectContainer.SetActive(true);
+        //navigator.currentSelection = worldToEnter.initSelectable;
+
         currentTransitionFactor = 0;
         inEnterTransition = true;
+
+        lvSelectManager.Init(0);
     }
 
 }
 
 [System.Serializable]
-public class menu_worldinfo
+public class menu_worldselectinfo
 {
     public GameObject selectElement;
     public GameObject text;

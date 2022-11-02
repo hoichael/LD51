@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fc4f1bb7d8d2741be1445adbb39b8b, type: 3}
+  m_Name: menu_worldinfo_DEV
+  m_EditorClassIdentifier: 
+  levelInfoList:
+  - name: Level 1
+    thumbnail: {fileID: 0}
+  - name: Level 2
+    thumbnail: {fileID: 0}
+  - name: Level 3
+    thumbnail: {fileID: 0}
+  - name: Level 4
+    thumbnail: {fileID: 0}
+  - name: Level 5
+    thumbnail: {fileID: 0}
+  - name: Level 6
+    thumbnail: {fileID: 0}
+  - name: Level 7
+    thumbnail: {fileID: 0}
+  - name: Level 8
+    thumbnail: {fileID: 0}
+  - name: Level 9
+    thumbnail: {fileID: 0}
+  - name: Level 10
+    thumbnail: {fileID: 0}
+  - name: Level 11
+    thumbnail: {fileID: 0}
+  - name: Level 12
+    thumbnail: {fileID: 0}
