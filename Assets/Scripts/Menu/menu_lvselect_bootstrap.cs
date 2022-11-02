@@ -4,45 +4,44 @@ using UnityEngine;
 
 public class menu_lvselect_bootstrap : MonoBehaviour
 {
-    [SerializeField] Transform lvElcontainer;
-    [SerializeField] float lvElSpacing;
-    //[SerializeField] float lvELSize;
-    [SerializeField] int lvElRowSize;
-    [SerializeField] Vector3 firstElementPos;
-    [SerializeField] Sprite iconSprite;
+    [SerializeField] menu_lvselect_settings settings;
 
-    public void Init(SO_menu_worldinfo worldInfo)
+    public SpriteRenderer[] Init(SO_menu_worldinfo worldInfo)
     {
-        GenerateElements(worldInfo.levelInfoList.Count);
+        return GenerateElements(worldInfo.levelInfoList.Count);
     }
 
-    private void GenerateElements(int count)
+    private SpriteRenderer[] GenerateElements(int count)
     {
-        Vector3 nextElementPos = firstElementPos;
+        Vector3 nextElementPos = settings.firstElementPos;
         int currentRow = 1;
+        SpriteRenderer[] sprArr = new SpriteRenderer[count];
 
         for(int i = 1; i < count + 1; i++)
         {
             // create and position element
             GameObject obj = new GameObject();
-            obj.transform.SetParent(lvElcontainer);
+            obj.transform.SetParent(settings.lvElcontainer);
             obj.transform.localPosition = nextElementPos;
 
             // handle sprite
             SpriteRenderer spr = obj.AddComponent<SpriteRenderer>();
-            spr.sprite = iconSprite;
+            spr.sprite = settings.sprIconDefault;
             spr.sortingOrder = 1;
+            sprArr[i - 1] = spr;
 
             // determine next element position
-            if(i == lvElRowSize * currentRow)
+            if(i == settings.lvElRowSize * currentRow)
             {
-                nextElementPos = new Vector3(firstElementPos.x, nextElementPos.y - lvElSpacing, firstElementPos.z);
+                nextElementPos = new Vector3(settings.firstElementPos.x, nextElementPos.y - settings.lvElSpacing, settings.firstElementPos.z);
                 currentRow++;
             }
             else
             {
-                nextElementPos.x += lvElSpacing;
+                nextElementPos.x += settings.lvElSpacing;
             }
         }
+
+        return sprArr;
     }
 }

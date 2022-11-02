@@ -6,14 +6,19 @@ public class menu_lvselect_manager : MonoBehaviour
 {
     [SerializeField] List<SO_menu_worldinfo> worldInfoList;
     [SerializeField] menu_lvselect_bootstrap bootstrapper;
+    [SerializeField] menu_lvselect_nav navigator;
 
     SO_menu_worldinfo currentWorld;
-    int currentSelectedLevelIDX;
+
+    private void Start()
+    {
+        navigator.enabled = false;
+    }
 
     public void Init(int worldIDX)
     {
-        currentSelectedLevelIDX = 0;
         currentWorld = worldInfoList[worldIDX];
-        bootstrapper.Init(currentWorld);
+        navigator.sprArr = bootstrapper.Init(currentWorld); // the whole sprite arr thing is rather... f u n c t i o n a l (read: scuffed as fuck) but whtv. its fine ***for now***
+        navigator.enabled = true;
     }
 }

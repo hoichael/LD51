@@ -603,8 +603,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 298518454}
+  - component: {fileID: 298518457}
   - component: {fileID: 298518455}
   - component: {fileID: 298518456}
+  - component: {fileID: 298518458}
   m_Layer: 0
   m_Name: LevelSelect
   m_TagString: Untagged
@@ -642,6 +644,7 @@ MonoBehaviour:
   worldInfoList:
   - {fileID: 11400000, guid: a4e466e145ae3da49a047d82e5ef2f3b, type: 2}
   bootstrapper: {fileID: 298518456}
+  navigator: {fileID: 298518458}
 --- !u!114 &298518456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,11 +657,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f650a2664e6b242ad335c3999bcd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 298518457}
+--- !u!114 &298518457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298518453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4826a05472a14274493c62d3e1ea46ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   lvElcontainer: {fileID: 1225610821}
   lvElSpacing: 10
   lvElRowSize: 5
   firstElementPos: {x: -41, y: 20, z: 0}
-  iconSprite: {fileID: 21300000, guid: b271bf8d81c531c4ab9faaf84ac38e4f, type: 3}
+  sprIconDefault: {fileID: 21300000, guid: 5c0ab43cb21f41046a5f8d275b414a0f, type: 3}
+  sprIconActive: {fileID: 21300000, guid: 71b33be04515d9743b88ac4b876397ca, type: 3}
+  selectionCooldown: 0.16
+--- !u!114 &298518458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298518453}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e41988375522341972d4863b99a519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 298518457}
+  input: {fileID: 1171577757}
+  sprArr: []
 --- !u!1 &324402839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,7 +2770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1448975486
 Transform:
   m_ObjectHideFlags: 0
