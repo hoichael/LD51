@@ -24,7 +24,8 @@ public class lv_controller : MonoBehaviour
             //currentTimeAsString = manager.timerText.text = timer.Elapsed.ToString();
             manager.timerText.text = $"{timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds.ToString().Substring(0, 1)}";
         }
-        else if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space))
+        //else if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space))
+        else if(refs_global.Instance.ip.I.Play.Move.ReadValue<float>() != 0 || refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
         {
             playerHasMoved = true;
             StartTimer();

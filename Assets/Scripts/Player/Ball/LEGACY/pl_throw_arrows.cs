@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 public class pl_throw_arrows : pl_throw_base
@@ -37,3 +38,4 @@ public class pl_throw_arrows : pl_throw_base
         }
     }
 }
+*/

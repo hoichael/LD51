@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 475296266}
   - component: {fileID: 475296267}
   - component: {fileID: 475296265}
+  - component: {fileID: 475296268}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -791,6 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb733d81ffeb77d49accf1a439c413a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 475296268}
   currentSelection: {fileID: 1841005268}
 --- !u!4 &475296266
 Transform:
@@ -819,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd953fc276587e4fa18c1a6ef196050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 475296268}
   worldInfoList:
   - selectElement: {fileID: 958902925}
     text: {fileID: 1329012233}
@@ -878,6 +881,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &475296268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475296264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9f6f916cbe9d64ebe74348d860e0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &604265587
 GameObject:
   m_ObjectHideFlags: 0

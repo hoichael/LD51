@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class menu_worldselect : MonoBehaviour
 {
+    [SerializeField] private InputServer input;
     [SerializeField] private List<menu_worldinfo> worldInfoList;
     Vector2 elementScaleDefault, elementScaleActive;
     [SerializeField] Transform elementContainer;
@@ -46,13 +47,23 @@ public class menu_worldselect : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        //if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        if(input.I.Menu.Enter.WasPressedThisFrame())
         {
             EnterWorld(worldInfoList[currentlySelectedWorldIDX]);
         }
 
-        float inputX = Input.GetAxisRaw("Horizontal");
-        if (inputX != 0) InitSelectionSwitch((int)inputX);
+        //float inputX = Input.GetAxisRaw("Horizontal");
+        //if (inputX != 0) InitSelectionSwitch((int)inputX);
+        if (input.I.Menu.Right.IsPressed())
+        {
+            InitSelectionSwitch(1);
+            return;
+        }
+        else if (input.I.Menu.Left.IsPressed())
+        {
+            InitSelectionSwitch(-1);
+        }
 
     }
 

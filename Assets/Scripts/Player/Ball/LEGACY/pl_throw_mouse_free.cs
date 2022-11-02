@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 public class pl_throw_mouse_free : pl_throw_base
@@ -50,3 +51,4 @@ public class pl_throw_mouse_free : pl_throw_base
         Cursor.visible = false;
     }
 }
+*/

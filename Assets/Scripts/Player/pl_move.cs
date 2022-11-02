@@ -3,11 +3,12 @@ using UnityEngine;
 public class pl_move : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    float currentInput;
+    int currentInput;
 
     private void Update()
     {
-        currentInput = (int)Input.GetAxisRaw("Horizontal");
+        //currentInput = (int)Input.GetAxisRaw("Horizontal");
+        currentInput = (int)refs_global.Instance.ip.I.Play.Move.ReadValue<float>();
 
         // update info dir and flip sprite accordingly
         if (currentInput != 0)

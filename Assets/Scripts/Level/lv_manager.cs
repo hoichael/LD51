@@ -8,7 +8,7 @@ public class lv_manager : MonoBehaviour
     [SerializeField] GameObject ballPrefab;
     public TextMeshProUGUI timerText;
 
-    int currentActiveLV;
+    int currentLevelIDX;
 
     private void Start()
     {
@@ -17,24 +17,59 @@ public class lv_manager : MonoBehaviour
 
     private void Update()
     {
-        ListenForNumInput();
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            InitLevel(currentActiveLV);
-        }
+        //ListenForNumInput();
+        HandleDevLevelSwitch();
+        HandleReload();
     }
 
-    private void ListenForNumInput()
+    private void HandleReload()
     {
-        for (int i = 0; i < levelInfoList.Count; i++)
+        //if (Input.GetKeyDown(KeyCode.R))
+        if (refs_global.Instance.ip.I.Play.Restart.WasPressedThisFrame())
         {
-            if (Input.GetKeyDown(i.ToString()))
-            {
-                InitLevel(i);
-            }
+            InitLevel(currentLevelIDX);
         }
     }
+
+    private void HandleDevLevelSwitch()
+    {
+        int incr = 0;
+        if (refs_global.Instance.ip.I.DEV.One.WasPressedThisFrame())
+        {
+            incr = -1;
+        }
+        else if(refs_global.Instance.ip.I.DEV.Two.WasPressedThisFrame())
+        {
+            incr = 1;
+        }
+
+        if(incr != 0)
+        {
+            int newLevelIDX = currentLevelIDX + incr;
+
+            if(newLevelIDX == levelInfoList.Count)
+            {
+                newLevelIDX = 0;
+            }
+            else if (newLevelIDX == -1)
+            {
+                newLevelIDX = levelInfoList.Count - 1;
+            }
+
+            InitLevel(newLevelIDX);
+        }
+    }
+
+    //private void ListenForNumInput()
+    //{
+    //    for (int i = 0; i < levelInfoList.Count; i++)
+    //    {
+    //        if (Input.GetKeyDown(i.ToString()))
+    //        {
+    //            InitLevel(i);
+    //        }
+    //    }
+    //}
 
 
     private void InitLevel(int idx)
@@ -44,11 +79,11 @@ public class lv_manager : MonoBehaviour
         Destroy(refs_global.Instance.currentBallRefs?.trans.gameObject);
         refs_global.Instance.currentBallRefs = null;
         refs_global.Instance.ballInHand = false;
-        levelInfoList[currentActiveLV].levelContainer.SetActive(false);
+        levelInfoList[currentLevelIDX].levelContainer.SetActive(false);
 
         // init new level
         levelInfoList[idx].levelContainer.SetActive(true);
-        currentActiveLV = idx;
+        currentLevelIDX = idx;
 
         // handle player
         refs_global.Instance.playerTrans.localPosition = levelInfoList[idx].plSpawnPos;

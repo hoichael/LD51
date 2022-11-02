@@ -1,7 +1,12 @@
+/*
 using UnityEngine;
 
-public class pl_throw_arrows_visual : pl_throw_base
+public class pl_throw_stick_360 : pl_throw_base
 {
+    [SerializeField] float deadThreshold = 0.6f;
+    Vector2 currentInput;
+    [SerializeField] Transform xHairTrans;
+
     [SerializeField] Transform indicatorAnchor;
     [SerializeField] Transform indicatorFG;
     float indiciatorFGFullScaleX;
@@ -9,48 +14,65 @@ public class pl_throw_arrows_visual : pl_throw_base
 
     private void Start()
     {
+        currentAimDir = currentInput = Vector2.zero;
         InitIndicator();
     }
 
-    void Update()
+    private void Update()
     {
         // check for teleport
-        if (refs_global.Instance.currentBallRefs != null && !refs_global.Instance.ballInHand && Input.GetKeyDown(KeyCode.LeftShift))
+        if (refs_global.Instance.currentBallRefs != null && !refs_global.Instance.ballInHand && Input.GetButtonDown("Teleport"))
         {
             HandleTeleport();
+            return;
         }
+
+        currentInput = new Vector2(Input.GetAxisRaw("Aim Stick X"), Input.GetAxisRaw("Aim Stick Y"));
 
         if (currentlyCharging)
         {
-            // check for throw
-            if (Input.GetKeyUp(KeyCode.UpArrow) ||
-                Input.GetKeyUp(KeyCode.DownArrow) ||
-                Input.GetKeyUp(KeyCode.LeftArrow) ||
-                Input.GetKeyUp(KeyCode.RightArrow))
+            if (currentInput.sqrMagnitude < 0.0005f)
             {
-                indicatorAnchor.gameObject.SetActive(false);
+                ToggleIndicatorVisibility(false);
                 InitThrow();
                 return;
             }
 
-            // set new aim direction to current input after checking if input released
-            currentAimDir = new Vector2(
-                Input.GetAxisRaw("Aim Horizontal"),
-                Input.GetAxisRaw("Aim Vertical")
-                ).normalized;
-
+            currentAimDir = currentInput;
+            MoveCrosshair(currentInput);
             RotateIndicator();
         }
-        else if (Input.GetAxisRaw("Aim Horizontal") != 0 || Input.GetAxisRaw("Aim Vertical") != 0)
+        else
         {
-            if (refs_global.Instance.ballInHand)
+            if (!refs_global.Instance.ballInHand) return;
+            if (currentInput.sqrMagnitude > 0.00051f)
             {
                 currentlyCharging = true;
                 currentCharge = refs.settings.throwForceBase;
-                indicatorAnchor.gameObject.SetActive(true);
+                ToggleIndicatorVisibility(true);
             }
         }
     }
+
+    private void MoveCrosshair(Vector2 dir)
+    {
+        Vector2 newPosClamped;
+        newPosClamped = (Vector2)xHairTrans.localPosition + (dir.normalized * 10);
+        newPosClamped = Vector2.ClampMagnitude(newPosClamped, refs.settings.xHairClamp);
+
+        xHairTrans.localPosition = newPosClamped;
+    }
+
+    //private Vector2 ProcessInput(float x, float y, float deadThreshold)
+    //{
+    //    if (Mathf.Abs(x) <= deadThreshold) x = 0;
+    //    if (Mathf.Abs(y) <= deadThreshold) y = 0;
+
+    //    Vector2 finalInput = new Vector2(x, y);
+    //    finalInput.Normalize();
+
+    //    return finalInput;
+    //}
 
     protected override void FixedUpdate()
     {
@@ -61,17 +83,23 @@ public class pl_throw_arrows_visual : pl_throw_base
         if (currentCharge >= refs.settings.throwForceMax)
         {
             currentCharge = refs.settings.throwForceMax;
-            indicatorAnchor.gameObject.SetActive(false);
+            ToggleIndicatorVisibility(false);
             InitThrow();
         }
 
         ScaleIndicatorCharge();
     }
 
+    // ---------------------------------------------------------------------------------------
+    // ------------------------------ VISUAL INDICATOR STUFF ---------------------------------
+    // ---------------------------------------------------------------------------------------
+
     private void RotateIndicator()
     {
-        indicatorAnchor.LookAt(refs.bodyTrans.position + (Vector3)currentAimDir * 5);
-        if(Mathf.Abs(currentAimDir.y) == 1)
+        Vector2 dir = currentAimDir.normalized;
+
+        indicatorAnchor.LookAt(refs.bodyTrans.position + (Vector3)dir * 5);
+        if (Mathf.Abs(dir.y) == 1)
         {
             indicatorAnchor.localRotation = Quaternion.Euler(new Vector3(indicatorAnchor.localEulerAngles.x, 90, 0));
         }
@@ -106,7 +134,7 @@ public class pl_throw_arrows_visual : pl_throw_base
 
         ResetIndicator();
 
-        indicatorAnchor.gameObject.SetActive(false);
+        ToggleIndicatorVisibility(false);
     }
 
     private void ResetIndicator()
@@ -121,4 +149,11 @@ public class pl_throw_arrows_visual : pl_throw_base
             indicatorFGPosZZero
             );
     }
+
+    private void ToggleIndicatorVisibility(bool state)
+    {
+        indicatorAnchor.gameObject.SetActive(state);
+        xHairTrans.gameObject.SetActive(state);
+    }
 }
+*/

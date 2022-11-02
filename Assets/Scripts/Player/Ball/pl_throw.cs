@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class pl_throw_stick_360 : pl_throw_base
+public class pl_throw : pl_throw_base
 {
     [SerializeField] float deadThreshold = 0.6f;
     Vector2 currentInput;
@@ -19,18 +21,25 @@ public class pl_throw_stick_360 : pl_throw_base
 
     private void Update()
     {
+
+        //var dev = refs_global.Instance.ip.I.Play.AimStick.ReadValue<Vector2>();
+        //print(dev);
+
         // check for teleport
-        if (refs_global.Instance.currentBallRefs != null && !refs_global.Instance.ballInHand && Input.GetButtonDown("Teleport"))
+        if (refs_global.Instance.currentBallRefs != null && !refs_global.Instance.ballInHand &&
+            refs_global.Instance.ip.I.Play.Teleport.WasPressedThisFrame())
         {
             HandleTeleport();
             return;
         }
 
-        currentInput = new Vector2(Input.GetAxisRaw("Aim Stick X"), Input.GetAxisRaw("Aim Stick Y"));
+        //currentInput = new Vector2(Input.GetAxisRaw("Aim Stick X"), Input.GetAxisRaw("Aim Stick Y"));
+        currentInput = refs_global.Instance.ip.I.Play.AimStick.ReadValue<Vector2>().normalized;
 
         if (currentlyCharging)
         {
-            if (currentInput.sqrMagnitude < 0.0005f)
+            //if (currentInput.sqrMagnitude < 0.0005f)
+            if (currentInput == Vector2.zero)
             {
                 ToggleIndicatorVisibility(false);
                 InitThrow();
@@ -44,7 +53,8 @@ public class pl_throw_stick_360 : pl_throw_base
         else
         {
             if (!refs_global.Instance.ballInHand) return;
-            if (currentInput.sqrMagnitude > 0.00051f)
+            //if (currentInput.sqrMagnitude > 0.00051f)
+            if (currentInput != Vector2.zero)
             {
                 currentlyCharging = true;
                 currentCharge = refs.settings.throwForceBase;

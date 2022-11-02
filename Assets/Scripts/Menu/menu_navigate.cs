@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class menu_navigate : MonoBehaviour
 {
+    [SerializeField] private InputServer input;
     public menu_selectable currentSelection;
 
     bool canSwitch;
@@ -19,28 +20,24 @@ public class menu_navigate : MonoBehaviour
     {
         if (!canSwitch) return;
 
-        float inputX = Input.GetAxisRaw("Horizontal");
-        if (inputX == 1)
+        if (input.I.Menu.Right.IsPressed())
         {
             SwitchSelection(currentSelection.connectorRight);
             return;
         }
-        if (inputX == -1)
+        if (input.I.Menu.Left.IsPressed())
         {
             SwitchSelection(currentSelection.connectorLeft);
             return;
         }
-
-        float inputY = Input.GetAxisRaw("Vertical");
-        if (inputY == 1)
+        if (input.I.Menu.Up.IsPressed())
         {
             SwitchSelection(currentSelection.connectorTop);
             return;
         }
-        if (inputY == -1)
+        if (input.I.Menu.Down.IsPressed())
         {
             SwitchSelection(currentSelection.connectorBottom);
-            return;
         }
     }
 

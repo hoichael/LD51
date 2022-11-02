@@ -16,14 +16,26 @@ public class pl_jump : MonoBehaviour
         //if (refs.info.grounded && Input.GetKeyDown(KeyCode.Space)) InitJump();
         //if (Input.GetKeyUp(KeyCode.Space)) TerminateJump();
 
-        if(refs.info.grounded)
+        //if(refs.info.grounded)
+        //{
+        //    if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+        //    {
+        //        InitJump();
+        //    }
+        //}
+        //else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
+        //{
+        //    TerminateJump();
+        //}
+
+        if (refs.info.grounded)
         {
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+            if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
             {
                 InitJump();
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
+        else if (refs_global.Instance.ip.I.Play.Jump.WasReleasedThisFrame())
         {
             TerminateJump();
         }

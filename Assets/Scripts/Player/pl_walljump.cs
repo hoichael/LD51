@@ -10,7 +10,8 @@ public class pl_walljump : MonoBehaviour
     {
         if(!refs.info.grounded)
         {
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+            //if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+            if(refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
             {
                 int wallCheckInt = CheckForWall();
                 if (wallCheckInt != 0)
