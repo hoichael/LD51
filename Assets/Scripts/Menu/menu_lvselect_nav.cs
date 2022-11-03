@@ -4,7 +4,7 @@ using UnityEngine;
 public class menu_lvselect_nav : MonoBehaviour
 {
     [SerializeField] menu_lvselect_manager manager;
-    [SerializeField] menu_lvselect_settings settings;
+    [SerializeField] menu_lvselect_data data;
     [SerializeField] InputServer input;
     int currentSelectionIDX;
     public SpriteRenderer[] sprArr;
@@ -36,12 +36,12 @@ public class menu_lvselect_nav : MonoBehaviour
         }
         if (input.I.Menu.Down.IsPressed())
         {
-            SwitchSelection(currentSelectionIDX + settings.lvElRowSize);
+            SwitchSelection(currentSelectionIDX + data.lvElRowSize);
             return;
         }
         if (input.I.Menu.Up.IsPressed())
         {
-            SwitchSelection(currentSelectionIDX - settings.lvElRowSize);
+            SwitchSelection(currentSelectionIDX - data.lvElRowSize);
         }
     }
 
@@ -62,10 +62,10 @@ public class menu_lvselect_nav : MonoBehaviour
             return;
         }
 
-        sprArr[currentSelectionIDX].sprite = settings.sprIconDefault;
+        sprArr[currentSelectionIDX].sprite = data.sprIconDefault;
 
         currentSelectionIDX = newIDX;
-        sprArr[currentSelectionIDX].sprite = settings.sprIconActive;
+        sprArr[currentSelectionIDX].sprite = data.sprIconActive;
 
         manager.HandleSelectionSwitch(currentSelectionIDX);
 
@@ -75,7 +75,7 @@ public class menu_lvselect_nav : MonoBehaviour
     private IEnumerator HandleCooldown()
     {
         canSwitch = false;
-        yield return new WaitForSeconds(settings.selectionCooldown);
+        yield return new WaitForSeconds(data.selectionCooldown);
         canSwitch = true;
     }
 }

@@ -24,6 +24,8 @@ public class menu_worldselect : MonoBehaviour
     Vector2 elementContainerPosFrom, elementContainerPosTo;
     bool inSwitchTransition, inEnterTransition;
 
+    float enterTransitionTarget;
+
     private void Start()
     {
         navigator.enabled = false;
@@ -125,7 +127,7 @@ public class menu_worldselect : MonoBehaviour
 
     private void HandleEnterTransition()
     {
-        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, 1, transitionSpeedEnter * Time.deltaTime);
+        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, enterTransitionTarget, transitionSpeedEnter * Time.deltaTime);
 
         camTrans.localPosition = Vector3.Lerp(
             new Vector3(0, 0, -10),
@@ -133,11 +135,14 @@ public class menu_worldselect : MonoBehaviour
             animCurve.Evaluate(currentTransitionFactor)
             );
 
-        if(currentTransitionFactor == 1)
+        if(currentTransitionFactor == enterTransitionTarget)
         {
             inEnterTransition = false;
-            navigator.enabled = true;
-            this.enabled = false;
+            if(enterTransitionTarget == 1)
+            {
+                //navigator.enabled = true;
+                this.enabled = false;
+            }
         }
     }
 
@@ -147,9 +152,17 @@ public class menu_worldselect : MonoBehaviour
         //navigator.currentSelection = worldToEnter.initSelectable;
 
         currentTransitionFactor = 0;
+        enterTransitionTarget = 1;
         inEnterTransition = true;
 
         lvSelectManager.Init(0);
+    }
+
+    public void LeaveWorld()
+    {
+        currentTransitionFactor = 1;
+        enterTransitionTarget = 0;
+        inEnterTransition = true;
     }
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class menu_lvselect_settings : MonoBehaviour
+public class menu_lvselect_data : MonoBehaviour
 {
     public Transform lvElcontainer;
     public float lvElSpacing;
