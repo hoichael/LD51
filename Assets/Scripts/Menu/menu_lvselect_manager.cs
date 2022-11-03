@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class menu_lvselect_manager : MonoBehaviour
@@ -18,6 +18,8 @@ public class menu_lvselect_manager : MonoBehaviour
     [SerializeField] menu_worldselect worldSelectManager;
     [SerializeField] menu_lvselect_data data;
 
+    [SerializeField] SO_pd_session sessionData;
+
     private void Start()
     {
         navigator.enabled = false;
@@ -28,6 +30,7 @@ public class menu_lvselect_manager : MonoBehaviour
         if(input.I.Menu.Exit.WasPressedThisFrame())
         {
             Exit();
+            return;
         }
     }
 
@@ -54,8 +57,12 @@ public class menu_lvselect_manager : MonoBehaviour
         titleRenderer.text = currentWorld.levelInfoList[idx].name;
     }
 
-    public void EnterLevel(int idx)
+    public void EnterLevel(int idx) // called from update of menu_lvselect_nav
     {
+        // save level index to session data - will be read be level manager upon scene load
+        sessionData.selectedLevelIDX = idx;
 
+        // switch scenes
+        SceneManager.LoadScene(currentWorld.worldSceneName);
     }
 }

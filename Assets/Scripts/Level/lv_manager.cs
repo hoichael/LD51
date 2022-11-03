@@ -6,13 +6,15 @@ public class lv_manager : MonoBehaviour
 {
     [SerializeField] List<lv_info> levelInfoList;
     [SerializeField] GameObject ballPrefab;
+    [SerializeField] SO_pd_session sessionData;
     public TextMeshProUGUI timerText;
 
     int currentLevelIDX;
 
     private void Start()
     {
-        InitLevel(0);
+        //InitLevel(0);
+        InitLevel(sessionData.selectedLevelIDX);
     }
 
     private void Update()
@@ -74,6 +76,8 @@ public class lv_manager : MonoBehaviour
 
     private void InitLevel(int idx)
     {
+        if (idx >= levelInfoList.Count) idx = 0;
+
         // dispose of currently active level
         //refs_global.Instance.currentBallTrans = null;
         Destroy(refs_global.Instance.currentBallRefs?.trans.gameObject);

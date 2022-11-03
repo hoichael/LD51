@@ -2510,6 +2510,7 @@ MonoBehaviour:
   - {fileID: 317194707}
   - {fileID: 491598084}
   ballPrefab: {fileID: 159648763285764023, guid: 4c3cabc3c39cef44290bb046d11ce3bd, type: 3}
+  sessionData: {fileID: 11400000, guid: 5d567f390bb83c44fa65f49185e1f21a, type: 2}
   timerText: {fileID: 444700388}
 --- !u!1 &782648073
 GameObject:

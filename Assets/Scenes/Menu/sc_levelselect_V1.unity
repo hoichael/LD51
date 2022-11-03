@@ -650,6 +650,7 @@ MonoBehaviour:
   input: {fileID: 1171577757}
   worldSelectManager: {fileID: 475296267}
   data: {fileID: 298518457}
+  sessionData: {fileID: 11400000, guid: 5d567f390bb83c44fa65f49185e1f21a, type: 2}
 --- !u!114 &298518456
 MonoBehaviour:
   m_ObjectHideFlags: 0

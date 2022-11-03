@@ -24,6 +24,11 @@ public class menu_lvselect_nav : MonoBehaviour
     {
         if (!canSwitch) return;
 
+        if (input.I.Menu.Enter.WasPressedThisFrame())
+        {
+            manager.EnterLevel(currentSelectionIDX);
+        }
+
         if (input.I.Menu.Left.IsPressed())
         {
             SwitchSelection(currentSelectionIDX - 1);

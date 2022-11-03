@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/MenuWorldInfo", fileName = "menu_worldinfo_", order = 0)]
 public class SO_menu_worldinfo : ScriptableObject
 {
+    public string worldSceneName;
     [SerializeField] public List<menu_levelinfo> levelInfoList;
 }
 
