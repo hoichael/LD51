@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelInfoList:
   - name: Level 1
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
   - name: Level 2
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}
   - name: Level 3
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
   - name: Level 4
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}
   - name: Level 5
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
   - name: Level 6
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}
   - name: Level 7
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
   - name: Level 8
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}
   - name: Level 9
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
   - name: Level 10
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}
   - name: Level 11
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
   - name: Level 12
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}

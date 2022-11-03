@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class menu_lvselect_nav : MonoBehaviour
 {
+    [SerializeField] menu_lvselect_manager manager;
     [SerializeField] menu_lvselect_settings settings;
     [SerializeField] InputServer input;
-    int currentSelectionID;
+    int currentSelectionIDX;
     public SpriteRenderer[] sprArr;
     bool canSwitch;
 
@@ -25,22 +26,22 @@ public class menu_lvselect_nav : MonoBehaviour
 
         if (input.I.Menu.Left.IsPressed())
         {
-            SwitchSelection(currentSelectionID - 1);
+            SwitchSelection(currentSelectionIDX - 1);
             return;
         }
         if (input.I.Menu.Right.IsPressed())
         {
-            SwitchSelection(currentSelectionID + 1);
+            SwitchSelection(currentSelectionIDX + 1);
             return;
         }
         if (input.I.Menu.Down.IsPressed())
         {
-            SwitchSelection(currentSelectionID + settings.lvElRowSize);
+            SwitchSelection(currentSelectionIDX + settings.lvElRowSize);
             return;
         }
         if (input.I.Menu.Up.IsPressed())
         {
-            SwitchSelection(currentSelectionID - settings.lvElRowSize);
+            SwitchSelection(currentSelectionIDX - settings.lvElRowSize);
         }
     }
 
@@ -61,10 +62,12 @@ public class menu_lvselect_nav : MonoBehaviour
             return;
         }
 
-        sprArr[currentSelectionID].sprite = settings.sprIconDefault;
+        sprArr[currentSelectionIDX].sprite = settings.sprIconDefault;
 
-        currentSelectionID = newIDX;
-        sprArr[currentSelectionID].sprite = settings.sprIconActive;
+        currentSelectionIDX = newIDX;
+        sprArr[currentSelectionIDX].sprite = settings.sprIconActive;
+
+        manager.HandleSelectionSwitch(currentSelectionIDX);
 
         StartCoroutine(HandleCooldown());
     }
