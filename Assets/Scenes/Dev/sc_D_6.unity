@@ -6583,7 +6583,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1900835526}
-  - component: {fileID: 1900835527}
+  - component: {fileID: 1900835531}
+  - component: {fileID: 1900835530}
+  - component: {fileID: 1900835529}
+  - component: {fileID: 1900835532}
+  - component: {fileID: 1900835533}
   m_Layer: 0
   m_Name: Throw
   m_TagString: Untagged
@@ -6606,7 +6610,7 @@ Transform:
   m_Father: {fileID: 697680732}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1900835527
+--- !u!114 &1900835529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6615,14 +6619,71 @@ MonoBehaviour:
   m_GameObject: {fileID: 1900835525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5787ab71754244f9d2d604244b5e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: ed022b81837247c4c9ccabbc6027ae80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
-  deadThreshold: 0.6
+--- !u!114 &1900835530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900835525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: babdfa8a7d4117444b64524bd4cd98b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  manager: {fileID: 1900835531}
   xHairTrans: {fileID: 1493944759}
   indicatorAnchor: {fileID: 280041327}
   indicatorFG: {fileID: 861824076}
+--- !u!114 &1900835531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900835525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fd919149a95384e9b96b8128c1177b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  indicator: {fileID: 1900835530}
+  inputFlat: {fileID: 1900835532}
+  inputStick: {fileID: 1900835533}
+  currentCharge: 0
+  currentAimDir: {x: 0, y: 0}
+--- !u!114 &1900835532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900835525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238f609004bfb8a45a148a90152fc45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1900835531}
+--- !u!114 &1900835533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900835525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e1537d1a93244fa585983154685ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1900835531}
 --- !u!1 &1901851836
 GameObject:
   m_ObjectHideFlags: 0
@@ -7126,7 +7187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2100398231
 Transform:
   m_ObjectHideFlags: 0

@@ -80,6 +80,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AimX"",
+                    ""type"": ""Value"",
+                    ""id"": ""5cc03bc8-c57e-4b39-9486-5fdd20825a73"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AimY"",
+                    ""type"": ""Value"",
+                    ""id"": ""cb63f210-9d43-4043-87cd-b0762e00874d"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -302,6 +320,138 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keys"",
+                    ""id"": ""05e821db-1848-4d0a-bba1-f3883402ce2b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimX"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""af16edd0-c19b-4957-8373-3a9f121c6514"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""1b666f6a-a421-425d-9a3e-74e11928fb86"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Buttons"",
+                    ""id"": ""9caf7656-3064-4141-b875-6aed3fd14a89"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimX"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e84c4e4f-8bf1-4685-a404-d6f724b4a721"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""1e64bf56-d66d-4791-8fa0-0b5c0d101ef1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keys"",
+                    ""id"": ""9434059b-2c73-4b57-a6f2-c53d88b94e26"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimY"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a8aeb432-c942-4d40-b5df-d53c3551902b"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ae6b7f07-0928-40ee-b220-698a2dc44c30"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Buttons"",
+                    ""id"": ""d14fcd1c-81ad-40ea-99fc-5e680c9d69ce"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimY"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""130ce4d1-11f4-4867-8465-139370185fae"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""03c20999-c252-4d6b-ad55-202ee7183dcd"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -767,6 +917,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Play_AimStick = m_Play.FindAction("AimStick", throwIfNotFound: true);
         m_Play_Pause = m_Play.FindAction("Pause", throwIfNotFound: true);
         m_Play_Restart = m_Play.FindAction("Restart", throwIfNotFound: true);
+        m_Play_AimX = m_Play.FindAction("AimX", throwIfNotFound: true);
+        m_Play_AimY = m_Play.FindAction("AimY", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Enter = m_Menu.FindAction("Enter", throwIfNotFound: true);
@@ -844,6 +996,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Play_AimStick;
     private readonly InputAction m_Play_Pause;
     private readonly InputAction m_Play_Restart;
+    private readonly InputAction m_Play_AimX;
+    private readonly InputAction m_Play_AimY;
     public struct PlayActions
     {
         private @InputActions m_Wrapper;
@@ -854,6 +1008,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @AimStick => m_Wrapper.m_Play_AimStick;
         public InputAction @Pause => m_Wrapper.m_Play_Pause;
         public InputAction @Restart => m_Wrapper.m_Play_Restart;
+        public InputAction @AimX => m_Wrapper.m_Play_AimX;
+        public InputAction @AimY => m_Wrapper.m_Play_AimY;
         public InputActionMap Get() { return m_Wrapper.m_Play; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -881,6 +1037,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Restart.started -= m_Wrapper.m_PlayActionsCallbackInterface.OnRestart;
                 @Restart.performed -= m_Wrapper.m_PlayActionsCallbackInterface.OnRestart;
                 @Restart.canceled -= m_Wrapper.m_PlayActionsCallbackInterface.OnRestart;
+                @AimX.started -= m_Wrapper.m_PlayActionsCallbackInterface.OnAimX;
+                @AimX.performed -= m_Wrapper.m_PlayActionsCallbackInterface.OnAimX;
+                @AimX.canceled -= m_Wrapper.m_PlayActionsCallbackInterface.OnAimX;
+                @AimY.started -= m_Wrapper.m_PlayActionsCallbackInterface.OnAimY;
+                @AimY.performed -= m_Wrapper.m_PlayActionsCallbackInterface.OnAimY;
+                @AimY.canceled -= m_Wrapper.m_PlayActionsCallbackInterface.OnAimY;
             }
             m_Wrapper.m_PlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -903,6 +1065,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Restart.started += instance.OnRestart;
                 @Restart.performed += instance.OnRestart;
                 @Restart.canceled += instance.OnRestart;
+                @AimX.started += instance.OnAimX;
+                @AimX.performed += instance.OnAimX;
+                @AimX.canceled += instance.OnAimX;
+                @AimY.started += instance.OnAimY;
+                @AimY.performed += instance.OnAimY;
+                @AimY.canceled += instance.OnAimY;
             }
         }
     }
@@ -1029,6 +1197,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnAimStick(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+        void OnAimX(InputAction.CallbackContext context);
+        void OnAimY(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
