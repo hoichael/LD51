@@ -5,10 +5,11 @@ using TMPro;
 public class lv_manager : MonoBehaviour
 {
     [SerializeField] lv_controller levelController;
+    [SerializeField] lv_completed completionController;
     [SerializeField] List<lv_info> levelInfoList;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] SO_pd_session sessionData;
-    public TextMeshProUGUI timerText;
+    public TextMeshPro timerText;
 
     int currentLevelIDX;
 
@@ -109,5 +110,6 @@ public class lv_manager : MonoBehaviour
         }
 
         levelController.Reset();
+        completionController.Reset();
     }
 }

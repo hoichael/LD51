@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class lv_completed : MonoBehaviour
 {
@@ -9,14 +10,15 @@ public class lv_completed : MonoBehaviour
 
     [SerializeField] float uiTransitionSpeed;
     [SerializeField] AnimationCurve uiTransitionCurve;
-    Vector3 containerHiddenPos;
+    Vector3 containerHiddenPos = new Vector3(0, -54, 0);
     bool inUITransition;
     float currentTransitionFactor;
 
-    private void Start()
+    public TextMeshPro timeText;
+
+    private void Awake()
     {
-        containerHiddenPos = uiContainer.localPosition;
-        navigator.enabled = false;
+        Reset();
     }
 
     private void Update()
@@ -24,10 +26,18 @@ public class lv_completed : MonoBehaviour
         if (inUITransition) HandleShowUITransition();
     }
 
-    public void Init()
+    public void Init(string finalTime)
     {
+        timeText.text = finalTime;
         StartCoroutine(ShowUI());
     }
+
+    public void Reset()
+    {
+        uiContainer.localPosition = containerHiddenPos;
+        navigator.enabled = false;
+    }
+
 
     private void HandleShowUITransition()
     {
@@ -38,6 +48,8 @@ public class lv_completed : MonoBehaviour
             Vector3.zero,
             uiTransitionCurve.Evaluate(currentTransitionFactor)
             );
+
+        if (currentTransitionFactor == 1) inUITransition = false;
     }
 
     private IEnumerator ShowUI()
