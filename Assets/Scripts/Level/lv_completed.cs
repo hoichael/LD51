@@ -14,6 +14,8 @@ public class lv_completed : MonoBehaviour
     bool inUITransition;
     float currentTransitionFactor;
 
+    [SerializeField] menu_selectable initSelectable;
+
     public TextMeshPro timeText;
 
     private void Awake()
@@ -29,6 +31,8 @@ public class lv_completed : MonoBehaviour
     public void Init(string finalTime)
     {
         timeText.text = finalTime;
+        navigator.enabled = true;
+        navigator.SwitchSelection(initSelectable);
         StartCoroutine(ShowUI());
     }
 

@@ -5,6 +5,12 @@ public class menu_selectable : MonoBehaviour
     public menu_selectable connectorLeft, connectorRight, connectorTop, connectorBottom;
     protected bool active;
 
+    private void Start()
+    {
+        Exit(); // quick n dirty. maybe doesnt work for all button types
+        this.enabled = false;
+    }
+
     private void OnEnable()
     {
         Enter();
@@ -15,7 +21,7 @@ public class menu_selectable : MonoBehaviour
         Exit();
     }
 
-    protected virtual void Update()
+    public virtual void Activate()
     {
 
     }

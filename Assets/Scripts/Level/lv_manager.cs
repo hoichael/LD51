@@ -6,12 +6,13 @@ public class lv_manager : MonoBehaviour
 {
     [SerializeField] lv_controller levelController;
     [SerializeField] lv_completed completionController;
+    [SerializeField] menu_navigate uiNavigator;
     [SerializeField] List<lv_info> levelInfoList;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] SO_pd_session sessionData;
     public TextMeshPro timerText;
 
-    int currentLevelIDX;
+    public int currentLevelIDX;
 
     private void Start()
     {
@@ -23,10 +24,10 @@ public class lv_manager : MonoBehaviour
     {
         //ListenForNumInput();
         HandleDevLevelSwitch();
-        HandleReload();
+        CheckForRelaod();
     }
 
-    private void HandleReload()
+    private void CheckForRelaod()
     {
         //if (Input.GetKeyDown(KeyCode.R))
         if (refs_global.Instance.ip.I.Play.Restart.WasPressedThisFrame())
@@ -49,18 +50,7 @@ public class lv_manager : MonoBehaviour
 
         if(incr != 0)
         {
-            int newLevelIDX = currentLevelIDX + incr;
-
-            if(newLevelIDX == levelInfoList.Count)
-            {
-                newLevelIDX = 0;
-            }
-            else if (newLevelIDX == -1)
-            {
-                newLevelIDX = levelInfoList.Count - 1;
-            }
-
-            InitLevel(newLevelIDX);
+            InitLevel(incr);
         }
     }
 
@@ -76,9 +66,11 @@ public class lv_manager : MonoBehaviour
     //}
 
 
-    private void InitLevel(int idx)
+    public void InitLevel(int idx)
     {
         if (idx >= levelInfoList.Count) idx = 0;
+        if (idx < 0) idx = levelInfoList.Count - 1;
+
 
         // dispose of currently active level
         //refs_global.Instance.currentBallTrans = null;
@@ -111,5 +103,12 @@ public class lv_manager : MonoBehaviour
 
         levelController.Reset();
         completionController.Reset();
+
+        // handle menu navigator (currently only used for level completion screen) ugly af but whtv
+        if(uiNavigator.currentSelection != null)
+        {
+            uiNavigator.currentSelection.enabled = false;
+            uiNavigator.currentSelection = null;
+        }
     }
 }

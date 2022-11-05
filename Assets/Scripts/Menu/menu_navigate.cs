@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class menu_navigate : MonoBehaviour
@@ -20,6 +19,11 @@ public class menu_navigate : MonoBehaviour
     {
         if (!canSwitch) return;
 
+        if(input.I.Menu.Enter.WasPressedThisFrame())
+        {
+            if (currentSelection != null) currentSelection.Activate();
+            return;
+        }
         if (input.I.Menu.Right.IsPressed())
         {
             SwitchSelection(currentSelection.connectorRight);
@@ -41,11 +45,15 @@ public class menu_navigate : MonoBehaviour
         }
     }
 
-    protected void SwitchSelection(menu_selectable newSelection)
+    public void SwitchSelection(menu_selectable newSelection)
     {
         if (newSelection == null) return;
 
-        currentSelection.enabled = false;
+        if(currentSelection != null)
+        {
+            currentSelection.enabled = false;
+        }
+
         currentSelection = newSelection;
         currentSelection.enabled = true;
 
