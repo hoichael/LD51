@@ -4,11 +4,12 @@ using System.Diagnostics;
 public class lv_controller : MonoBehaviour
 {
     [SerializeField] lv_manager manager;
+    [SerializeField] lv_completed completionManager;
 
     Stopwatch timer;
     bool playerHasMoved, playerHasCompleted;
 
-    private void OnEnable()
+    public void Reset()
     {
         print("enter level");
         manager.timerText.color = Color.white;
@@ -48,5 +49,7 @@ public class lv_controller : MonoBehaviour
         manager.timerText.color = Color.green;
         manager.timerText.text = finalTime;
         print($"level completed in {finalTime}");
+
+        completionManager.Init();
     }
 }

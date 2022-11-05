@@ -4,6 +4,7 @@ using TMPro;
 
 public class lv_manager : MonoBehaviour
 {
+    [SerializeField] lv_controller levelController;
     [SerializeField] List<lv_info> levelInfoList;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] SO_pd_session sessionData;
@@ -106,5 +107,7 @@ public class lv_manager : MonoBehaviour
             GameObject newBall = Instantiate(ballPrefab, levelInfoList[idx].ballSpawnPosArr[i], Quaternion.identity);
             newBall.transform.SetParent(newBallsContainer.transform);
         }
+
+        levelController.Reset();
     }
 }
