@@ -6,6 +6,7 @@ public class pl_throw_manager : MonoBehaviour
     [SerializeField] pl_throw_indicator indicator;
     [SerializeField] pl_throw_input_flat inputFlat;
     [SerializeField] pl_throw_input_stick inputStick;
+    [SerializeField] lv_pool pool;
     bool currentlyCharging;
     public float currentCharge;
     public Vector2 currentAimDir;
@@ -54,8 +55,12 @@ public class pl_throw_manager : MonoBehaviour
     {
         currentlyCharging = inputFlat.enabled = inputStick.enabled = false;
         refs_global.Instance.ballInHand = false;
+
+        pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, true); // this is fucky
+
         refs_global.Instance.currentBallRefs.manager.HandleThrow();
         indicator.HandleThrow();
+
         ApplyForce();
         currentCharge = 0;
     }

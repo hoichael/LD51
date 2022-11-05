@@ -3,6 +3,7 @@ using UnityEngine;
 public class pl_throw_teleport : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
+    [SerializeField] lv_pool pool;
     void Update()
     {
         if (refs_global.Instance.currentBallRefs != null && !refs_global.Instance.ballInHand &&
@@ -19,7 +20,8 @@ public class pl_throw_teleport : MonoBehaviour
         refs.rb.velocity = refs_global.Instance.currentBallRefs.rb.velocity * 1.15f;
 
         // dispose of ball
-        Destroy(refs_global.Instance.currentBallRefs.trans.gameObject);
+        //Destroy(refs_global.Instance.currentBallRefs.trans.gameObject);
+        pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, false);
         refs_global.Instance.currentBallRefs = null;
     }
 }

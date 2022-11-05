@@ -10,6 +10,7 @@ public class lv_manager : MonoBehaviour
     [SerializeField] List<lv_info> levelInfoList;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] SO_pd_session sessionData;
+    [SerializeField] lv_pool pool;
     public TextMeshPro timerText;
 
     public int currentLevelIDX;
@@ -38,19 +39,13 @@ public class lv_manager : MonoBehaviour
 
     private void HandleDevLevelSwitch()
     {
-        int incr = 0;
         if (refs_global.Instance.ip.I.DEV.One.WasPressedThisFrame())
         {
-            incr = -1;
+            InitLevel(currentLevelIDX - 1);
         }
         else if(refs_global.Instance.ip.I.DEV.Two.WasPressedThisFrame())
         {
-            incr = 1;
-        }
-
-        if(incr != 0)
-        {
-            InitLevel(incr);
+            InitLevel(currentLevelIDX + 1);
         }
     }
 
@@ -73,8 +68,14 @@ public class lv_manager : MonoBehaviour
 
 
         // dispose of currently active level
-        //refs_global.Instance.currentBallTrans = null;
-        Destroy(refs_global.Instance.currentBallRefs?.trans.gameObject);
+
+        //Destroy(refs_global.Instance.currentBallRefs?.trans.gameObject);
+        pool.DisableAll(lv_pool.PoolType.Ball);
+
+        if (refs_global.Instance.currentBallRefs != null)
+        {
+            pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, false);
+        }
         refs_global.Instance.currentBallRefs = null;
         refs_global.Instance.ballInHand = false;
         levelInfoList[currentLevelIDX].levelContainer.SetActive(false);
@@ -87,19 +88,25 @@ public class lv_manager : MonoBehaviour
         refs_global.Instance.playerTrans.localPosition = levelInfoList[idx].plSpawnPos;
         refs_global.Instance.playerRB.velocity = Vector2.zero;
 
-        // handle balls container
-        Destroy(levelInfoList[idx].ballsContainer.gameObject);
-        GameObject newBallsContainer = new GameObject();
-        newBallsContainer.name = "BallsContainer";
-        newBallsContainer.transform.SetParent(levelInfoList[idx].levelContainer.transform);
-        levelInfoList[idx].ballsContainer = newBallsContainer.transform;
+        //// handle balls container
+        //Destroy(levelInfoList[idx].ballsContainer.gameObject);
+        //GameObject newBallsContainer = new GameObject();
+        //newBallsContainer.name = "BallsContainer";
+        //newBallsContainer.transform.SetParent(levelInfoList[idx].levelContainer.transform);
+        //levelInfoList[idx].ballsContainer = newBallsContainer.transform;
 
-        // instantiate and position balls
-        for(int i = 0; i < levelInfoList[idx].ballSpawnPosArr.Length; i++)
+        //// instantiate and position balls
+        //for (int i = 0; i < levelInfoList[idx].ballSpawnPosArr.Length; i++)
+        //{
+        //    GameObject newBall = Instantiate(ballPrefab, levelInfoList[idx].ballSpawnPosArr[i], Quaternion.identity);
+        //    newBall.transform.SetParent(newBallsContainer.transform);
+        //}
+
+        for (int i = 0; i < levelInfoList[idx].ballSpawnPosArr.Length; i++)
         {
-            GameObject newBall = Instantiate(ballPrefab, levelInfoList[idx].ballSpawnPosArr[i], Quaternion.identity);
-            newBall.transform.SetParent(newBallsContainer.transform);
+            pool.Dispatch(lv_pool.PoolType.Ball, levelInfoList[idx].ballSpawnPosArr[i]);
         }
+
 
         levelController.Reset();
         completionController.Reset();
