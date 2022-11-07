@@ -1,10 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class pl_jump : MonoBehaviour
+public class pl_jump_NEW : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] Transform topcheckTrans;
     [SerializeField] LayerMask groundMask;
+
+    [SerializeField] float superJumpForceBase;
+    [SerializeField] Vector2 superJumpCheckSize;
+    [SerializeField] int maxSuperJumpCount;
+
+    // public for DB
+    public int superJumpCounter;
+
 
     // public for debug
     public bool jumpActive;
@@ -13,25 +23,17 @@ public class pl_jump : MonoBehaviour
 
     private void Update()
     {
-        //if (refs.info.grounded && Input.GetKeyDown(KeyCode.Space)) InitJump();
-        //if (Input.GetKeyUp(KeyCode.Space)) TerminateJump();
-
-        //if(refs.info.grounded)
-        //{
-        //    if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
-        //    {
-        //        InitJump();
-        //    }
-        //}
-        //else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
-        //{
-        //    TerminateJump();
-        //}
-
-        if (refs.info.grounded)
+        if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
         {
-            if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
+            if (refs.info.grounded)
             {
+                superJumpCounter = 0;
+                InitJump();
+            }
+            else if (Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, groundMask) != null)
+            {
+                print("SUPERJUMP");
+                superJumpCounter = Mathf.Clamp(superJumpCounter + 1, 0, maxSuperJumpCount);
                 InitJump();
             }
         }
@@ -45,7 +47,7 @@ public class pl_jump : MonoBehaviour
     {
         if (!jumpActive) return;
 
-        if((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jumpAddDuration)
+        if ((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jumpAddDuration)
         {
             TerminateJump();
         }
@@ -75,13 +77,26 @@ public class pl_jump : MonoBehaviour
     private void ApplyForceBase()
     {
         // reset y vel before applying jump force for consistent jump
-        refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        //refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        if(refs.rb.velocity.y < 0)
+        {
+            refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        }
 
+        // handle main force
         refs.rb.AddForce(new Vector2(
             refs.rb.velocity.x * 0.05f,
             refs.settings.jumpForceBase
             ),
             ForceMode2D.Impulse);
+
+        // handle superjump force
+        refs.rb.AddForce(new Vector2(
+            (refs.rb.velocity.x * 0.05f) * ((superJumpForceBase * 0.4f) * superJumpCounter),
+            superJumpForceBase * superJumpCounter
+            ),
+            ForceMode2D.Impulse);
+
     }
 
     private void HandleTopcheck()
