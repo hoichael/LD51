@@ -2388,6 +2388,7 @@ Transform:
   m_Children:
   - {fileID: 1096690384}
   - {fileID: 1900835526}
+  - {fileID: 1925117756}
   m_Father: {fileID: 1655109901}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3768,6 +3769,7 @@ MonoBehaviour:
   grounded: 0
   moveForceCurrent: 0
   dir: 1
+  slope: 0
 --- !u!114 &1006106123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3823,7 +3825,11 @@ MonoBehaviour:
   xHairSens: 20
   throwIndicatorLength: 0
   throwIndicatorOffset: 0
+  solidLayer:
+    serializedVersion: 2
+    m_Bits: 8
   groundcheckSize: {x: 1.75, y: 0.2}
+  slopeCheckLength: 2
 --- !u!1 &1049847355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4282,7 +4288,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1096690384}
   - component: {fileID: 1096690383}
-  - component: {fileID: 1096690385}
   - component: {fileID: 1096690386}
   - component: {fileID: 1096690387}
   - component: {fileID: 1096690388}
@@ -4323,22 +4328,6 @@ Transform:
   m_Father: {fileID: 697680732}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1096690385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096690382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddbba22a7977eb4385f813123ac47a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refs: {fileID: 1006106123}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &1096690386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4366,9 +4355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   topcheckTrans: {fileID: 1636237195}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
   jumpActive: 0
   currentJumpTimer: 0
 --- !u!114 &1096690388
@@ -4384,9 +4370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
-  wallMask:
-    serializedVersion: 2
-    m_Bits: 8
   grav: {fileID: 1096690383}
 --- !u!114 &1096690389
 MonoBehaviour:
@@ -4402,11 +4385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   topcheckTrans: {fileID: 1636237195}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
   superJumpForceBase: 6
-  superJumpCheckSize: {x: 1.75, y: 1.4}
+  superJumpCheckSize: {x: 1.75, y: 1.6}
   maxSuperJumpCount: 3
   superJumpCounter: 0
   jumpActive: 0
@@ -7791,6 +7771,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1925117755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925117756}
+  - component: {fileID: 1925117758}
+  - component: {fileID: 1925117757}
+  m_Layer: 0
+  m_Name: Checks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1925117756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925117755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 697680732}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1925117757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925117755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a42dc48d44bd1241878ed8b4ea65bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  sprSlopeOffsetY: -0.5
+  sprSlopeRotZ: 45
+--- !u!114 &1925117758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925117755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddbba22a7977eb4385f813123ac47a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
 --- !u!1 &1929512372
 GameObject:
   m_ObjectHideFlags: 0

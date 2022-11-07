@@ -35,6 +35,8 @@ public class pl_settings : MonoBehaviour
     public float throwIndicatorLength;
     public float throwIndicatorOffset;
 
-    [Header("Misc")]
+    [Header("Checks")]
+    public LayerMask solidLayer;
     public Vector2 groundcheckSize;
+    public float slopeCheckLength;
 }

@@ -3,7 +3,6 @@ using UnityEngine;
 public class pl_walljump : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    [SerializeField] LayerMask wallMask;
     [SerializeField] pl_gravity grav;
 
     private void Update()
@@ -17,6 +16,7 @@ public class pl_walljump : MonoBehaviour
                 if (wallCheckInt != 0)
                 {
                     grav.HandleWalljump(); // a lil too tightly coupled but whtv
+                    refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
                     ApplyForce(wallCheckInt);
                 }
             }
@@ -27,13 +27,13 @@ public class pl_walljump : MonoBehaviour
     private int CheckForWall()
     {
         // check right side for wall
-        if (Physics2D.OverlapBox(refs.bodyTrans.position + refs.settings.wallCheckOffset, refs.settings.wallCheckSize, 0, wallMask) != null)
+        if (Physics2D.OverlapBox(refs.bodyTrans.position + refs.settings.wallCheckOffset, refs.settings.wallCheckSize, 0, refs.settings.solidLayer) != null)
         {
             return -1;
         }
 
         // check left side for wall
-        if (Physics2D.OverlapBox(refs.bodyTrans.position - refs.settings.wallCheckOffset, refs.settings.wallCheckSize, 0, wallMask) != null)
+        if (Physics2D.OverlapBox(refs.bodyTrans.position - refs.settings.wallCheckOffset, refs.settings.wallCheckSize, 0, refs.settings.solidLayer) != null)
         {
             return 1;
         }

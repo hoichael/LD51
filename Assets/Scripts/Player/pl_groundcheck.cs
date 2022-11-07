@@ -3,7 +3,6 @@ using UnityEngine;
 public class pl_groundcheck : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    [SerializeField] LayerMask groundMask;
 
     private void Update()
     {
@@ -13,7 +12,7 @@ public class pl_groundcheck : MonoBehaviour
     private void CheckForGround()
     {
         // inefficient but fine for now
-        if(Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize, 0, groundMask) == null)
+        if(Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) == null)
         {
             refs.gravity.enabled = true;
             refs.info.grounded = false;

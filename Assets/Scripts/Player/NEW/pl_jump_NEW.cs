@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class pl_jump_NEW : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] Transform topcheckTrans;
-    [SerializeField] LayerMask groundMask;
 
     [SerializeField] float superJumpForceBase;
     [SerializeField] Vector2 superJumpCheckSize;
@@ -30,7 +27,7 @@ public class pl_jump_NEW : MonoBehaviour
                 superJumpCounter = 0;
                 InitJump();
             }
-            else if (Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, groundMask) != null)
+            else if (refs.info.slope == 0 && Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, refs.settings.solidLayer) != null)
             {
                 print("SUPERJUMP");
                 superJumpCounter = Mathf.Clamp(superJumpCounter + 1, 0, maxSuperJumpCount);
@@ -101,7 +98,7 @@ public class pl_jump_NEW : MonoBehaviour
 
     private void HandleTopcheck()
     {
-        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, groundMask) != null)
+        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) != null)
         {
             TerminateJump();
         }

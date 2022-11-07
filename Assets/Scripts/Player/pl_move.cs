@@ -4,6 +4,8 @@ public class pl_move : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     int currentInput;
+    Vector2 processedDir;
+    float slopeMult;
 
     private void Update()
     {
@@ -18,16 +20,39 @@ public class pl_move : MonoBehaviour
         }
     }
 
+    private void HandleGroundAngle(int input)
+    {
+        if (!refs.info.grounded || refs.info.slope == 0)
+        {
+            slopeMult = 1;
+            processedDir = Vector2.right * input;
+            return;
+        }
+
+        if(Mathf.Sign(refs.info.slope) == Mathf.Sign(currentInput))
+        {
+            slopeMult = 1.6f;
+        }
+        else
+        {
+            slopeMult = 0.78f;
+        }
+
+        processedDir = refs.info.slope > 0 ? new Vector2(input, -input).normalized : new Vector2(input, input).normalized;
+    }
+
     private void FixedUpdate()
     {
         if (currentInput == 0) return;
+
+        HandleGroundAngle(currentInput);
         ApplyForce();
     }
 
     private void ApplyForce()
     {
         // apply base force
-        refs.rb.AddForce(Vector2.right * refs.info.moveForceCurrent * currentInput, ForceMode2D.Force);
+        refs.rb.AddForce((processedDir * refs.info.moveForceCurrent) * slopeMult, ForceMode2D.Force);
 
         // if air turn, apply add force
         if(!refs.info.grounded && Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))

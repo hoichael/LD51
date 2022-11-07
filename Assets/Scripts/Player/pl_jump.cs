@@ -4,7 +4,6 @@ public class pl_jump : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] Transform topcheckTrans;
-    [SerializeField] LayerMask groundMask;
 
     // public for debug
     public bool jumpActive;
@@ -86,7 +85,7 @@ public class pl_jump : MonoBehaviour
 
     private void HandleTopcheck()
     {
-        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, groundMask) != null)
+        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) != null)
         {
             TerminateJump();
         }
