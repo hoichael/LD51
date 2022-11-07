@@ -67,6 +67,7 @@ public class pl_move : MonoBehaviour
         refs.rb.AddForce((processedDir * refs.info.moveForceCurrent) * slopeMult, ForceMode2D.Force);
 
         // check for turn and apply add counter force if need be
+        if (refs.info.recentWalljump) return; // if just performed walljump, return
         if (Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))
         {
             float counterForce = refs.info.grounded ? refs.settings.moveForceTurnGround : refs.settings.moveForceTurnAir;

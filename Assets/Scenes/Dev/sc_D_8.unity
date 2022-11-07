@@ -3770,6 +3770,7 @@ MonoBehaviour:
   moveForceCurrent: 0
   dir: 1
   slope: 0
+  recentWalljump: 0
 --- !u!114 &1006106123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3801,19 +3802,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51960af5c18e5294fafd6efa221828d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForceGround: 96
-  moveForceAir: 30.2
-  dragGround: 4.96
-  dragAir: 1.19
-  moveForceAddAirTurn: 36.5
-  jumpForceBase: 26
-  jumpForceAdd: 1.54
+  moveForceGround: 38
+  moveForceAir: 29.5
+  dragGround: 1.45
+  dragAir: 1.22
+  groundVelResetFactor: 40
+  moveForceTurnGround: 80
+  moveForceTurnAir: 68
+  jumpForceBase: 24
+  jumpForceAdd: 1.5
   jumpAddDuration: 0.29
-  jumpTermMult: 0.67
+  jumpTermMult: 0.7
   wallCheckOffset: {x: 0.875, y: 0, z: 0}
-  wallCheckSize: {x: 0.38, y: 2.1}
+  wallCheckSize: {x: 0.76, y: 1.9}
   wallJumpDir: {x: 1, y: 1}
-  wallJumpForce: {x: 39, y: 46}
+  wallJumpForce: {x: 34, y: 46}
   gravBase: 68.5
   gravAdd: 36
   gravMax: 102
@@ -4383,6 +4386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae611be43e9503439d44d47b4622e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableSuperjump: 0
   refs: {fileID: 1006106123}
   topcheckTrans: {fileID: 1636237195}
   superJumpForceBase: 6

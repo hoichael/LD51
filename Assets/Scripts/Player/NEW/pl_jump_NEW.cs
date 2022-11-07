@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class pl_jump_NEW : MonoBehaviour
 {
+    [SerializeField] bool enableSuperjump;
     [SerializeField] pl_refs refs;
     [SerializeField] Transform topcheckTrans;
 
@@ -27,7 +28,7 @@ public class pl_jump_NEW : MonoBehaviour
                 superJumpCounter = 0;
                 InitJump();
             }
-            else if (refs.info.slope == 0 && Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, refs.settings.solidLayer) != null)
+            else if (enableSuperjump && refs.info.slope == 0 && Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, refs.settings.solidLayer) != null)
             {
                 print("SUPERJUMP");
                 superJumpCounter = Mathf.Clamp(superJumpCounter + 1, 0, maxSuperJumpCount);
@@ -58,7 +59,7 @@ public class pl_jump_NEW : MonoBehaviour
     private void InitJump()
     {
         //refs.info.grounded = false; // hmmmmmm
-
+        refs.rb.drag = refs.settings.dragGround;
         ApplyForceBase();
         jumpActive = true;
         currentJumpTimer = 0;
@@ -82,7 +83,7 @@ public class pl_jump_NEW : MonoBehaviour
 
         // handle main force
         refs.rb.AddForce(new Vector2(
-            refs.rb.velocity.x * 0.05f,
+            refs.rb.velocity.x * 0.044f,
             refs.settings.jumpForceBase
             ),
             ForceMode2D.Impulse);
@@ -107,7 +108,7 @@ public class pl_jump_NEW : MonoBehaviour
     private void ApplyForceAdd()
     {
         refs.rb.AddForce(new Vector2(
-            refs.rb.velocity.x * 0.02f,
+            refs.rb.velocity.x * 0.012f,
             refs.settings.jumpForceAdd
             ),
             ForceMode2D.Impulse);

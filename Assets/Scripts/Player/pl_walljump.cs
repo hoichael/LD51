@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class pl_walljump : MonoBehaviour
@@ -18,6 +19,7 @@ public class pl_walljump : MonoBehaviour
                     grav.HandleWalljump(); // a lil too tightly coupled but whtv
                     refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
                     ApplyForce(wallCheckInt);
+                    StartCoroutine(HandleWalljumpFlag());
                 }
             }
         }
@@ -49,6 +51,13 @@ public class pl_walljump : MonoBehaviour
             new Vector2(refs.settings.wallJumpDir.x * dir, refs.settings.wallJumpDir.y).normalized
             * refs.settings.wallJumpForce,
             ForceMode2D.Impulse);
+    }
+
+    private IEnumerator HandleWalljumpFlag()
+    {
+        refs.info.recentWalljump = true;
+        yield return new WaitForSeconds(0.25f);
+        refs.info.recentWalljump = false;
     }
 }
 
