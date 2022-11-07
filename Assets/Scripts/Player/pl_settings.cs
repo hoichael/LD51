@@ -6,7 +6,9 @@ public class pl_settings : MonoBehaviour
     public float moveForceGround;
     public float moveForceAir;
     public float dragGround, dragAir;
-    public float moveForceAddAirTurn;
+    public float groundVelResetFactor;
+    public float moveForceTurnGround;
+    public float moveForceTurnAir;
 
     [Header("Jump")]
     public float jumpForceBase;

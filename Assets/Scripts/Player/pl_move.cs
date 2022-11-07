@@ -43,10 +43,22 @@ public class pl_move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentInput == 0) return;
+        if (currentInput == 0)
+        {
+            if (refs.info.grounded) LowerVelocity();
+            
+        }
+        else
+        {
+            HandleGroundAngle(currentInput);
+            ApplyForce();
+        }
+    }
 
-        HandleGroundAngle(currentInput);
-        ApplyForce();
+    private void LowerVelocity()
+    {
+        float newVelX = Mathf.MoveTowards(refs.rb.velocity.x, 0, refs.settings.groundVelResetFactor * Time.fixedDeltaTime);
+        refs.rb.velocity = new Vector2(newVelX, refs.rb.velocity.y);
     }
 
     private void ApplyForce()
@@ -54,10 +66,11 @@ public class pl_move : MonoBehaviour
         // apply base force
         refs.rb.AddForce((processedDir * refs.info.moveForceCurrent) * slopeMult, ForceMode2D.Force);
 
-        // if air turn, apply add force
-        if(!refs.info.grounded && Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))
+        // check for turn and apply add counter force if need be
+        if (Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))
         {
-            refs.rb.AddForce(Vector2.right * refs.settings.moveForceAddAirTurn * currentInput, ForceMode2D.Force);
+            float counterForce = refs.info.grounded ? refs.settings.moveForceTurnGround : refs.settings.moveForceTurnAir;
+            refs.rb.AddForce(Vector2.right * counterForce  * currentInput, ForceMode2D.Force);
         }
     }
 }
