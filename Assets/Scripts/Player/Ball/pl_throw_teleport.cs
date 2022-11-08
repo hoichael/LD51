@@ -4,6 +4,8 @@ public class pl_throw_teleport : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] lv_pool pool;
+    [SerializeField] pl_drag dragManager;
+
     void Update()
     {
         if (refs_global.Instance.currentBallRefs != null && !refs_global.Instance.ballInHand &&
@@ -18,6 +20,12 @@ public class pl_throw_teleport : MonoBehaviour
         // set player pos and vel to ball
         refs.bodyTrans.position = refs_global.Instance.currentBallRefs.trans.position;
         refs.rb.velocity = refs_global.Instance.currentBallRefs.rb.velocity * 1.15f;
+
+        // ugly dev stuff
+        refs.gravity.enabled = true;
+        refs.info.grounded = false;
+        refs.info.moveForceCurrent = refs.settings.moveForceAir;
+        dragManager.HandleTeleport(refs_global.Instance.currentBallRefs.rb.velocity);
 
         // dispose of ball
         //Destroy(refs_global.Instance.currentBallRefs.trans.gameObject);

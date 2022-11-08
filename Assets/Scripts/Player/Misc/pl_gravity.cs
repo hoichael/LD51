@@ -15,7 +15,7 @@ public class pl_gravity : MonoBehaviour
     private void FixedUpdate()
     {
         // continuously increase current grav
-        Mathf.Clamp(gravCurrent += refs.settings.gravAdd * Time.fixedDeltaTime, 0, refs.settings.gravMax);
+        gravCurrent = Mathf.Clamp(gravCurrent + refs.settings.gravAdd * Time.fixedDeltaTime, 0, refs.settings.gravMax);
 
         refs.rb.AddForce(Vector2.down * gravCurrent, ForceMode2D.Force);
     }

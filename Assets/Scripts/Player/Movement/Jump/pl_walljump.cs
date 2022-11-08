@@ -8,7 +8,7 @@ public class pl_walljump : MonoBehaviour
 
     private void Update()
     {
-        if(!refs.info.grounded)
+        if(!refs.info.grounded && !refs.info.jumpUsedThisFrame)
         {
             //if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
             if(refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
@@ -17,6 +17,7 @@ public class pl_walljump : MonoBehaviour
                 if (wallCheckInt != 0)
                 {
                     grav.HandleWalljump(); // a lil too tightly coupled but whtv
+
                     refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
                     ApplyForce(wallCheckInt);
                     StartCoroutine(HandleWalljumpFlag());
