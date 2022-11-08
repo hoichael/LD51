@@ -28,7 +28,7 @@ public class pl_jump_manager : MonoBehaviour
             return;
         }
         
-        if (refs.info.grounded && refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
+        if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame() && (refs.info.grounded || ExtendedGroundcheck()))
         {
             InitJump();
 
@@ -77,5 +77,14 @@ public class pl_jump_manager : MonoBehaviour
         {
             TerminateJump();
         }
+    }
+
+    private bool ExtendedGroundcheck()
+    {
+        if (Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize + new Vector2(0, 0.9f), 0, refs.settings.solidLayer) != null)
+        {
+            return true;
+        }
+        return false;
     }
 }

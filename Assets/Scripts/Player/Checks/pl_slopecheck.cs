@@ -3,14 +3,13 @@ using UnityEngine;
 public class pl_slopecheck : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    [SerializeField] float sprSlopeOffsetY = -0.5f;
-    [SerializeField] int sprSlopeRotZ = 45;
+
     private void Update()
     {
         if (!refs.info.grounded)
         {
             refs.info.slope = 0;
-            HandleSprite();
+            //HandleSprite();
             return;
         }
 
@@ -24,7 +23,7 @@ public class pl_slopecheck : MonoBehaviour
 
         // handle raycast results
         EvaluateHit(hitA, hitB);
-        HandleSprite();
+        //HandleSprite();
     }
 
     private void EvaluateHit(RaycastHit2D hitA, RaycastHit2D hitB)
@@ -55,17 +54,17 @@ public class pl_slopecheck : MonoBehaviour
         return Mathf.RoundToInt(hit.normal.x);
     }
 
-    private void HandleSprite()
-    {
-        if (refs.info.slope == 0)
-        {
-            refs.FlipContainerTrans.localRotation = Quaternion.Euler(Vector3.zero);
-            refs.FlipContainerTrans.localPosition = Vector3.zero;
-        }
-        else
-        {
-            refs.FlipContainerTrans.localRotation = Quaternion.Euler(0, 0, sprSlopeRotZ * -refs.info.slope);
-            refs.FlipContainerTrans.localPosition = new Vector3(0, sprSlopeOffsetY, 0);
-        }
-    }
+    //private void HandleSprite()
+    //{
+    //    if (refs.info.slope == 0)
+    //    {
+    //        refs.FlipContainerTrans.localRotation = Quaternion.Euler(Vector3.zero);
+    //        refs.FlipContainerTrans.localPosition = Vector3.zero;
+    //    }
+    //    else
+    //    {
+    //        refs.FlipContainerTrans.localRotation = Quaternion.Euler(0, 0, sprSlopeRotZ * -refs.info.slope);
+    //        refs.FlipContainerTrans.localPosition = new Vector3(0, sprSlopeOffsetY, 0);
+    //    }
+    //}
 }

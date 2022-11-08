@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fc4f1bb7d8d2741be1445adbb39b8b, type: 3}
   m_Name: menu_worldinfo_DEV
   m_EditorClassIdentifier: 
-  worldSceneName: sc_D_7
+  worldSceneName: sc_D_8
   levelInfoList:
   - name: Level 1
     thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
