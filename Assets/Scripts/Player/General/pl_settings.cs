@@ -15,6 +15,8 @@ public class pl_settings : MonoBehaviour
     public float jumpForceAdd;
     public float jumpAddDuration;
     public float jumpTermMult; // mult with y vel when jump terminated. needs to be between 0 and 1
+    public float slopeJumpForceBase;
+    public float slopeJumpForceAdd;
 
     [Header("Wall Jump")]
     public Vector3 wallCheckOffset;
