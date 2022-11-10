@@ -4,7 +4,7 @@ using UnityEngine;
 public class pl_walljump : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    [SerializeField] pl_gravity grav;
+    //[SerializeField] pl_gravity grav;
 
     private void Update()
     {
@@ -16,7 +16,7 @@ public class pl_walljump : MonoBehaviour
                 int wallCheckInt = CheckForWall();
                 if (wallCheckInt != 0)
                 {
-                    grav.HandleWalljump(); // a lil too tightly coupled but whtv
+                    refs.events.OnWallJump();
 
                     refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
                     ApplyForce(wallCheckInt);

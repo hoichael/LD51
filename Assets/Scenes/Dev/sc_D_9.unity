@@ -1398,7 +1398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
-  grav: {fileID: 1096690383}
 --- !u!114 &405097581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3884,6 +3883,7 @@ MonoBehaviour:
   gravity: {fileID: 1096690383}
   FlipContainerTrans: {fileID: 1236178008}
   groundcheckTrans: {fileID: 1611541466}
+  events: {fileID: 1209139861}
 --- !u!114 &1006106124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3901,21 +3901,22 @@ MonoBehaviour:
   dragGround: 4.6
   dragAir: 3.45
   groundVelResetFactor: 31.5
-  moveForceTurnGround: 80
-  moveForceTurnAir: 68
+  moveForceTurnGround: 92
+  moveForceTurnAir: 28
   jumpForceBase: 38
   jumpForceAdd: 118
   jumpAddDuration: 0.34
   jumpTermMult: 0.8
-  slopeJumpForceBase: 28
-  slopeJumpForceAdd: 42
+  slopeJumpForceBase: 44
+  slopeJumpForceAdd: 72
   wallCheckOffset: {x: 0.875, y: 0, z: 0}
   wallCheckSize: {x: 0.76, y: 1.9}
   wallJumpDir: {x: 1, y: 1}
   wallJumpForce: {x: 39, y: 63.5}
+  dragWalljump: 1.95
   gravBase: 116
   gravAdd: 111
-  gravMax: 192
+  gravMax: 224
   gravBaseWallJump: 76
   throwForceBase: 12
   throwForceAdd: 48
@@ -4388,10 +4389,7 @@ GameObject:
   - component: {fileID: 1096690384}
   - component: {fileID: 1096690383}
   - component: {fileID: 1096690386}
-  - component: {fileID: 1096690388}
-  - component: {fileID: 1096690387}
-  - component: {fileID: 1096690389}
-  - component: {fileID: 1096690390}
+  - component: {fileID: 1096690391}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -4441,58 +4439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
---- !u!114 &1096690387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096690382}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65137b525a10afe4db486e17e077e2f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refs: {fileID: 1006106123}
-  topcheckTrans: {fileID: 1636237195}
-  jumpActive: 0
-  currentJumpTimer: 0
---- !u!114 &1096690388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096690382}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ece08f388f58054fbc4e851b336380a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refs: {fileID: 1006106123}
-  grav: {fileID: 1096690383}
---- !u!114 &1096690389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096690382}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae611be43e9503439d44d47b4622e72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSuperjump: 0
-  refs: {fileID: 1006106123}
-  topcheckTrans: {fileID: 1636237195}
-  superJumpForceBase: 6
-  superJumpCheckSize: {x: 1.75, y: 1.6}
-  maxSuperJumpCount: 3
-  superJumpCounter: 0
-  jumpActive: 0
-  currentJumpTimer: 0
---- !u!114 &1096690390
+--- !u!114 &1096690391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4501,15 +4448,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096690382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13823850cda96fc41b6c1a2846c2a534, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f3ea3c030fd7304794c12c261956621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
-  dragResetSpeed: 3
-  walljumpDrag: 1.95
   grav: {fileID: 1096690383}
-  tpFactor: 0
-  currentTransitionFactor: 0
 --- !u!1 &1104326543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4918,6 +4861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209139859}
+  - component: {fileID: 1209139861}
   - component: {fileID: 1209139860}
   m_Layer: 0
   m_Name: Misc
@@ -4955,6 +4899,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   transitionSpeed: 6.8
+--- !u!114 &1209139861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209139858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e526ca2ab09cf294484f80a427962391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  moveMod: {fileID: 1096690391}
 --- !u!1 &1223929102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7808,7 +7766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   pool: {fileID: 920506350}
-  dragManager: {fileID: 1096690390}
+  dragManager: {fileID: 0}
 --- !u!114 &1900835530
 MonoBehaviour:
   m_ObjectHideFlags: 0

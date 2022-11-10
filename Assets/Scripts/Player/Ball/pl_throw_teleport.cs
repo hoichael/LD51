@@ -4,7 +4,6 @@ public class pl_throw_teleport : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] lv_pool pool;
-    [SerializeField] pl_drag dragManager;
 
     void Update()
     {
@@ -21,11 +20,7 @@ public class pl_throw_teleport : MonoBehaviour
         refs.bodyTrans.position = refs_global.Instance.currentBallRefs.trans.position;
         refs.rb.velocity = refs_global.Instance.currentBallRefs.rb.velocity * 1.15f;
 
-        // ugly dev stuff
-        refs.gravity.enabled = true;
-        refs.info.grounded = false;
-        refs.info.moveForceCurrent = refs.settings.moveForceAir;
-        dragManager.HandleTeleport(refs_global.Instance.currentBallRefs.rb.velocity);
+        refs.events.OnTeleport();
 
         // dispose of ball
         //Destroy(refs_global.Instance.currentBallRefs.trans.gameObject);

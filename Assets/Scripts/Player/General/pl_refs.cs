@@ -14,4 +14,6 @@ public class pl_refs : MonoBehaviour
     public Transform groundcheckTrans;
 
     //public Transform xHairTrans;
+
+    public pl_events events;
 }
