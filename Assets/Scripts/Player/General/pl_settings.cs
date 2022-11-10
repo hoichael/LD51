@@ -23,6 +23,7 @@ public class pl_settings : MonoBehaviour
     public Vector2 wallCheckSize;
     public Vector2 wallJumpDir;
     public Vector2 wallJumpForce;
+    public float dragWalljump;
 
     [Header("Gravity")]
     public float gravBase;

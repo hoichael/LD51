@@ -23,7 +23,7 @@ public class pl_jump_flat : MonoBehaviour
 
         // handle main force
         refs.rb.AddForce(new Vector2(
-            refs.rb.velocity.x * 0.044f,
+            refs.rb.velocity.x * 0.1f,
             refs.settings.jumpForceBase
             ),
             ForceMode2D.Impulse);
@@ -32,7 +32,7 @@ public class pl_jump_flat : MonoBehaviour
     private void ApplyForceAdd()
     {
         refs.rb.AddForce(new Vector2(
-            refs.rb.velocity.x * 0.012f,
+            refs.rb.velocity.x * 0.16f,
             refs.settings.jumpForceAdd
             ),
             ForceMode2D.Force);

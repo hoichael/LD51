@@ -27,6 +27,8 @@ public class pl_jump_manager : MonoBehaviour
 
             return;
         }
+
+        if (refs.info.recentWalljump) return;
         
         if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame() && (refs.info.grounded || ExtendedGroundcheck()))
         {
@@ -62,6 +64,8 @@ public class pl_jump_manager : MonoBehaviour
         refs.rb.drag = refs.settings.dragGround;
         jumpActive = true;
         currentJumpTimer = 0;
+
+        refs.info.jumpUsedThisFrame = true;
     }
 
     private void TerminateJump()
@@ -69,6 +73,8 @@ public class pl_jump_manager : MonoBehaviour
         jumpActive = jumpFlat.enabled = jumpSlope.enabled = false;
         currentJumpTimer = 0;
         refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jumpTermMult);
+
+        refs.info.jumpUsedThisFrame = false; // technically doesnt belong here but it works, and this way I dont have to reset the flag every frame
     }
 
     private void HandleTopcheck()

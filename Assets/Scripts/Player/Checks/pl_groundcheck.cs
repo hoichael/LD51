@@ -14,17 +14,27 @@ public class pl_groundcheck : MonoBehaviour
         // inefficient but fine for now
         if(Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) == null)
         {
-            refs.gravity.enabled = true;
-            refs.info.grounded = false;
-            refs.rb.drag = refs.settings.dragAir;
-            refs.info.moveForceCurrent = refs.settings.moveForceAir;
+            if(refs.info.grounded)
+            {
+                //refs.gravity.enabled = true;
+                //refs.info.grounded = false;
+                //refs.rb.drag = refs.settings.dragAir;
+                //refs.info.moveForceCurrent = refs.settings.moveForceAir;
+
+                refs.events.OnExitGround();
+            }
         }
         else
         {
-            refs.gravity.enabled = false;
-            refs.info.grounded = true;
-            refs.rb.drag = refs.settings.dragGround;
-            refs.info.moveForceCurrent = refs.settings.moveForceGround;
+            if(!refs.info.grounded)
+            {
+                //refs.gravity.enabled = false;
+                //refs.info.grounded = true;
+                //refs.rb.drag = refs.settings.dragGround;
+                //refs.info.moveForceCurrent = refs.settings.moveForceGround;
+
+                refs.events.OnEnterGround();
+            }
         }
     }
 }
