@@ -16,17 +16,17 @@ public class pl_events : MonoBehaviour
         refs.rb.drag = refs.settings.dragGround;
         refs.info.moveForceCurrent = refs.settings.moveForceGround;
 
-        sprDeform.OnLand(refs.rb.velocity.y);
+        //sprDeform.OnLand(refs.rb.velocity.y);
     }
 
     public void OnExitGround()
     {
+        moveMod.HandleExitGround();
+
         refs.gravity.enabled = true;
         refs.info.grounded = false;
         refs.rb.drag = refs.settings.dragAir;
         refs.info.moveForceCurrent = refs.settings.moveForceAir;
-        
-        moveMod.HandleExitGround();
     }
 
     public void OnWallJump()

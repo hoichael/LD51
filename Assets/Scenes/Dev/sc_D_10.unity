@@ -4928,11 +4928,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8958b440502e21449c62ec81f83af56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deformOnJump: 1
+  deformOnLand: 1
   refs: {fileID: 1006106123}
   sprTrans: {fileID: 586636307}
-  maxDeformJump: {x: 0.81, y: 1.19, z: 1}
-  maxDeformLand: {x: 1.6, y: 0.6, z: 1}
-  resetSpeed: 3
+  maxDeformJump: {x: 0.8, y: 1.22, z: 1}
+  maxDeformLand: {x: 3, y: 0.33, z: 1}
+  resetSpeed: 2.9
+  landDeformSpeed: 3.8
 --- !u!1 &1223929102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7973,6 +7976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
+  sprDeform: {fileID: 1209139862}
 --- !u!1 &1929512372
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,13 @@ public class pl_groundcheck : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
 
+    [SerializeField] pl_spritedeform sprDeform; // this is terrible lol
+    float mostRecentVelY; // this is terrible lol
+
     private void Update()
     {
         CheckForGround();
+        mostRecentVelY = refs.rb.velocity.y != 0 ? refs.rb.velocity.y : mostRecentVelY; // this is terrible lol
     }
 
     private void CheckForGround()
@@ -34,6 +38,7 @@ public class pl_groundcheck : MonoBehaviour
                 //refs.info.moveForceCurrent = refs.settings.moveForceGround;
 
                 refs.events.OnEnterGround();
+                sprDeform.OnLand(mostRecentVelY); // this is terrible lol
             }
         }
     }
