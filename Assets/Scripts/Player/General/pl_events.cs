@@ -7,12 +7,16 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_refs refs;
     //[SerializeField] pl_drag drag;
     [SerializeField] pl_move_modify moveMod;
+    [SerializeField] pl_spritedeform sprDeform;
+
     public void OnEnterGround()
     {
         refs.gravity.enabled = false;
         refs.info.grounded = true;
         refs.rb.drag = refs.settings.dragGround;
         refs.info.moveForceCurrent = refs.settings.moveForceGround;
+
+        sprDeform.OnLand(refs.rb.velocity.y);
     }
 
     public void OnExitGround()

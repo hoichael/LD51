@@ -1440,6 +1440,7 @@ MonoBehaviour:
   topcheckTrans: {fileID: 1636237195}
   jumpFlat: {fileID: 405097582}
   jumpSlope: {fileID: 405097581}
+  sprDeform: {fileID: 1209139862}
 --- !u!1 &488405330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,6 +4864,7 @@ GameObject:
   - component: {fileID: 1209139859}
   - component: {fileID: 1209139861}
   - component: {fileID: 1209139860}
+  - component: {fileID: 1209139862}
   m_Layer: 0
   m_Name: Misc
   m_TagString: Untagged
@@ -4913,6 +4915,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   moveMod: {fileID: 1096690391}
+  sprDeform: {fileID: 1209139862}
+--- !u!114 &1209139862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209139858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8958b440502e21449c62ec81f83af56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  sprTrans: {fileID: 586636307}
+  maxDeformJump: {x: 0.81, y: 1.19, z: 1}
+  maxDeformLand: {x: 1.6, y: 0.6, z: 1}
+  resetSpeed: 3
 --- !u!1 &1223929102
 GameObject:
   m_ObjectHideFlags: 0

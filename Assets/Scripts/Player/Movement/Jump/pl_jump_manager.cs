@@ -8,6 +8,8 @@ public class pl_jump_manager : MonoBehaviour
     [SerializeField] pl_jump_flat jumpFlat;
     [SerializeField] pl_jump_slope jumpSlope;
 
+    [SerializeField] pl_spritedeform sprDeform;
+
     bool jumpActive;
     float currentJumpTimer;
 
@@ -37,6 +39,7 @@ public class pl_jump_manager : MonoBehaviour
             if (refs.info.slope == 0)
             {
                 jumpFlat.enabled = true;
+                sprDeform.OnJumpTrigger();
             }
             else
             {
@@ -52,11 +55,14 @@ public class pl_jump_manager : MonoBehaviour
         if ((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jumpAddDuration)
         {
             TerminateJump();
+            return;
         }
         else
         {
             HandleTopcheck();
         }
+
+        sprDeform.HandleJumpGrowth(currentJumpTimer);
     }
 
     private void InitJump()
@@ -75,6 +81,8 @@ public class pl_jump_manager : MonoBehaviour
         refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jumpTermMult);
 
         refs.info.jumpUsedThisFrame = false; // technically doesnt belong here but it works, and this way I dont have to reset the flag every frame
+
+        sprDeform.OnJumpTerminate();
     }
 
     private void HandleTopcheck()
