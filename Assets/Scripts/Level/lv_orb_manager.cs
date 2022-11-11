@@ -12,10 +12,12 @@ public class lv_orb_manager : MonoBehaviour
     public void HandleCollect()
     {
         currentCount++;
+        print(currentCount);
+        print(totalCount);
 
         if(currentCount >= totalCount)
         {
-            
+            goal.Unlock();
         }
     }
 }

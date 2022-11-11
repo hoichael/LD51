@@ -21,6 +21,6 @@ public class lv_orb : lv_colhandler_base
     public override void HandleCol()
     {
         activeContainer.gameObject.SetActive(false);
-        //manager.HandleCollect();
+        manager.HandleCollect();
     }
 }
