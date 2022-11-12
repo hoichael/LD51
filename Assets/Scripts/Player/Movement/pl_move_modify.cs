@@ -39,6 +39,12 @@ public class pl_move_modify : MonoBehaviour
         modFactorGrav = refs.settings.gravAdd;
     }
 
+    public void HandleForcepad()
+    {
+        modFactorMove = 94f;
+        modFactorDrag = 0.9f;
+    }
+
     /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void FixedUpdate()

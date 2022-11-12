@@ -17,6 +17,9 @@ public class pl_events : MonoBehaviour
         refs.info.moveForceCurrent = refs.settings.moveForceGround;
 
         //sprDeform.OnLand(refs.rb.velocity.y);
+
+
+        print("ON ENTER GROUND");
     }
 
     public void OnExitGround()
@@ -27,6 +30,8 @@ public class pl_events : MonoBehaviour
         refs.info.grounded = false;
         refs.rb.drag = refs.settings.dragAir;
         refs.info.moveForceCurrent = refs.settings.moveForceAir;
+
+        print("ON LEAVE GROUND");
     }
 
     public void OnWallJump()
@@ -45,5 +50,14 @@ public class pl_events : MonoBehaviour
         refs.info.moveForceCurrent = 0.1f;
 
         moveMod.HandleTeleport(refs_global.Instance.currentBallRefs.rb.velocity);
+    }
+
+    public void OnForcepad()
+    {
+        print("ON FORCEPAD");
+        refs.rb.drag = 0.1f;
+        refs.info.moveForceCurrent = 0.1f;
+
+        moveMod.HandleForcepad();
     }
 }
