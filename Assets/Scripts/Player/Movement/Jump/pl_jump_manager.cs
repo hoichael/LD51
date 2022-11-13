@@ -62,7 +62,10 @@ public class pl_jump_manager : MonoBehaviour
             HandleTopcheck();
         }
 
-        sprDeform.HandleJumpGrowth(currentJumpTimer);
+        if(jumpFlat.enabled)
+        {
+            sprDeform.HandleJumpGrowth(currentJumpTimer);
+        }
     }
 
     private void InitJump()

@@ -2971,10 +2971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velResetMult: 1
-  forcePlayer: 78
+  forcePlayer: 58
   forceBall: 60
   dir: {x: 0, y: 1}
-  playerEvents: {fileID: 1209139861}
 --- !u!1 &877871201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4104,7 @@ GameObject:
   - component: {fileID: 1096690383}
   - component: {fileID: 1096690386}
   - component: {fileID: 1096690391}
+  - component: {fileID: 1096690392}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -4168,6 +4168,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   grav: {fileID: 1096690383}
+--- !u!114 &1096690392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096690382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51b60aace599824784afe0140fbb3a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  force: 3200
+  duration: 0.33
+  xVelMult: 0.975
 --- !u!1 &1099030787
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,7 +4911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
   moveMod: {fileID: 1096690391}
-  sprDeform: {fileID: 1209139862}
+  fPadHandler: {fileID: 1096690392}
 --- !u!114 &1209139862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6907,7 +6923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelContainer: {fileID: 1352270801}
-  plSpawnPos: {x: -38, y: 10, z: 0}
+  plSpawnPos: {x: -15, y: 10, z: 0}
   ballSpawnPosArr:
   - {x: -22, y: 8, z: 0}
   ballsContainer: {fileID: 1642281431}
@@ -7166,6 +7182,7 @@ MonoBehaviour:
   ballInHand: 0
   xHairTrans: {fileID: 1493944759}
   ip: {fileID: 853818004}
+  playerEvents: {fileID: 1209139861}
 --- !u!1 &1733265855
 GameObject:
   m_ObjectHideFlags: 0

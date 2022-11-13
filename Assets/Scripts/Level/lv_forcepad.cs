@@ -8,13 +8,14 @@ public class lv_forcepad : MonoBehaviour
     [SerializeField] Vector2 dir;
 
     // this is kinda scuffed. maybe pl_events belongs in global refs? maybe some globally accessible wrapper? will depend on how many non-player systems can modify pl movement. hmm...
-    [SerializeField] pl_events playerEvents;
+    //[SerializeField] pl_events playerEvents;
 
     public void HandlePlayerContact()
     {
-        print("sdfsd");
-        playerEvents.OnExitGround();
-        playerEvents.OnForcepad();
+        //playerEvents.OnExitGround();
+        //playerEvents.OnForcepad();
+        refs_global.Instance.playerEvents.OnExitGround();
+        refs_global.Instance.playerEvents.OnForcepad();
 
         refs_global.Instance.playerTrans.localPosition += new Vector3(dir.normalized.x * 0.2f, dir.normalized.y * 0.2f, 0);
 

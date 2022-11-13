@@ -18,4 +18,6 @@ public class refs_global : ut_singleton<refs_global>
     public Transform xHairTrans;
 
     public InputServer ip;
+
+    public pl_events playerEvents;
 }

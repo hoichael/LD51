@@ -5,9 +5,8 @@ using UnityEngine;
 public class pl_events : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    //[SerializeField] pl_drag drag;
     [SerializeField] pl_move_modify moveMod;
-    [SerializeField] pl_spritedeform sprDeform;
+    [SerializeField] pl_fpadforce fPadHandler;
 
     public void OnEnterGround()
     {
@@ -16,10 +15,7 @@ public class pl_events : MonoBehaviour
         refs.rb.drag = refs.settings.dragGround;
         refs.info.moveForceCurrent = refs.settings.moveForceGround;
 
-        //sprDeform.OnLand(refs.rb.velocity.y);
-
-
-        print("ON ENTER GROUND");
+        fPadHandler.Cancel();
     }
 
     public void OnExitGround()
@@ -30,8 +26,6 @@ public class pl_events : MonoBehaviour
         refs.info.grounded = false;
         refs.rb.drag = refs.settings.dragAir;
         refs.info.moveForceCurrent = refs.settings.moveForceAir;
-
-        print("ON LEAVE GROUND");
     }
 
     public void OnWallJump()
@@ -40,6 +34,7 @@ public class pl_events : MonoBehaviour
         refs.info.moveForceCurrent = refs.settings.moveForceAir;
 
         moveMod.HandleWalljump();
+        fPadHandler.Cancel();
     }
 
     public void OnTeleport()
@@ -50,14 +45,15 @@ public class pl_events : MonoBehaviour
         refs.info.moveForceCurrent = 0.1f;
 
         moveMod.HandleTeleport(refs_global.Instance.currentBallRefs.rb.velocity);
+        fPadHandler.Cancel();
     }
 
     public void OnForcepad()
     {
-        print("ON FORCEPAD");
         refs.rb.drag = 0.1f;
         refs.info.moveForceCurrent = 0.1f;
 
         moveMod.HandleForcepad();
+        fPadHandler.Init();
     }
 }
