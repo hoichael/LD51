@@ -12,6 +12,8 @@ public class pl_spritedeform : MonoBehaviour
     [SerializeField] float resetSpeed;
     [SerializeField] float landDeformSpeed;
 
+    [SerializeField] Vector3 fPadDeform;
+
     Vector2 jumpDeformStartScale, landDeformTarget;
 
     bool currentlyResetting, currentlyInLandDeform;
@@ -42,6 +44,12 @@ public class pl_spritedeform : MonoBehaviour
             maxDeformJump,
             currentFactor
             );
+    }
+
+    public void OnForcepadTrigger()
+    {
+        sprTrans.localScale = fPadDeform;
+        currentlyResetting = true;
     }
 
     public void OnJumpTrigger()

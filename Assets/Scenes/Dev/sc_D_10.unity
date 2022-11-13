@@ -2974,6 +2974,51 @@ MonoBehaviour:
   forcePlayer: 58
   forceBall: 60
   dir: {x: 0, y: 1}
+  sprRenderer: {fileID: 1947845418}
+  activationColor: {r: 0.0940174, g: 0.8773585, b: 0, a: 1}
+  colorLerpSpeed: 0.84
+  colorLerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.022662537
+      outSlope: 0.022662537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08509897
+    - serializedVersion: 3
+      time: 0.052486315
+      value: -0.000012269535
+      inSlope: -0.0045668217
+      outSlope: -0.0045668217
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07626547
+      outWeight: 0.51394695
+    - serializedVersion: 3
+      time: 0.059069443
+      value: 0.00566237
+      inSlope: 2.964376
+      outSlope: 2.964376
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.8067322
+      outWeight: 0.033105403
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &877871201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +4957,7 @@ MonoBehaviour:
   refs: {fileID: 1006106123}
   moveMod: {fileID: 1096690391}
   fPadHandler: {fileID: 1096690392}
+  sprDeform: {fileID: 1209139862}
 --- !u!114 &1209139862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4932,6 +4978,7 @@ MonoBehaviour:
   maxDeformLand: {x: 3, y: 0.33, z: 1}
   resetSpeed: 2.9
   landDeformSpeed: 3.8
+  fPadDeform: {x: 0.5, y: 2, z: 1}
 --- !u!1 &1225950644
 GameObject:
   m_ObjectHideFlags: 0

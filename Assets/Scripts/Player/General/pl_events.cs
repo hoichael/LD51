@@ -7,6 +7,7 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_refs refs;
     [SerializeField] pl_move_modify moveMod;
     [SerializeField] pl_fpadforce fPadHandler;
+    [SerializeField] pl_spritedeform sprDeform;
 
     public void OnEnterGround()
     {
@@ -55,5 +56,6 @@ public class pl_events : MonoBehaviour
 
         moveMod.HandleForcepad();
         fPadHandler.Init();
+        sprDeform.OnForcepadTrigger();
     }
 }
