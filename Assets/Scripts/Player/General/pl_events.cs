@@ -8,6 +8,7 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_move_modify moveMod;
     [SerializeField] pl_fpadforce fPadHandler;
     [SerializeField] pl_spritedeform sprDeform;
+    [SerializeField] pl_jump_buffer jumpBufferHandler;
 
     public void OnEnterGround()
     {
@@ -17,6 +18,7 @@ public class pl_events : MonoBehaviour
         refs.info.moveForceCurrent = refs.settings.moveForceGround;
 
         fPadHandler.Cancel();
+        jumpBufferHandler.HandleEnterGround();
     }
 
     public void OnExitGround()
@@ -27,6 +29,8 @@ public class pl_events : MonoBehaviour
         refs.info.grounded = false;
         refs.rb.drag = refs.settings.dragAir;
         refs.info.moveForceCurrent = refs.settings.moveForceAir;
+
+        jumpBufferHandler.HandleExitGround();
     }
 
     public void OnWallJump()

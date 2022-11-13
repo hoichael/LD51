@@ -1189,6 +1189,7 @@ GameObject:
   - component: {fileID: 405097582}
   - component: {fileID: 405097581}
   - component: {fileID: 405097580}
+  - component: {fileID: 405097584}
   m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
@@ -1266,7 +1267,25 @@ MonoBehaviour:
   topcheckTrans: {fileID: 1636237195}
   jumpFlat: {fileID: 405097582}
   jumpSlope: {fileID: 405097581}
+  jumpBuffer: {fileID: 405097584}
   sprDeform: {fileID: 1209139862}
+--- !u!114 &405097584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405097578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9f59c2bc7582f469684671a53f112f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 1006106123}
+  jumpManager: {fileID: 405097583}
+  enterGroundBufferDuration: 0.075
+  exitGroundBufferDuration: 0.095
+  exitGroundBufferActive: 0
 --- !u!1 &491598082
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,6 +4977,7 @@ MonoBehaviour:
   moveMod: {fileID: 1096690391}
   fPadHandler: {fileID: 1096690392}
   sprDeform: {fileID: 1209139862}
+  jumpBufferHandler: {fileID: 405097584}
 --- !u!114 &1209139862
 MonoBehaviour:
   m_ObjectHideFlags: 0

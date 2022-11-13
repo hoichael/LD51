@@ -16,10 +16,11 @@ public class pl_jump_flat : MonoBehaviour
     private void ApplyForceBase()
     {
         // reset y vel before applying jump force for consistent jump
-        if (refs.rb.velocity.y < 0)
-        {
-            refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
-        }
+        refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        //if (refs.rb.velocity.y < 0)
+        //{
+        //    refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        //}
 
         // handle main force
         refs.rb.AddForce(new Vector2(

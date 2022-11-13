@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class pl_jump_manager : MonoBehaviour
@@ -7,6 +8,7 @@ public class pl_jump_manager : MonoBehaviour
 
     [SerializeField] pl_jump_flat jumpFlat;
     [SerializeField] pl_jump_slope jumpSlope;
+    [SerializeField] pl_jump_buffer jumpBuffer;
 
     [SerializeField] pl_spritedeform sprDeform;
 
@@ -31,20 +33,11 @@ public class pl_jump_manager : MonoBehaviour
         }
 
         if (refs.info.recentWalljump) return;
-        
-        if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame() && (refs.info.grounded || ExtendedGroundcheck()))
+
+        //if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame() && (refs.info.grounded || ExtendedGroundcheck()))
+        if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame() && (refs.info.grounded || jumpBuffer.exitGroundBufferActive))
         {
             InitJump();
-
-            if (refs.info.slope == 0)
-            {
-                jumpFlat.enabled = true;
-                sprDeform.OnJumpTrigger();
-            }
-            else
-            {
-                jumpSlope.enabled = true;
-            }
         }
     }
 
@@ -68,13 +61,25 @@ public class pl_jump_manager : MonoBehaviour
         }
     }
 
-    private void InitJump()
+    public void InitJump()
     {
-        refs.rb.drag = refs.settings.dragGround;
+        if (refs.info.jumpUsedThisFrame || jumpActive) return;
         jumpActive = true;
+        StartCoroutine(HandleJumpUsedThisFrame());
+
+        refs.rb.drag = refs.settings.dragGround;
+        refs.info.moveForceCurrent = refs.settings.moveForceGround;
         currentJumpTimer = 0;
 
-        refs.info.jumpUsedThisFrame = true;
+        if (refs.info.slope == 0)
+        {
+            jumpFlat.enabled = true;
+            sprDeform.OnJumpTrigger();
+        }
+        else
+        {
+            jumpSlope.enabled = true;
+        }
     }
 
     private void TerminateJump()
@@ -82,8 +87,6 @@ public class pl_jump_manager : MonoBehaviour
         jumpActive = jumpFlat.enabled = jumpSlope.enabled = false;
         currentJumpTimer = 0;
         refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jumpTermMult);
-
-        refs.info.jumpUsedThisFrame = false; // technically doesnt belong here but it works, and this way I dont have to reset the flag every frame
 
         sprDeform.OnJumpTerminate();
     }
@@ -96,12 +99,19 @@ public class pl_jump_manager : MonoBehaviour
         }
     }
 
-    private bool ExtendedGroundcheck()
+    private IEnumerator HandleJumpUsedThisFrame()
     {
-        if (Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize + new Vector2(0, 0.9f), 0, refs.settings.solidLayer) != null)
-        {
-            return true;
-        }
-        return false;
+        refs.info.jumpUsedThisFrame = true;
+        yield return new WaitForSeconds(0);
+        refs.info.jumpUsedThisFrame = false;
     }
+
+    //private bool ExtendedGroundcheck()
+    //{
+    //    if (Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize + new Vector2(0, 0.9f), 0, refs.settings.solidLayer) != null)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 }
