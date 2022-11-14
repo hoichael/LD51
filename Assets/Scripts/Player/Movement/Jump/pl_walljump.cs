@@ -25,7 +25,7 @@ public class pl_walljump : MonoBehaviour
                     refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
                     ApplyForceBase(wallCheckInt);
                     StartCoroutine(HandleWalljumpFlag());
-                    currentAddForce = refs.settings.wallJumpForceAdd;
+                    currentAddForce = refs.settings.walljump.forceAdd;
                 }
             }
         }
@@ -48,13 +48,13 @@ public class pl_walljump : MonoBehaviour
     private int CheckForWall()
     {
         // check right side for wall
-        if (Physics2D.OverlapBox(refs.bodyTrans.position + refs.settings.wallCheckOffset, refs.settings.wallCheckSize, 0, refs.settings.solidLayer) != null)
+        if (Physics2D.OverlapBox(refs.bodyTrans.position + refs.settings.checks.wallCheckOffset, refs.settings.checks.wallCheckSize, 0, refs.settings.checks.solidLayer) != null)
         {
             return -1;
         }
 
         // check left side for wall
-        if (Physics2D.OverlapBox(refs.bodyTrans.position - refs.settings.wallCheckOffset, refs.settings.wallCheckSize, 0, refs.settings.solidLayer) != null)
+        if (Physics2D.OverlapBox(refs.bodyTrans.position - refs.settings.checks.wallCheckOffset, refs.settings.checks.wallCheckSize, 0, refs.settings.checks.solidLayer) != null)
         {
             return 1;
         }
@@ -67,17 +67,17 @@ public class pl_walljump : MonoBehaviour
         refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
 
         refs.rb.AddForce(
-            new Vector2(refs.settings.wallJumpDir.x * dir, refs.settings.wallJumpDir.y).normalized
-            * refs.settings.wallJumpForce,
+            new Vector2(refs.settings.walljump.dir.x * dir, refs.settings.walljump.dir.y).normalized
+            * refs.settings.walljump.forceBase,
             ForceMode2D.Impulse);
     }
 
     private void ApplyForceAdd()
     {
-        currentAddForce = Vector2.MoveTowards(currentAddForce, Vector2.zero, refs.settings.wallJumpAddResetSpeed * Time.deltaTime);
+        currentAddForce = Vector2.MoveTowards(currentAddForce, Vector2.zero, refs.settings.walljump.addForceResetSpeed * Time.deltaTime);
 
         refs.rb.AddForce(
-            new Vector2(refs.settings.wallJumpDir.x * currentSide, refs.settings.wallJumpDir.y).normalized
+            new Vector2(refs.settings.walljump.dir.x * currentSide, refs.settings.walljump.dir.y).normalized
             * currentAddForce,
             ForceMode2D.Force);
     }

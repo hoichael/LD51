@@ -94,7 +94,7 @@ public class pl_jump_manager : MonoBehaviour
 
     private void HandleTopcheck()
     {
-        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) != null)
+        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.checks.groundCheckSize, 0, refs.settings.checks.solidLayer) != null)
         {
             TerminateJump();
         }

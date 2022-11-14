@@ -28,7 +28,7 @@ public class pl_jump_NEW : MonoBehaviour
                 superJumpCounter = 0;
                 InitJump();
             }
-            else if (enableSuperjump && refs.info.slope == 0 && Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, refs.settings.solidLayer) != null)
+            else if (enableSuperjump && refs.info.slope == 0 && Physics2D.OverlapBox(refs.groundcheckTrans.position, superJumpCheckSize, 0, refs.settings.checks.solidLayer) != null)
             {
                 print("SUPERJUMP");
                 superJumpCounter = Mathf.Clamp(superJumpCounter + 1, 0, maxSuperJumpCount);
@@ -99,7 +99,7 @@ public class pl_jump_NEW : MonoBehaviour
 
     private void HandleTopcheck()
     {
-        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) != null)
+        if (Physics2D.OverlapBox(topcheckTrans.position, refs.settings.checks.groundCheckSize, 0, refs.settings.checks.solidLayer) != null)
         {
             TerminateJump();
         }

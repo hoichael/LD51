@@ -3677,13 +3677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <move>k__BackingField: {fileID: 11400000, guid: 49f23f3bb73b78c418f2f08752f3b775, type: 2}
   <jump>k__BackingField: {fileID: 11400000, guid: b0bae59b6df22024c83122c642ba27f0, type: 2}
-  wallCheckOffset: {x: 0.875, y: 0, z: 0}
-  wallCheckSize: {x: 0.76, y: 1.9}
-  wallJumpDir: {x: 1, y: 1}
-  wallJumpForce: {x: 36, y: 64}
-  wallJumpForceAdd: {x: 52, y: 103}
-  wallJumpAddResetSpeed: 76
-  dragWalljump: 2.2
+  <walljump>k__BackingField: {fileID: 11400000, guid: 5163e3227bc903b42abbfd6fafdd5868, type: 2}
   gravBase: 116
   gravAdd: 111
   gravMax: 224
@@ -3695,11 +3689,7 @@ MonoBehaviour:
   xHairSens: 20
   throwIndicatorLength: 0
   throwIndicatorOffset: 0
-  solidLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  groundcheckSize: {x: 1.75, y: 0.2}
-  slopeCheckLength: 4
+  <checks>k__BackingField: {fileID: 11400000, guid: 77a2c7860d281ab46982a070fa90ec16, type: 2}
 --- !u!1 &1049847355
 GameObject:
   m_ObjectHideFlags: 0

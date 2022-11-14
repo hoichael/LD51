@@ -16,10 +16,10 @@ public class pl_slopecheck : MonoBehaviour
         // 2 raycasts, slightly offset from center X of player
         RaycastHit2D hitA = Physics2D.Raycast(
             new Vector2(refs.groundcheckTrans.position.x - 0.35f, refs.groundcheckTrans.position.y + 0.25f), 
-            Vector2.down, refs.settings.slopeCheckLength, refs.settings.solidLayer);
+            Vector2.down, refs.settings.checks.slopeCheckLength, refs.settings.checks.solidLayer);
         RaycastHit2D hitB = Physics2D.Raycast(
             new Vector2(refs.groundcheckTrans.position.x - 0.35f, refs.groundcheckTrans.position.y + 0.25f),
-            Vector2.down, refs.settings.slopeCheckLength, refs.settings.solidLayer);
+            Vector2.down, refs.settings.checks.slopeCheckLength, refs.settings.checks.solidLayer);
 
         // handle raycast results
         EvaluateHit(hitA, hitB);

@@ -20,14 +20,15 @@ public class pl_settings : MonoBehaviour
     //public float slopeJumpForceAdd;
     [field: SerializeField, Header("Jump")] public SO_pl_settings_jump jump { get; private set; }
 
-    [Header("Wall Jump")]
-    public Vector3 wallCheckOffset;
-    public Vector2 wallCheckSize;
-    public Vector2 wallJumpDir;
-    public Vector2 wallJumpForce;
-    public Vector2 wallJumpForceAdd;
-    public float wallJumpAddResetSpeed;
-    public float dragWalljump;
+    //[Header("Wall Jump")]
+    //public Vector3 wallCheckOffset;
+    //public Vector2 wallCheckSize;
+    //public Vector2 wallJumpDir;
+    //public Vector2 wallJumpForce;
+    //public Vector2 wallJumpForceAdd;
+    //public float wallJumpAddResetSpeed;
+    //public float dragWalljump;
+    [field: SerializeField, Header("Walljump")] public SO_pl_settings_walljump walljump { get; private set; }
 
     [Header("Gravity")]
     public float gravBase;
@@ -44,8 +45,9 @@ public class pl_settings : MonoBehaviour
     public float throwIndicatorLength;
     public float throwIndicatorOffset;
 
-    [Header("Checks")]
-    public LayerMask solidLayer;
-    public Vector2 groundcheckSize;
-    public float slopeCheckLength;
+    //[Header("Checks")]
+    //public LayerMask solidLayer;
+    //public Vector2 groundcheckSize;
+    //public float slopeCheckLength;
+    [field: SerializeField, Header("Checks")] public SO_pl_settings_checks checks { get; private set; }
 }

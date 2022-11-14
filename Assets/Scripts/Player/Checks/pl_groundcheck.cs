@@ -16,7 +16,7 @@ public class pl_groundcheck : MonoBehaviour
     private void CheckForGround()
     {
         // inefficient but fine for now
-        if(Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.groundcheckSize, 0, refs.settings.solidLayer) == null)
+        if(Physics2D.OverlapBox(refs.groundcheckTrans.position, refs.settings.checks.groundCheckSize, 0, refs.settings.checks.solidLayer) == null)
         {
             if(refs.info.grounded)
             {

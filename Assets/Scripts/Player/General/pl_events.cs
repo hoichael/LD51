@@ -37,7 +37,7 @@ public class pl_events : MonoBehaviour
 
     public void OnWallJump()
     {
-        refs.rb.drag = refs.settings.dragWalljump;
+        refs.rb.drag = refs.settings.walljump.drag;
         refs.info.moveForceCurrent = refs.settings.move.forceAir;
         refs.gravity.gravCurrent = refs.settings.gravBaseWallJump;
         refs.info.moveForceCurrent = 20f;
