@@ -39,7 +39,7 @@ public class pl_events : MonoBehaviour
     {
         refs.rb.drag = refs.settings.walljump.drag;
         refs.info.moveForceCurrent = refs.settings.move.forceAir;
-        refs.gravity.gravCurrent = refs.settings.gravBaseWallJump;
+        refs.gravity.gravCurrent = refs.settings.walljump.grav;
         refs.info.moveForceCurrent = 20f;
 
         moveMod.HandleWalljump();

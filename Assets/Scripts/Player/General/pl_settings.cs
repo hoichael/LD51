@@ -30,11 +30,12 @@ public class pl_settings : MonoBehaviour
     //public float dragWalljump;
     [field: SerializeField, Header("Walljump")] public SO_pl_settings_walljump walljump { get; private set; }
 
-    [Header("Gravity")]
-    public float gravBase;
-    public float gravAdd;
-    public float gravMax;
-    public float gravBaseWallJump;
+    //[Header("Gravity")]
+    //public float gravBase;
+    //public float gravAdd;
+    //public float gravMax;
+    ////public float gravBaseWallJump;
+    [field: SerializeField, Header("Gravity")] public SO_pl_settings_gravity gravity { get; private set; }
 
     [Header("Throw")]
     public float throwForceBase;

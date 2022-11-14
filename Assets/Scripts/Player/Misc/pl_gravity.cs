@@ -8,7 +8,7 @@ public class pl_gravity : MonoBehaviour
 
     private void OnEnable()
     {
-        gravCurrent = refs.settings.gravBase;
+        gravCurrent = refs.settings.gravity.forceBase;
     }
 
     private void FixedUpdate()

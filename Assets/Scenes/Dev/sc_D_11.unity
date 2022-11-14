@@ -3678,10 +3678,7 @@ MonoBehaviour:
   <move>k__BackingField: {fileID: 11400000, guid: 49f23f3bb73b78c418f2f08752f3b775, type: 2}
   <jump>k__BackingField: {fileID: 11400000, guid: b0bae59b6df22024c83122c642ba27f0, type: 2}
   <walljump>k__BackingField: {fileID: 11400000, guid: 5163e3227bc903b42abbfd6fafdd5868, type: 2}
-  gravBase: 116
-  gravAdd: 111
-  gravMax: 224
-  gravBaseWallJump: 160
+  <gravity>k__BackingField: {fileID: 11400000, guid: a72cf72496b6b46419f472314b14ffc7, type: 2}
   throwForceBase: 12
   throwForceAdd: 48
   throwForceMax: 64

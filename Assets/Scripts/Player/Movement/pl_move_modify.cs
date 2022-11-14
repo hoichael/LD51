@@ -22,7 +22,7 @@ public class pl_move_modify : MonoBehaviour
             modFactorMove = 0;
         }
 
-        refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravBase) * 2, 70, 125);
+        refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravity.forceBase) * 2, 70, 125);
     }
 
     public void HandleWalljump()
@@ -35,8 +35,8 @@ public class pl_move_modify : MonoBehaviour
 
     public void HandleExitGround()
     {
-        refs.gravity.gravCurrent = refs.settings.gravBase;
-        modFactorGrav = refs.settings.gravAdd;
+        refs.gravity.gravCurrent = refs.settings.gravity.forceBase;
+        modFactorGrav = refs.settings.gravity.forceAdd;
     }
 
     public void HandleForcepad()
@@ -60,7 +60,7 @@ public class pl_move_modify : MonoBehaviour
     private void ModifyGravity()
     {
         //grav.gravCurrent = Mathf.Clamp(grav.gravCurrent + refs.settings.gravAdd * Time.deltaTime, 0, refs.settings.gravMax);
-        refs.gravity.gravCurrent = Mathf.MoveTowards(refs.gravity.gravCurrent, refs.settings.gravMax, modFactorGrav * Time.deltaTime);
+        refs.gravity.gravCurrent = Mathf.MoveTowards(refs.gravity.gravCurrent, refs.settings.gravity.forceMax, modFactorGrav * Time.deltaTime);
     }
 
     private void ModifyDrag()

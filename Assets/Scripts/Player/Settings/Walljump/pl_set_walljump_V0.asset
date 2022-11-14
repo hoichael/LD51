@@ -17,3 +17,4 @@ MonoBehaviour:
   <forceAdd>k__BackingField: {x: 52, y: 103}
   <addForceResetSpeed>k__BackingField: 76
   <drag>k__BackingField: 2.2
+  <grav>k__BackingField: 160
