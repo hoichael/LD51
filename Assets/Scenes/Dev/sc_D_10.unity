@@ -1225,6 +1225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
+  currentAddForce: {x: 0, y: 0}
 --- !u!114 &405097581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,12 +3691,14 @@ MonoBehaviour:
   wallCheckOffset: {x: 0.875, y: 0, z: 0}
   wallCheckSize: {x: 0.76, y: 1.9}
   wallJumpDir: {x: 1, y: 1}
-  wallJumpForce: {x: 39, y: 63.5}
-  dragWalljump: 1.95
+  wallJumpForce: {x: 36, y: 64}
+  wallJumpForceAdd: {x: 52, y: 103}
+  wallJumpAddResetSpeed: 76
+  dragWalljump: 2.2
   gravBase: 116
   gravAdd: 111
   gravMax: 224
-  gravBaseWallJump: 76
+  gravBaseWallJump: 160
   throwForceBase: 12
   throwForceAdd: 48
   throwForceMax: 64
@@ -3707,7 +3710,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundcheckSize: {x: 1.75, y: 0.2}
-  slopeCheckLength: 2
+  slopeCheckLength: 4
 --- !u!1 &1049847355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,7 +4234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 1006106123}
-  grav: {fileID: 1096690383}
 --- !u!114 &1096690392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4978,6 +4980,7 @@ MonoBehaviour:
   fPadHandler: {fileID: 1096690392}
   sprDeform: {fileID: 1209139862}
   jumpBufferHandler: {fileID: 405097584}
+  wallJump: {fileID: 405097580}
 --- !u!114 &1209139862
 MonoBehaviour:
   m_ObjectHideFlags: 0

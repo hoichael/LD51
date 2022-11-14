@@ -5,7 +5,6 @@ using UnityEngine;
 public class pl_move_modify : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    [SerializeField] pl_gravity grav;
 
     float modFactorGrav, modFactorDrag, modFactorMove;
 
@@ -23,19 +22,20 @@ public class pl_move_modify : MonoBehaviour
             modFactorMove = 0;
         }
 
-        grav.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravBase) * 2, 70, 125);
+        refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravBase) * 2, 70, 125);
     }
 
     public void HandleWalljump()
     {
-        grav.gravCurrent = refs.settings.gravBaseWallJump;
-        modFactorGrav = refs.settings.gravAdd * 1.7f;
-        modFactorDrag = 2.4f;
+        //grav.gravCurrent = refs.settings.gravBaseWallJump;
+        //modFactorGrav = refs.settings.gravAdd * 1.7f;
+        modFactorDrag = 2f;
+        modFactorMove = 94f;
     }
 
     public void HandleExitGround()
     {
-        grav.gravCurrent = refs.settings.gravBase;
+        refs.gravity.gravCurrent = refs.settings.gravBase;
         modFactorGrav = refs.settings.gravAdd;
     }
 
@@ -60,7 +60,7 @@ public class pl_move_modify : MonoBehaviour
     private void ModifyGravity()
     {
         //grav.gravCurrent = Mathf.Clamp(grav.gravCurrent + refs.settings.gravAdd * Time.deltaTime, 0, refs.settings.gravMax);
-        grav.gravCurrent = Mathf.MoveTowards(grav.gravCurrent, refs.settings.gravMax, modFactorGrav * Time.deltaTime);
+        refs.gravity.gravCurrent = Mathf.MoveTowards(refs.gravity.gravCurrent, refs.settings.gravMax, modFactorGrav * Time.deltaTime);
     }
 
     private void ModifyDrag()

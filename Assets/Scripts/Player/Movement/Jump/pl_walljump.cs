@@ -5,24 +5,42 @@ public class pl_walljump : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     //[SerializeField] pl_gravity grav;
+    int currentSide;
+    // public for db
+    public Vector2 currentAddForce;
 
     private void Update()
     {
-        if(!refs.info.grounded && !refs.info.jumpUsedThisFrame)
+        if (!refs.info.grounded && !refs.info.jumpUsedThisFrame)
         {
             //if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
-            if(refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
+            if (refs_global.Instance.ip.I.Play.Jump.WasPressedThisFrame())
             {
                 int wallCheckInt = CheckForWall();
                 if (wallCheckInt != 0)
                 {
                     refs.events.OnWallJump();
 
+                    currentSide = wallCheckInt;
                     refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
-                    ApplyForce(wallCheckInt);
+                    ApplyForceBase(wallCheckInt);
                     StartCoroutine(HandleWalljumpFlag());
+                    currentAddForce = refs.settings.wallJumpForceAdd;
                 }
             }
+        }
+    }
+
+    public void Cancel()
+    {
+        currentAddForce = Vector2.zero;
+    }
+
+    private void FixedUpdate()
+    {
+        if(currentAddForce != Vector2.zero)
+        {
+            ApplyForceAdd();
         }
     }
 
@@ -44,7 +62,7 @@ public class pl_walljump : MonoBehaviour
         return 0;
     }
 
-    private void ApplyForce(int dir)
+    private void ApplyForceBase(int dir)
     {
         refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
 
@@ -52,6 +70,16 @@ public class pl_walljump : MonoBehaviour
             new Vector2(refs.settings.wallJumpDir.x * dir, refs.settings.wallJumpDir.y).normalized
             * refs.settings.wallJumpForce,
             ForceMode2D.Impulse);
+    }
+
+    private void ApplyForceAdd()
+    {
+        currentAddForce = Vector2.MoveTowards(currentAddForce, Vector2.zero, refs.settings.wallJumpAddResetSpeed * Time.deltaTime);
+
+        refs.rb.AddForce(
+            new Vector2(refs.settings.wallJumpDir.x * currentSide, refs.settings.wallJumpDir.y).normalized
+            * currentAddForce,
+            ForceMode2D.Force);
     }
 
     private IEnumerator HandleWalljumpFlag()
