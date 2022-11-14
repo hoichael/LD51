@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class pl_settings : MonoBehaviour
 {
-    [Header("Movement")]
-    public float moveForceGround;
-    public float moveForceAir;
-    public float dragGround, dragAir;
-    public float groundVelResetFactor;
-    public float moveForceTurnGround;
-    public float moveForceTurnAir;
+    //[Header("Movement")]
+    //public float moveForceGround;
+    //public float moveForceAir;
+    //public float dragGround, dragAir;
+    //public float groundVelResetFactor;
+    //public float moveForceTurnGround;
+    //public float moveForceTurnAir;
+    [field: SerializeField, Header("Movement")] public SO_pl_settings_move move { get; private set; }
 
     [Header("Jump")]
     public float jumpForceBase;

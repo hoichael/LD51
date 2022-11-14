@@ -67,8 +67,8 @@ public class pl_jump_manager : MonoBehaviour
         jumpActive = true;
         StartCoroutine(HandleJumpUsedThisFrame());
 
-        refs.rb.drag = refs.settings.dragGround;
-        refs.info.moveForceCurrent = refs.settings.moveForceGround;
+        refs.rb.drag = refs.settings.move.dragGround;
+        refs.info.moveForceCurrent = refs.settings.move.forceAir;
         currentJumpTimer = 0;
 
         if (refs.info.slope == 0)

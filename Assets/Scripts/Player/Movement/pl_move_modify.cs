@@ -18,7 +18,7 @@ public class pl_move_modify : MonoBehaviour
 
         if (Mathf.Abs(ballVel.x) < 1)
         {
-            refs.info.moveForceCurrent = refs.settings.moveForceAir;
+            refs.info.moveForceCurrent = refs.settings.move.forceAir;
             modFactorMove = 0;
         }
 
@@ -65,12 +65,12 @@ public class pl_move_modify : MonoBehaviour
 
     private void ModifyDrag()
     {
-        refs.rb.drag = Mathf.MoveTowards(refs.rb.drag, refs.settings.dragAir, modFactorDrag * Time.deltaTime);
+        refs.rb.drag = Mathf.MoveTowards(refs.rb.drag, refs.settings.move.dragAir, modFactorDrag * Time.deltaTime);
     }
 
     private void ModifyMovespeed()
     {
         if (modFactorMove == 0) return;
-        refs.info.moveForceCurrent = Mathf.MoveTowards(refs.info.moveForceCurrent, refs.settings.moveForceAir, modFactorMove * Time.deltaTime);
+        refs.info.moveForceCurrent = Mathf.MoveTowards(refs.info.moveForceCurrent, refs.settings.move.forceAir, modFactorMove * Time.deltaTime);
     }
 }

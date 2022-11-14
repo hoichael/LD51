@@ -59,7 +59,7 @@ public class pl_jump_NEW : MonoBehaviour
     private void InitJump()
     {
         //refs.info.grounded = false; // hmmmmmm
-        refs.rb.drag = refs.settings.dragGround;
+        refs.rb.drag = refs.settings.move.dragGround;
         ApplyForceBase();
         jumpActive = true;
         currentJumpTimer = 0;

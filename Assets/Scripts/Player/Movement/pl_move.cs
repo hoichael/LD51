@@ -57,7 +57,7 @@ public class pl_move : MonoBehaviour
 
     private void LowerVelocity()
     {
-        float newVelX = Mathf.MoveTowards(refs.rb.velocity.x, 0, refs.settings.groundVelResetFactor * Time.fixedDeltaTime);
+        float newVelX = Mathf.MoveTowards(refs.rb.velocity.x, 0, refs.settings.move.groundVelResetFactor * Time.fixedDeltaTime);
         refs.rb.velocity = new Vector2(newVelX, refs.rb.velocity.y);
     }
 
@@ -70,7 +70,7 @@ public class pl_move : MonoBehaviour
         if (refs.info.recentWalljump) return; // if just performed walljump, return
         if (Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))
         {
-            float counterForce = refs.info.grounded ? refs.settings.moveForceTurnGround : refs.settings.moveForceTurnAir;
+            float counterForce = refs.info.grounded ? refs.settings.move.turnForceGround : refs.settings.move.turnForceAir;
             refs.rb.AddForce(Vector2.right * counterForce  * currentInput, ForceMode2D.Force);
         }
     }

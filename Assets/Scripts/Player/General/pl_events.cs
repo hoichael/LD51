@@ -15,8 +15,8 @@ public class pl_events : MonoBehaviour
     {
         refs.gravity.enabled = false;
         refs.info.grounded = true;
-        refs.rb.drag = refs.settings.dragGround;
-        refs.info.moveForceCurrent = refs.settings.moveForceGround;
+        refs.rb.drag = refs.settings.move.dragGround;
+        refs.info.moveForceCurrent = refs.settings.move.forceGround;
 
         fPadHandler.Cancel();
         wallJump.Cancel();
@@ -29,8 +29,8 @@ public class pl_events : MonoBehaviour
 
         refs.gravity.enabled = true;
         refs.info.grounded = false;
-        refs.rb.drag = refs.settings.dragAir;
-        refs.info.moveForceCurrent = refs.settings.moveForceAir;
+        refs.rb.drag = refs.settings.move.dragAir;
+        refs.info.moveForceCurrent = refs.settings.move.forceAir;
 
         jumpBufferHandler.HandleExitGround();
     }
@@ -38,7 +38,7 @@ public class pl_events : MonoBehaviour
     public void OnWallJump()
     {
         refs.rb.drag = refs.settings.dragWalljump;
-        refs.info.moveForceCurrent = refs.settings.moveForceAir;
+        refs.info.moveForceCurrent = refs.settings.move.forceAir;
         refs.gravity.gravCurrent = refs.settings.gravBaseWallJump;
         refs.info.moveForceCurrent = 20f;
 
