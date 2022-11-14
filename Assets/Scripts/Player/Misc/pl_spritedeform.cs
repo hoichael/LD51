@@ -37,7 +37,7 @@ public class pl_spritedeform : MonoBehaviour
     {
         if (!deformOnJump) return;
 
-        currentFactor = 0.18f + (currentJumpTimer / refs.settings.jumpAddDuration);
+        currentFactor = 0.18f + (currentJumpTimer / refs.settings.jump.addDuration);
 
         sprTrans.localScale = Vector3.Lerp(
             jumpDeformStartScale,

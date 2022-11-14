@@ -45,11 +45,11 @@ public class pl_jump_slope : MonoBehaviour
         //}
 
         // handle main force
-        refs.rb.AddForce(jumpDir * refs.settings.slopeJumpForceBase, ForceMode2D.Impulse);
+        refs.rb.AddForce(jumpDir * refs.settings.jump.slopeForceBase, ForceMode2D.Impulse);
     }
 
     private void ApplyForceAdd()
     {
-        refs.rb.AddForce(jumpDir * refs.settings.slopeJumpForceAdd, ForceMode2D.Force);
+        refs.rb.AddForce(jumpDir * refs.settings.jump.slopeForceAdd, ForceMode2D.Force);
     }
 }

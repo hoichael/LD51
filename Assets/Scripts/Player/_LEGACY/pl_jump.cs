@@ -44,7 +44,7 @@ public class pl_jump : MonoBehaviour
     {
         if (!jumpActive) return;
 
-        if((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jumpAddDuration)
+        if((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jump.addDuration)
         {
             TerminateJump();
         }
@@ -68,7 +68,7 @@ public class pl_jump : MonoBehaviour
     {
         jumpActive = false;
         currentJumpTimer = 0;
-        refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jumpTermMult);
+        refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jump.termMult);
     }
 
     private void ApplyForceBase()
@@ -78,7 +78,7 @@ public class pl_jump : MonoBehaviour
 
         refs.rb.AddForce(new Vector2(
             refs.rb.velocity.x * 0.05f,
-            refs.settings.jumpForceBase
+            refs.settings.jump.forceBase
             ),
             ForceMode2D.Impulse);
     }
@@ -95,7 +95,7 @@ public class pl_jump : MonoBehaviour
     {
         refs.rb.AddForce(new Vector2(
             refs.rb.velocity.x * 0.02f,
-            refs.settings.jumpForceAdd
+            refs.settings.jump.forceAdd
             ),
             ForceMode2D.Impulse);
     }

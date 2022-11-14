@@ -3676,12 +3676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <move>k__BackingField: {fileID: 11400000, guid: 49f23f3bb73b78c418f2f08752f3b775, type: 2}
-  jumpForceBase: 38
-  jumpForceAdd: 118
-  jumpAddDuration: 0.34
-  jumpTermMult: 0.8
-  slopeJumpForceBase: 44
-  slopeJumpForceAdd: 72
+  <jump>k__BackingField: {fileID: 11400000, guid: b0bae59b6df22024c83122c642ba27f0, type: 2}
   wallCheckOffset: {x: 0.875, y: 0, z: 0}
   wallCheckSize: {x: 0.76, y: 1.9}
   wallJumpDir: {x: 1, y: 1}

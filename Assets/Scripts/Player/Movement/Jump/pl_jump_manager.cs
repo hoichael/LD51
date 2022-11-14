@@ -45,7 +45,7 @@ public class pl_jump_manager : MonoBehaviour
     {
         if (!jumpActive) return;
 
-        if ((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jumpAddDuration)
+        if ((currentJumpTimer += Time.fixedDeltaTime) > refs.settings.jump.addDuration)
         {
             TerminateJump();
             return;
@@ -68,7 +68,8 @@ public class pl_jump_manager : MonoBehaviour
         StartCoroutine(HandleJumpUsedThisFrame());
 
         refs.rb.drag = refs.settings.move.dragGround;
-        refs.info.moveForceCurrent = refs.settings.move.forceAir;
+        refs.info.moveForceCurrent = refs.settings.move.forceGround;
+
         currentJumpTimer = 0;
 
         if (refs.info.slope == 0)
@@ -86,7 +87,7 @@ public class pl_jump_manager : MonoBehaviour
     {
         jumpActive = jumpFlat.enabled = jumpSlope.enabled = false;
         currentJumpTimer = 0;
-        refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jumpTermMult);
+        refs.rb.velocity = new Vector2(refs.rb.velocity.x, refs.rb.velocity.y * refs.settings.jump.termMult);
 
         sprDeform.OnJumpTerminate();
     }

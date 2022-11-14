@@ -11,13 +11,14 @@ public class pl_settings : MonoBehaviour
     //public float moveForceTurnAir;
     [field: SerializeField, Header("Movement")] public SO_pl_settings_move move { get; private set; }
 
-    [Header("Jump")]
-    public float jumpForceBase;
-    public float jumpForceAdd;
-    public float jumpAddDuration;
-    public float jumpTermMult; // mult with y vel when jump terminated. needs to be between 0 and 1
-    public float slopeJumpForceBase;
-    public float slopeJumpForceAdd;
+    //[Header("Jump")]
+    //public float jumpForceBase;
+    //public float jumpForceAdd;
+    //public float jumpAddDuration;
+    //public float jumpTermMult; // mult with y vel when jump terminated. needs to be between 0 and 1
+    //public float slopeJumpForceBase;
+    //public float slopeJumpForceAdd;
+    [field: SerializeField, Header("Jump")] public SO_pl_settings_jump jump { get; private set; }
 
     [Header("Wall Jump")]
     public Vector3 wallCheckOffset;
