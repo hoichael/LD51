@@ -33,7 +33,7 @@ public class pl_throw_indicator : MonoBehaviour
     {
         Vector2 newPosClamped;
         newPosClamped = (Vector2)xHairTrans.localPosition + (dir.normalized * 10);
-        newPosClamped = Vector2.ClampMagnitude(newPosClamped, refs.settings.xHairClamp);
+        newPosClamped = Vector2.ClampMagnitude(newPosClamped, refs.settings.ballThrow.xHairOffset);
 
         xHairTrans.localPosition = newPosClamped;
     }
@@ -51,7 +51,7 @@ public class pl_throw_indicator : MonoBehaviour
 
     private void ScaleIndicatorCharge(float currentCharge)
     {
-        float currentLerpFactor = currentCharge / refs.settings.throwForceMax;
+        float currentLerpFactor = currentCharge / refs.settings.ballThrow.forceMax;
 
         float newScaleX = Mathf.Lerp(
             0,

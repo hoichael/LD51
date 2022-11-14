@@ -37,14 +37,15 @@ public class pl_settings : MonoBehaviour
     ////public float gravBaseWallJump;
     [field: SerializeField, Header("Gravity")] public SO_pl_settings_gravity gravity { get; private set; }
 
-    [Header("Throw")]
-    public float throwForceBase;
-    public float throwForceAdd;
-    public float throwForceMax;
-    public float xHairClamp;
-    public float xHairSens;
-    public float throwIndicatorLength;
-    public float throwIndicatorOffset;
+    //[Header("Throw")]
+    //public float throwForceBase;
+    //public float throwForceAdd;
+    //public float throwForceMax;
+    //public float xHairClamp;
+    //public float xHairSens;
+    //public float throwIndicatorLength;
+    //public float throwIndicatorOffset;
+    [field: SerializeField, Header("Throw")] public SO_pl_settings_throw ballThrow { get; private set; }
 
     //[Header("Checks")]
     //public LayerMask solidLayer;

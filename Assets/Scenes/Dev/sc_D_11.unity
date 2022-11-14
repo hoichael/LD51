@@ -3679,13 +3679,7 @@ MonoBehaviour:
   <jump>k__BackingField: {fileID: 11400000, guid: b0bae59b6df22024c83122c642ba27f0, type: 2}
   <walljump>k__BackingField: {fileID: 11400000, guid: 5163e3227bc903b42abbfd6fafdd5868, type: 2}
   <gravity>k__BackingField: {fileID: 11400000, guid: a72cf72496b6b46419f472314b14ffc7, type: 2}
-  throwForceBase: 12
-  throwForceAdd: 48
-  throwForceMax: 64
-  xHairClamp: 7
-  xHairSens: 20
-  throwIndicatorLength: 0
-  throwIndicatorOffset: 0
+  <ballThrow>k__BackingField: {fileID: 11400000, guid: 8df2c922d6c5b97429ed5cf00c5afe9a, type: 2}
   <checks>k__BackingField: {fileID: 11400000, guid: 77a2c7860d281ab46982a070fa90ec16, type: 2}
 --- !u!1 &1049847355
 GameObject:
