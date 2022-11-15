@@ -643,6 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldInfoList:
   - {fileID: 11400000, guid: a4e466e145ae3da49a047d82e5ef2f3b, type: 2}
+  - {fileID: 11400000, guid: b8862b67e6d9560459dc904dcd19eebf, type: 2}
   bootstrapper: {fileID: 298518456}
   navigator: {fileID: 298518458}
   thumbnailRenderer: {fileID: 996940918}
