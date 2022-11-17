@@ -20,6 +20,7 @@ public class lv_completed : MonoBehaviour
 
     private void Awake()
     {
+        containerHiddenPos = uiContainer.localPosition;
         Reset();
     }
 
