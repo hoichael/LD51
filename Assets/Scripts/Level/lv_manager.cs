@@ -74,6 +74,7 @@ public class lv_manager : MonoBehaviour
 
         if (refs_global.Instance.currentBallRefs != null)
         {
+            refs_global.Instance.currentBallRefs.rb.gravityScale = 0;
             pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, false);
         }
         refs_global.Instance.currentBallRefs = null;

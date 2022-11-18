@@ -24,6 +24,7 @@ public class pl_throw_teleport : MonoBehaviour
 
         // dispose of ball
         //Destroy(refs_global.Instance.currentBallRefs.trans.gameObject);
+        refs_global.Instance.currentBallRefs.rb.gravityScale = 0;
         pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, false);
         refs_global.Instance.currentBallRefs = null;
     }

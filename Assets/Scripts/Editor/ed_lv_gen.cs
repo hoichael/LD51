@@ -54,6 +54,8 @@ public class ed_lv_gen : EditorWindow
 
         solidLayer = LayerMask.NameToLayer("Solid");
 
+        ClearContainer();
+
         foreach (Transform sub in colContainerTrans)
         {
             sub.gameObject.layer = solidLayer; // has technically nothing to do with the primary function of this script but handling this here is too convenient not to do it
@@ -129,9 +131,15 @@ public class ed_lv_gen : EditorWindow
 
     private void ClearContainer()
     {
+        int counter = 0;
         foreach (Transform sub in genContainerTrans)
         {
+            counter++;
             DestroyImmediate(sub.gameObject);
         }
+
+        // i do this fuckery due to the foreach above being inconsistent and almost never catching all children in a single iteration. no idea why.
+        // current method potentially causes 1 unnecessary iteration. I don't care.
+        if (counter != 0) ClearContainer();
     }
 }
