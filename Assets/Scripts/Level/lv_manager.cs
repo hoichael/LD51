@@ -103,9 +103,20 @@ public class lv_manager : MonoBehaviour
         //    newBall.transform.SetParent(newBallsContainer.transform);
         //}
 
-        for (int i = 0; i < levelInfoList[idx].ballSpawnPosArr.Length; i++)
+        // temp solution to provide legacy level support by also handling ballSpawnPosArr
+        if(levelInfoList[idx].ballSpawnPosArr.Length != 0) // if-check so that accidental mix of legacy/new data format doesnt manifest in level
         {
-            pool.Dispatch(lv_pool.PoolType.Ball, levelInfoList[idx].ballSpawnPosArr[i]);
+            for (int i = 0; i < levelInfoList[idx].ballSpawnPosArr.Length; i++)
+            {
+                pool.Dispatch(lv_pool.PoolType.Ball, levelInfoList[idx].ballSpawnPosArr[i]);
+            }
+        }
+        else
+        {
+            foreach (Transform sub in levelInfoList[idx].ballPosObjContainer)
+            {
+                pool.Dispatch(lv_pool.PoolType.Ball, levelInfoList[idx].ballPosObjContainer.transform.position);
+            }
         }
 
 

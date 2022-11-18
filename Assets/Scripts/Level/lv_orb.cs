@@ -23,4 +23,10 @@ public class lv_orb : lv_colhandler_base
         activeContainer.gameObject.SetActive(false);
         manager.HandleCollect();
     }
+
+    // called from ed_lv_gen
+    public void SetManager(lv_orb_manager mng)
+    {
+        manager = mng;
+    }
 }

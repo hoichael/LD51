@@ -7,6 +7,7 @@ public class ed_lv_gen : EditorWindow
     Transform colOrbsContainerTrans; // transform containing children with 2D collision boxes for ORBS (output of tiled tmx importer)
     Transform genMeshContainerTrans; // transform to serve as container for generated meshes
     Transform genOrbsContainerTrans; // transform to serve as container for generated orbs
+    lv_orb_manager orbManagerInstance;
     Material mat; // material to be applied to generated meshes
     GameObject orbPrefab;
     int solidLayer; // caching this for performance. assigned in Init()
@@ -46,6 +47,10 @@ public class ed_lv_gen : EditorWindow
 
         orbPrefab = EditorGUILayout.ObjectField("Orb Prefab", orbPrefab, typeof(GameObject), true) as GameObject;
 
+        GUILayout.Space(4);
+
+        orbManagerInstance = EditorGUILayout.ObjectField("Orb Manager Instance", orbManagerInstance, typeof(lv_orb_manager), true) as lv_orb_manager;
+
         GUILayout.Space(12);
 
         if (GUILayout.Button("Execute"))
@@ -63,18 +68,27 @@ public class ed_lv_gen : EditorWindow
 
     private void Init()
     {
-        if(colSolidContainerTrans == null || genMeshContainerTrans == null || genOrbsContainerTrans == null)
-        {
-            Debug.Log("nullllllllllllllllllllll1111");
-            return;
-        }
-
         solidLayer = LayerMask.NameToLayer("Solid");
 
         ClearContainers();
 
-        HandleMeshes();
-        HandleOrbs();
+        if (colSolidContainerTrans == null || genMeshContainerTrans == null || mat == null)
+        {
+            Debug.Log("nullllllllllllllllllllll1111");
+        }
+        else
+        {
+            HandleMeshes();
+        }
+
+        if (colOrbsContainerTrans == null || genOrbsContainerTrans == null || orbPrefab == null || orbManagerInstance == null)
+        {
+            Debug.Log("nullllllllllllllllllllll1111");
+        }
+        else
+        {
+            HandleOrbs();
+        }
     }
 
     private void HandleMeshes()
@@ -101,7 +115,8 @@ public class ed_lv_gen : EditorWindow
         foreach (Transform sub in colOrbsContainerTrans)
         {
             GameObject newOrbObject = Instantiate(orbPrefab, genOrbsContainerTrans);
-            newOrbObject.transform.position = sub.transform.position;
+            newOrbObject.transform.position = sub.transform.position + new Vector3(sub.GetComponent<BoxCollider2D>().offset.x, sub.GetComponent<BoxCollider2D>().offset.y, 0);
+            newOrbObject.GetComponent<lv_orb>().SetManager(orbManagerInstance); // could handle the whole orb thing more efficiently but performance doesnt matter bc editor script
         }
     }
 
