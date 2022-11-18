@@ -115,7 +115,7 @@ public class lv_manager : MonoBehaviour
         {
             foreach (Transform sub in levelInfoList[idx].ballPosObjContainer)
             {
-                pool.Dispatch(lv_pool.PoolType.Ball, levelInfoList[idx].ballPosObjContainer.transform.position);
+                pool.Dispatch(lv_pool.PoolType.Ball, sub.transform.position);
             }
         }
 

@@ -74,7 +74,7 @@ public class ed_lv_gen : EditorWindow
 
         if (colSolidContainerTrans == null || genMeshContainerTrans == null || mat == null)
         {
-            Debug.Log("nullllllllllllllllllllll1111");
+            Debug.Log("nullllllllllllllllllllll1111 solid");
         }
         else
         {
@@ -83,7 +83,7 @@ public class ed_lv_gen : EditorWindow
 
         if (colOrbsContainerTrans == null || genOrbsContainerTrans == null || orbPrefab == null || orbManagerInstance == null)
         {
-            Debug.Log("nullllllllllllllllllllll1111");
+            Debug.Log("nullllllllllllllllllllll1111 orbs");
         }
         else
         {
