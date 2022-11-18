@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="5" nextobjectid="82">
+ <tileset firstgid="1" source="../../../Sprites/Tiles/DEV/flat/T_spr_nv_flat_0.tsx"/>
+ <objectgroup id="3" name="C_Solid">
+  <object id="8" x="0" y="0" width="152" height="576"/>
+  <object id="10" x="152" y="0" width="136" height="208"/>
+  <object id="19" x="320" y="120" width="384" height="88"/>
+  <object id="35" x="248" y="560" width="112" height="16"/>
+  <object id="39" x="152" y="472" width="96" height="104"/>
+  <object id="40" x="360" y="472" width="96" height="104"/>
+  <object id="41" x="456" y="560" width="112" height="16"/>
+  <object id="42" x="568" y="472" width="96" height="104"/>
+  <object id="44" x="152" y="296" width="96" height="88"/>
+  <object id="46" x="664" y="560" width="112" height="16"/>
+  <object id="47" x="776" y="472" width="96" height="104"/>
+  <object id="48" x="872" y="0" width="152" height="576"/>
+  <object id="49" x="776" y="0" width="96" height="384"/>
+  <object id="53" x="320" y="0" width="456" height="32"/>
+  <object id="54" x="456" y="32" width="320" height="88"/>
+  <object id="69" x="736" y="120" width="40" height="264"/>
+  <object id="78" x="704" y="120" width="32" height="72"/>
+  <object id="79" x="288" y="0" width="32" height="16"/>
+  <object id="80" x="360" y="296" width="96" height="88"/>
+  <object id="81" x="568" y="296" width="136" height="88"/>
+ </objectgroup>
+ <layer id="4" name="T_spikes" width="128" height="72">
+  <data encoding="base64" compression="zlib">
+   eJzt2rEJACAQA8B0v5b7T2VrLaLC30HqZIAkAH+oZKx5vQcAAAAAAAAAAAAA6MOfGQAAAAAAAAAAAAAAAAAAAAAAAAAAALipNtO9B+CECfZDA18=
+  </data>
+ </layer>
+</map>
