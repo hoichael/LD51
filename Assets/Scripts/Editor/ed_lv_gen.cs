@@ -3,9 +3,12 @@ using UnityEditor;
 
 public class ed_lv_gen : EditorWindow
 {
-    Transform colContainerTrans; // transform containing children with 2D collision boxes (output of tiled tmx importer)
-    Transform genContainerTrans; // transform to serve as container for generated objects
+    Transform colSolidContainerTrans; // transform containing children with 2D collision boxes for SOLIDS (output of tiled tmx importer)
+    Transform colOrbsContainerTrans; // transform containing children with 2D collision boxes for ORBS (output of tiled tmx importer)
+    Transform genMeshContainerTrans; // transform to serve as container for generated meshes
+    Transform genOrbsContainerTrans; // transform to serve as container for generated orbs
     Material mat; // material to be applied to generated meshes
+    GameObject orbPrefab;
     int solidLayer; // caching this for performance. assigned in Init()
     int[] trianglesArr = new int[] { 0, 1, 2 };
 
@@ -19,17 +22,31 @@ public class ed_lv_gen : EditorWindow
     {
         GUILayout.Space(16);
 
-        colContainerTrans = EditorGUILayout.ObjectField("Col Container", colContainerTrans, typeof(Transform), true) as Transform;
+        EditorGUILayout.LabelField("Solids", EditorStyles.boldLabel);
+        colSolidContainerTrans = EditorGUILayout.ObjectField("Col Mesh Container", colSolidContainerTrans, typeof(Transform), true) as Transform;
 
         GUILayout.Space(4);
 
-        genContainerTrans = EditorGUILayout.ObjectField("Gen Container", genContainerTrans, typeof(Transform), true) as Transform;
+        genMeshContainerTrans = EditorGUILayout.ObjectField("Gen Mesh Container", genMeshContainerTrans, typeof(Transform), true) as Transform;
 
         GUILayout.Space(4);
 
         mat = EditorGUILayout.ObjectField("Mesh Material", mat, typeof(Material), true) as Material;
 
-        GUILayout.Space(8);
+        GUILayout.Space(12);
+
+        EditorGUILayout.LabelField("Orbs", EditorStyles.boldLabel);
+        colOrbsContainerTrans = EditorGUILayout.ObjectField("Col Orbs Container", colOrbsContainerTrans, typeof(Transform), true) as Transform;
+
+        GUILayout.Space(4);
+
+        genOrbsContainerTrans = EditorGUILayout.ObjectField("Gen Orbs Container", genOrbsContainerTrans, typeof(Transform), true) as Transform;
+
+        GUILayout.Space(4);
+
+        orbPrefab = EditorGUILayout.ObjectField("Orb Prefab", orbPrefab, typeof(GameObject), true) as GameObject;
+
+        GUILayout.Space(12);
 
         if (GUILayout.Button("Execute"))
         {
@@ -40,13 +57,13 @@ public class ed_lv_gen : EditorWindow
 
         if (GUILayout.Button("Clear Container"))
         {
-            ClearContainer();
+            ClearContainers();
         }
     }
 
     private void Init()
     {
-        if(colContainerTrans == null || genContainerTrans == null)
+        if(colSolidContainerTrans == null || genMeshContainerTrans == null || genOrbsContainerTrans == null)
         {
             Debug.Log("nullllllllllllllllllllll1111");
             return;
@@ -54,15 +71,21 @@ public class ed_lv_gen : EditorWindow
 
         solidLayer = LayerMask.NameToLayer("Solid");
 
-        ClearContainer();
+        ClearContainers();
 
-        foreach (Transform sub in colContainerTrans)
+        HandleMeshes();
+        HandleOrbs();
+    }
+
+    private void HandleMeshes()
+    {
+        foreach (Transform sub in colSolidContainerTrans)
         {
             sub.gameObject.layer = solidLayer; // has technically nothing to do with the primary function of this script but handling this here is too convenient not to do it
 
             Collider2D col = sub.GetComponent<Collider2D>();
 
-            if(col.GetType() == typeof(PolygonCollider2D))
+            if (col.GetType() == typeof(PolygonCollider2D))
             {
                 GenMeshFromPoly(col as PolygonCollider2D);
             }
@@ -73,10 +96,19 @@ public class ed_lv_gen : EditorWindow
         }
     }
 
+    private void HandleOrbs()
+    {
+        foreach (Transform sub in colOrbsContainerTrans)
+        {
+            GameObject newOrbObject = Instantiate(orbPrefab, genOrbsContainerTrans);
+            newOrbObject.transform.position = sub.transform.position;
+        }
+    }
+
     private void GenMeshFromBox(BoxCollider2D col)
     {
         GameObject planeObj = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        planeObj.transform.SetParent(genContainerTrans);
+        planeObj.transform.SetParent(genMeshContainerTrans);
         MeshRenderer renderer = planeObj.GetComponent<MeshRenderer>();
         renderer.material = mat;
 
@@ -105,7 +137,7 @@ public class ed_lv_gen : EditorWindow
     private GameObject CreateObject()
     {
         GameObject newObj = new GameObject();
-        newObj.transform.SetParent(genContainerTrans);
+        newObj.transform.SetParent(genMeshContainerTrans);
 
         return newObj;
     }
@@ -129,10 +161,16 @@ public class ed_lv_gen : EditorWindow
         return arr;
     }
 
-    private void ClearContainer()
+    private void ClearContainers()
     {
         int counter = 0;
-        foreach (Transform sub in genContainerTrans)
+        foreach (Transform sub in genMeshContainerTrans)
+        {
+            counter++;
+            DestroyImmediate(sub.gameObject);
+        }
+
+        foreach (Transform sub in genOrbsContainerTrans)
         {
             counter++;
             DestroyImmediate(sub.gameObject);
@@ -140,6 +178,6 @@ public class ed_lv_gen : EditorWindow
 
         // i do this fuckery due to the foreach above being inconsistent and almost never catching all children in a single iteration. no idea why.
         // current method potentially causes 1 unnecessary iteration. I don't care.
-        if (counter != 0) ClearContainer();
+        if (counter != 0) ClearContainers();
     }
 }
