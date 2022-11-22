@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f75e0f07884a95498c653a85d8a57ef
+guid: 22263fd70ee53c1439a5c2670f3ad047
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,12 +10,14 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
   missingFiles: []
   errors: []
-  warnings: []
+  warnings:
+  - Pixels Per Unit mismatch between map (100) and tileset '../../../Sprites/Tiles/DEV/flat/T_spr_nv_flat_0.tsx'
+    (8)
   missingSortingLayers: []
   missingLayers: []
   missingTags: []
   importerVersion: 26
-  pixelsPerUnit: 8
+  pixelsPerUnit: 100
   edgesPerEllipse: 32
   numberOfObjectsImported: 2
   tilesAsObjects: 0
