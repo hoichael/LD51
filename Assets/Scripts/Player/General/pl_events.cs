@@ -23,6 +23,7 @@ public class pl_events : MonoBehaviour
         jumpBufferHandler.HandleEnterGround();
     }
 
+    // important to note: this is NOT called upon teleport to mid-air ball (bc grounded is set false in OnTeleport and groundcheck uses grounded flag to determine frame of entry/exit ground)
     public void OnExitGround()
     {
         moveMod.HandleExitGround();

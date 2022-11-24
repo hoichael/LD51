@@ -8,6 +8,7 @@ public class pl_move_modify : MonoBehaviour
 
     float modFactorGrav, modFactorDrag, modFactorMove;
 
+    // this absolute abomination of a function needs a serious refactor. god help me
     public void HandleTeleport(Vector2 ballVel)
     {
         float mag = new Vector2(ballVel.x, ballVel.y * 0.16f).magnitude;
@@ -23,6 +24,8 @@ public class pl_move_modify : MonoBehaviour
         }
 
         refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravity.forceBase) * 2, 70, 125);
+
+        modFactorGrav = refs.settings.gravity.forceAdd;
     }
 
     public void HandleWalljump()
