@@ -20,4 +20,8 @@ public class refs_global : ut_singleton<refs_global>
     public InputServer ip;
 
     public pl_events playerEvents;
+
+    public lv_manager levelManager;
+
+    public lv_pool pool;
 }
