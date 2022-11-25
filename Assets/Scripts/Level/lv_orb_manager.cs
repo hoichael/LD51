@@ -9,6 +9,11 @@ public class lv_orb_manager : MonoBehaviour
 
     int currentCount;
 
+    public void Reset()
+    {
+        currentCount = 0;
+    }
+
     public void HandleCollect()
     {
         currentCount++;

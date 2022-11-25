@@ -7,10 +7,21 @@ public class lv_goal : MonoBehaviour
     [SerializeField] SpriteRenderer sprRenderer;
 
     [SerializeField] bool locked;
+    bool initialLockState;
 
+    private void Awake()
+    {
+        initialLockState = locked;
+    }
 
     private void Start()
     {
+        sprRenderer.sprite = locked ? sprLocked : sprUnlocked;
+    }
+
+    public void Reset()
+    {
+        locked = initialLockState;
         sprRenderer.sprite = locked ? sprLocked : sprUnlocked;
     }
 
