@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="511">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="518">
  <tileset firstgid="1" source="../../../Sprites/Tiles/DEV/flat/T_spr_nv_flat_0.tsx"/>
  <layer id="1" name="T_Spikes" width="128" height="72">
   <data encoding="csv">
@@ -77,6 +77,15 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="6" name="C_Spikes">
+  <object id="511" x="400" y="536" width="232" height="8"/>
+  <object id="512" x="64" y="408" width="168" height="8"/>
+  <object id="513" x="400" y="280" width="168" height="8"/>
+  <object id="514" x="632" y="136" width="328" height="8"/>
+  <object id="515" x="400" y="400" width="6" height="46"/>
+  <object id="516" x="226" y="272" width="6" height="46"/>
+  <object id="517" x="400" y="144" width="6" height="46"/>
+ </objectgroup>
  <objectgroup id="2" name="C_Solid">
   <object id="479" x="64" y="136" width="336" height="56"/>
   <object id="480" x="0" y="0" width="568" height="64"/>

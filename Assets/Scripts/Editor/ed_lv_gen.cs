@@ -193,6 +193,8 @@ public class ed_lv_gen : EditorWindow
         {
             sub.gameObject.layer = spikeLayer;
             sub.gameObject.tag = "Spike";
+
+            sub.gameObject.GetComponent<Collider2D>().isTrigger = true;
         }
     }
     #endregion
