@@ -12,7 +12,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fc4f1bb7d8d2741be1445adbb39b8b, type: 3}
   m_Name: menu_worldinfo_test
   m_EditorClassIdentifier: 
-  worldSceneName: sc_test_0
+  worldSceneName: sc_test_2
   levelInfoList:
-  - name: Level 1
+  - name: Test Level 1
     thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
+  - name: Test Level 2
+    thumbnail: {fileID: 21300000, guid: 65fa10e9182c5aa4594e33f347db5d08, type: 3}
+  - name: Test Level 3
+    thumbnail: {fileID: 21300000, guid: 058a665f99fb4f8428a61b9288b2b08d, type: 3}
+  - name: Test Level 4
+    thumbnail: {fileID: 21300000, guid: 6e447fdb7448caa4a986b36259290ba6, type: 3}
+  - name: Test Level 5
+    thumbnail: {fileID: 21300000, guid: 87d2d2823eaeed34c8fcf4f369f260ca, type: 3}
+  - name: Test Level 6
+    thumbnail: {fileID: 21300000, guid: 91fca368069cc774d9b0f01fa61b536d, type: 3}
+  - name: Test Level 7
+    thumbnail: {fileID: 21300000, guid: 2bd30b742013e604f9ab144e8277a065, type: 3}
+  - name: Test Level 8
+    thumbnail: {fileID: 21300000, guid: 4e267adfe87d77d45a8a7cd42b01bd62, type: 3}
+  - name: Test Level 9
+    thumbnail: {fileID: 21300000, guid: 89f5391476c4a444da378ae239f5a335, type: 3}
+  - name: Test Level 10
+    thumbnail: {fileID: 21300000, guid: 3d3cc16819a40234f8b7d6fec0d8e593, type: 3}
+  - name: Test Level 11
+    thumbnail: {fileID: 21300000, guid: 4377339d552118844b981bd4c8eb49a1, type: 3}
+  - name: Test Level 12
+    thumbnail: {fileID: 21300000, guid: d2455e3f7333e7f48bc21affd2b38e29, type: 3}
+  - name: Test Level 13
+    thumbnail: {fileID: 21300000, guid: 00a5a5f4699dbb64188384c47037871a, type: 3}
+  - name: Test Level 14
+    thumbnail: {fileID: 21300000, guid: 2ac76387da5580c4d99e34cda1bda248, type: 3}
+  - name: Test Level 15
+    thumbnail: {fileID: 21300000, guid: f7c155624f8d50f4cb4e6d173275ac48, type: 3}
+  - name: Test Level 16
+    thumbnail: {fileID: 21300000, guid: 4c86ceb451628f44e81949b7ffe8683e, type: 3}
+  - name: Test Level 17
+    thumbnail: {fileID: 21300000, guid: 63f8cc973606c1a4c9dc4dbf263cae28, type: 3}
+  - name: Test Level 18
+    thumbnail: {fileID: 21300000, guid: f04e72061391ad747ba0fe61baab0a51, type: 3}
+  - name: Test Level 19
+    thumbnail: {fileID: 21300000, guid: 937502e51813e534286be4741f904c1c, type: 3}
+  - name: Test Level 20
+    thumbnail: {fileID: 21300000, guid: 4407227e9889c804eabf99bd23458ee8, type: 3}
+  - name: Test Level 21
+    thumbnail: {fileID: 21300000, guid: 09cf227cd31883b469b4dee3e7944918, type: 3}
+  - name: Test Level 22
+    thumbnail: {fileID: 21300000, guid: 6ec0cc2187c6f234bb4e55f7f8c9b27a, type: 3}
+  - name: Test Level 23
+    thumbnail: {fileID: 21300000, guid: 83fad474673fe9f4a92e2389830a443b, type: 3}
+  - name: Test Level 24
+    thumbnail: {fileID: 21300000, guid: 6fd1ba00c65aa414dbbe0432a0b36efe, type: 3}
+  - name: Test Level 25
+    thumbnail: {fileID: 21300000, guid: 0d929dba717f06248aab2f0eb5c03c4f, type: 3}

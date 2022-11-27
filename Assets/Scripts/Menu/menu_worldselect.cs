@@ -156,7 +156,8 @@ public class menu_worldselect : MonoBehaviour
         inEnterTransition = true;
 
         //lvSelectManager.Init(0);
-        lvSelectManager.Init(Mathf.Clamp(currentlySelectedWorldIDX, 0, 1));
+        //lvSelectManager.Init(Mathf.Clamp(currentlySelectedWorldIDX, 0, 1));
+        lvSelectManager.Init(currentlySelectedWorldIDX);
     }
 
     public void LeaveWorld()
@@ -173,6 +174,6 @@ public class menu_worldselectinfo
 {
     public GameObject selectElement;
     public GameObject text;
-    public GameObject levelSelectContainer;
-    public menu_selectable initSelectable;
+    //public GameObject levelSelectContainer;
+    //public menu_selectable initSelectable;
 }

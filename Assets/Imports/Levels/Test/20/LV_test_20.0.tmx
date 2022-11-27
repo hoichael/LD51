@@ -116,7 +116,7 @@
   <object id="808" x="872" y="72" width="104" height="216"/>
   <object id="810" x="64" y="356" width="40" height="8"/>
   <object id="812" x="616" y="368" width="40" height="24"/>
-  <object id="815" x="536" y="384" width="16" height="16"/>
+  <object id="815" x="536" y="376" width="16" height="16"/>
   <object id="827" x="376" y="528" width="40" height="32"/>
   <object id="830" x="816" y="432" width="40" height="40"/>
   <object id="832" x="856" y="72">
@@ -175,7 +175,7 @@
  <objectgroup id="4" name="C_Orbs">
   <object id="817" x="632" y="352" width="8" height="8"/>
   <object id="818" x="688" y="336" width="8" height="8"/>
-  <object id="819" x="540" y="368" width="8" height="8"/>
+  <object id="819" x="540" y="360" width="8" height="8"/>
   <object id="820" x="552" y="512" width="8" height="8"/>
   <object id="821" x="860" y="504" width="8" height="8"/>
   <object id="824" x="128" y="528" width="8" height="8"/>

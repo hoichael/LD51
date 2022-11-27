@@ -13,10 +13,15 @@ public class menu_lvselect_nav : MonoBehaviour
     private void OnEnable()
     {
         canSwitch = true;
-        SwitchSelection(0); // script needs to be disabled by default, on inspector level
+        SwitchSelection(0, true); // script needs to be disabled by default, on inspector level
     }
     private void OnDisable()
     {
+        // check for scene switch fuckery (enter level). pretty ugly but no easy way around this.
+        if(sprArr != null && sprArr[currentSelectionIDX].sprite  != null)
+        {
+            sprArr[currentSelectionIDX].sprite = data.sprIconDefault;
+        }
         StopAllCoroutines();
     }
 
@@ -31,26 +36,26 @@ public class menu_lvselect_nav : MonoBehaviour
 
         if (input.I.Menu.Left.IsPressed())
         {
-            SwitchSelection(currentSelectionIDX - 1);
+            SwitchSelection(currentSelectionIDX - 1, false);
             return;
         }
         if (input.I.Menu.Right.IsPressed())
         {
-            SwitchSelection(currentSelectionIDX + 1);
+            SwitchSelection(currentSelectionIDX + 1, false);
             return;
         }
         if (input.I.Menu.Down.IsPressed())
         {
-            SwitchSelection(currentSelectionIDX + data.lvElRowSize);
+            SwitchSelection(currentSelectionIDX + data.lvElRowSize, false);
             return;
         }
         if (input.I.Menu.Up.IsPressed())
         {
-            SwitchSelection(currentSelectionIDX - data.lvElRowSize);
+            SwitchSelection(currentSelectionIDX - data.lvElRowSize, false);
         }
     }
 
-    private void SwitchSelection(int newSelectionIDX)
+    private void SwitchSelection(int newSelectionIDX, bool fromInit /* yes */)
     {
         int newIDX = newSelectionIDX;
 
@@ -67,7 +72,10 @@ public class menu_lvselect_nav : MonoBehaviour
             return;
         }
 
-        sprArr[currentSelectionIDX].sprite = data.sprIconDefault;
+        if(!fromInit)
+        {
+            sprArr[currentSelectionIDX].sprite = data.sprIconDefault;
+        }
 
         currentSelectionIDX = newIDX;
         sprArr[currentSelectionIDX].sprite = data.sprIconActive;
