@@ -20,5 +20,12 @@ public class GameManager : MonoBehaviour
         //{
         //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //}
+
+
+        // temp dev. currently only entry point to menu scene from gameplay scene
+        if(refs_global.Instance.ip.I.Play.Pause.WasPressedThisFrame())
+        {
+            SceneManager.LoadScene("sc_levelselect_V2");
+        }
     }
 }

@@ -11,7 +11,7 @@ public class lv_controller : MonoBehaviour
 
     public void Reset()
     {
-        print("enter level");
+        //print("enter level");
         manager.timerText.color = Color.white;
         manager.timerText.text = "0:00";
         playerHasMoved = playerHasCompleted = false;

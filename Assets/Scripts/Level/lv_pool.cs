@@ -50,7 +50,7 @@ public class lv_pool : MonoBehaviour
     public void Return(PoolType key, Transform objTrans, bool active)
     {
         objTrans.SetParent(poolDict[key].container);
-        Debug.Log(objTrans.parent);
+        //Debug.Log(objTrans.parent);
         //objTrans.parent = poolDict[key].container;
         objTrans.gameObject.SetActive(active);
     }
