@@ -8,4 +8,5 @@ public class SO_pl_settings_checks : ScriptableObject
     [field: SerializeField] public Vector2 wallCheckSize { get; private set; }
     [field: SerializeField] public Vector3 wallCheckOffset { get; private set; }
     [field: SerializeField] public float slopeCheckLength { get; private set; }
+    [field: SerializeField] public float slopeCheckOffsetHor { get; private set; }
 }

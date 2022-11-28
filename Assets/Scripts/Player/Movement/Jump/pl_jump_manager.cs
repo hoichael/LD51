@@ -50,7 +50,7 @@ public class pl_jump_manager : MonoBehaviour
             TerminateJump();
             return;
         }
-        else
+        else if (jumpFlat.enabled)
         {
             HandleTopcheck();
         }
