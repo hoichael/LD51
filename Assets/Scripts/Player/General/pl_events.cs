@@ -10,6 +10,7 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_spritedeform sprDeform;
     [SerializeField] pl_jump_buffer jumpBufferHandler;
     [SerializeField] pl_walljump wallJump;
+    [SerializeField] pl_throw_manager throwManager;
 
     public void OnEnterGround()
     {
@@ -68,5 +69,10 @@ public class pl_events : MonoBehaviour
         fPadHandler.Init();
         sprDeform.OnForcepadTrigger();
         wallJump.Cancel();
+    }
+
+    public void OnDeath()
+    {
+        throwManager.Cancel();
     }
 }

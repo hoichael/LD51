@@ -39,7 +39,9 @@ public class pl_throw_manager : MonoBehaviour
         }
     }
 
-    public void Charge()
+
+
+    private void Charge()
     {
         if (currentCharge >= refs.settings.ballThrow.forceMax)
         {
@@ -50,6 +52,14 @@ public class pl_throw_manager : MonoBehaviour
 
         currentCharge += refs.settings.ballThrow.forceAdd * Time.fixedDeltaTime;
         indicator.UpdateIndicator(currentAimDir, currentCharge);
+    }
+
+    public void Cancel()
+    {
+        currentlyCharging = inputFlat.enabled = inputStick.enabled = false;
+        currentlyCharging = false;
+        currentCharge = 0;
+        indicator.HandleThrow();
     }
 
     public void HandleThrow()
