@@ -33,6 +33,7 @@ public class lv_manager : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.R))
         if (refs_global.Instance.ip.I.Play.Restart.WasPressedThisFrame())
         {
+            refs_global.Instance.playerEvents.OnDeath();
             InitLevel(currentLevelIDX);
         }
     }
