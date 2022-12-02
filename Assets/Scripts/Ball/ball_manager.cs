@@ -22,6 +22,8 @@ public class ball_manager : MonoBehaviour
         refs.trans.localPosition = Vector3.zero;
 
         refs.trail.emitting = false;
+
+        refs.visual.Reset();
     }
 
     public void HandleThrow()
@@ -35,6 +37,8 @@ public class ball_manager : MonoBehaviour
         refs.trans.position = refs_global.Instance.playerTrans.position;
 
         StartCoroutine(DelayedColHandler());
+
+        refs.visual.InitThrow();
     }
 
     private void CreateRB()
