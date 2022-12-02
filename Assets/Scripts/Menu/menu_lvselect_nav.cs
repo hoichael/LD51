@@ -18,7 +18,7 @@ public class menu_lvselect_nav : MonoBehaviour
     private void OnDisable()
     {
         // check for scene switch fuckery (enter level). pretty ugly but no easy way around this.
-        if(sprArr != null && sprArr[currentSelectionIDX].sprite  != null)
+        if(sprArr != null && sprArr[currentSelectionIDX] != null && sprArr[currentSelectionIDX].sprite != null)
         {
             sprArr[currentSelectionIDX].sprite = data.sprIconDefault;
         }
