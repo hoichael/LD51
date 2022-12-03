@@ -91,18 +91,18 @@
   <object id="365" x="176" y="144">
    <polygon points="0,0 40,0 40,40"/>
   </object>
-  <object id="366" x="176" y="24" width="696" height="120"/>
+  <object id="366" x="176" y="0" width="696" height="144"/>
   <object id="367" x="216" y="144" width="656" height="40"/>
   <object id="368" x="216" y="296" width="808" height="128"/>
-  <object id="369" x="88" y="24" width="88" height="16"/>
-  <object id="370" x="0" y="24" width="88" height="400"/>
+  <object id="369" x="88" y="0" width="88" height="40"/>
+  <object id="370" x="0" y="0" width="88" height="424"/>
   <object id="371" x="0" y="520" width="336" height="56"/>
   <object id="372" x="0" y="424" width="16" height="96"/>
   <object id="376" x="616" y="280" width="264" height="16"/>
   <object id="377" x="880" y="240" width="144" height="56"/>
   <object id="378" x="1008" y="96" width="16" height="144"/>
   <object id="379" x="944" y="160" width="64" height="72"/>
-  <object id="380" x="872" y="24" width="152" height="72"/>
+  <object id="380" x="872" y="0" width="152" height="96"/>
   <object id="381" x="872" y="232" width="136" height="8"/>
   <object id="383" x="160" y="40">
    <polygon points="0,0 16,0 16,16"/>

@@ -85,9 +85,9 @@
   <object id="187" x="488" y="346" width="8" height="6"/>
   <object id="188" x="528" y="346" width="8" height="6"/>
   <object id="189" x="560" y="346" width="8" height="6"/>
-  <object id="190" x="504" y="194" width="16" height="6"/>
-  <object id="192" x="576" y="162" width="16" height="6"/>
-  <object id="193" x="432" y="226" width="16" height="6"/>
+  <object id="190" x="506" y="194" width="12" height="6"/>
+  <object id="192" x="578" y="162" width="12" height="6"/>
+  <object id="193" x="434" y="226" width="14" height="6"/>
   <object id="194" x="448" y="232" width="6" height="112"/>
   <object id="195" x="520" y="200" width="6" height="144"/>
   <object id="196" x="498" y="200" width="6" height="144"/>
@@ -131,10 +131,10 @@
   <object id="33" x="544" y="168" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="4" name="C_Orbs">
-  <object id="43" x="612" y="288" width="8" height="8"/>
-  <object id="166" x="612" y="320" width="8" height="8"/>
-  <object id="167" x="612" y="256" width="8" height="8"/>
-  <object id="175" x="612" y="224" width="8" height="8"/>
-  <object id="176" x="612" y="192" width="8" height="8"/>
+  <object id="43" x="616" y="288" width="8" height="8"/>
+  <object id="166" x="616" y="320" width="8" height="8"/>
+  <object id="167" x="616" y="256" width="8" height="8"/>
+  <object id="175" x="616" y="224" width="8" height="8"/>
+  <object id="176" x="616" y="192" width="8" height="8"/>
  </objectgroup>
 </map>
