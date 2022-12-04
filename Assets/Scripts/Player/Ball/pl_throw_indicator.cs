@@ -1,104 +1,77 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class pl_throw_indicator : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
-    [SerializeField] pl_throw_manager manager;
-    [SerializeField] Transform xHairTrans;
-    [SerializeField] Transform indicatorAnchor;
-    [SerializeField] Transform indicatorFG;
-    float indiciatorFGFullScaleX;
-    float indicatorFGPosZFull, indicatorFGPosZZero;
+    [SerializeField] List<SpriteRenderer> spotSpriteList;
+    [SerializeField] Transform spotsAnchor;
+    int currentStep;
+
+    Vector2 currentDir; // for performance
 
     private void Start()
     {
-        InitIndicator();
+        ResetIndicator();
+        SetVisibility(false);
     }
 
-    public void UpdateIndicator(Vector2 dir, float charge)
+    public void InitCharge()
     {
-        MoveCrosshair(dir);
-        RotateIndicator(dir);
-        ScaleIndicatorCharge(charge);
+        ResetIndicator();
+        HandleNewStep();
+        SetVisibility(true);
+    }
+
+    public void UpdateRotation(Vector2 dir)
+    {
+        if (dir == currentDir) return; // for performance
+        currentDir = dir;
+
+        dir.Normalize();
+
+        //float angle = 360 - (Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg * Mathf.Sign(dir.x));
+
+        float angleSignMult = dir.y >= 0 ? 1 : -1;
+        float angleOffsetAdd = angleSignMult >= 0 ? 0 : 360;
+        float angle = Vector2.Angle(Vector2.right, dir) * angleSignMult + angleOffsetAdd;
+
+        spotsAnchor.localRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
+    public void HandleNewStep()
+    {
+        currentStep++;
+        SetSpotColor(currentStep, refs.settings.ballThrow.spotOpacityActive);
+    }
+
+    private void ResetIndicator()
+    {
+        currentStep = -1;
+        for (int i = 0; i < 4; i++)
+        {
+            SetSpotColor(i, refs.settings.ballThrow.spotOpacityDefault);
+        }
+    }
+
+    private void SetSpotColor(int idx, float opacity)
+    {
+        spotSpriteList[idx].color = new Color(
+            refs.settings.ballThrow.SpotPaletteA[idx].r,
+            refs.settings.ballThrow.SpotPaletteA[idx].g,
+            refs.settings.ballThrow.SpotPaletteA[idx].b,
+            opacity);
     }
 
     public void HandleThrow()
     {
         ResetIndicator();
-        ToggleIndicatorVisibility(false);
+        SetVisibility(false);
     }
 
-    #region UPDATE
-    private void MoveCrosshair(Vector2 dir)
+    private void SetVisibility(bool state)
     {
-        Vector2 newPosClamped;
-        newPosClamped = (Vector2)xHairTrans.localPosition + (dir.normalized * 10);
-        newPosClamped = Vector2.ClampMagnitude(newPosClamped, refs.settings.ballThrow.xHairOffset);
-
-        xHairTrans.localPosition = newPosClamped;
+        spotsAnchor.gameObject.SetActive(state);
     }
-
-    private void RotateIndicator(Vector2 dir)
-    {
-        dir.Normalize();
-
-        indicatorAnchor.LookAt(refs.bodyTrans.position + (Vector3)dir * 5);
-        if (Mathf.Abs(dir.y) == 1)
-        {
-            indicatorAnchor.localRotation = Quaternion.Euler(new Vector3(indicatorAnchor.localEulerAngles.x, 90, 0));
-        }
-    }
-
-    private void ScaleIndicatorCharge(float currentCharge)
-    {
-        float currentLerpFactor = currentCharge / refs.settings.ballThrow.forceMax;
-
-        float newScaleX = Mathf.Lerp(
-            0,
-            indiciatorFGFullScaleX,
-            currentLerpFactor
-            );
-
-        indicatorFG.localScale = new Vector3(newScaleX, indicatorFG.localScale.y, indicatorFG.localScale.z);
-
-        float newPosZ = Mathf.Lerp(
-            indicatorFGPosZZero,
-            indicatorFGPosZFull,
-            currentLerpFactor
-            );
-
-        indicatorFG.localPosition = new Vector3(indicatorFG.localPosition.x, indicatorFG.localPosition.y, newPosZ);
-    }
-    #endregion
-
-    #region LIFECYCLE
-    private void InitIndicator()
-    {
-        indiciatorFGFullScaleX = indicatorFG.localScale.x;
-        indicatorFGPosZFull = indicatorFG.localPosition.z;
-
-        ResetIndicator();
-
-        ToggleIndicatorVisibility(false);
-    }
-
-    private void ResetIndicator()
-    {
-        indicatorFG.localScale = new Vector3(0, indicatorFG.localScale.y, indicatorFG.localScale.z);
-
-        indicatorFGPosZZero = indicatorFGPosZFull - indiciatorFGFullScaleX / 2;
-
-        indicatorFG.localPosition = new Vector3(
-            indicatorFG.localPosition.x,
-            indicatorFG.localPosition.y,
-            indicatorFGPosZZero
-            );
-    }
-
-    public void ToggleIndicatorVisibility(bool state)
-    {
-        indicatorAnchor.gameObject.SetActive(state);
-        xHairTrans.gameObject.SetActive(state);
-    }
-    #endregion
 }

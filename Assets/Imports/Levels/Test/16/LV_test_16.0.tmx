@@ -106,7 +106,7 @@
   <object id="500" x="632" y="0" width="392" height="136"/>
   <object id="501" x="960" y="136" width="64" height="384"/>
   <object id="504" x="880" y="320" width="80" height="200"/>
-  <object id="507" x="792" y="256" width="168" height="64"/>
+  <object id="507" x="744" y="256" width="216" height="64"/>
   <object id="509" x="856" y="320">
    <polygon points="0,0 24,24 24,0"/>
   </object>

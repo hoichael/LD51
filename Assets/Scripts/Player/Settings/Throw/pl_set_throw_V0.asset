@@ -12,7 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2651d843ac1024bae2f4925f589b46, type: 3}
   m_Name: pl_set_throw_V0
   m_EditorClassIdentifier: 
-  <forceBase>k__BackingField: 1337
-  <forceAdd>k__BackingField: 48
-  <forceMax>k__BackingField: 64
-  <xHairOffset>k__BackingField: 7
+  <chargeCounterAdd>k__BackingField: 52
+  <chargeCounterBreakpoints>k__BackingField:
+  - 0
+  - 20
+  - 40
+  - 60
+  <forceSteps>k__BackingField:
+  - 20
+  - 36
+  - 48
+  - 64
+  <SpotPaletteA>k__BackingField:
+  - {r: 0.9960785, g: 0.6039216, b: 0, a: 0}
+  - {r: 0.9960785, g: 0.454902, b: 0, a: 0}
+  - {r: 0.9960785, g: 0.29803923, b: 0, a: 0}
+  - {r: 0.9960785, g: 0.16078432, b: 0, a: 0}
+  <SpotPaletteB>k__BackingField:
+  - {r: 0.9490197, g: 0.427451, b: 0.11764707, a: 0}
+  - {r: 0.87843144, g: 0.25490198, b: 0.09019608, a: 0}
+  - {r: 0.75294125, g: 0.16470589, b: 0.09411766, a: 0}
+  - {r: 0.48627454, g: 0.011764707, b: 0, a: 0}
+  <spotOpacityDefault>k__BackingField: 0.3
+  <spotOpacityActive>k__BackingField: 1

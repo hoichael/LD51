@@ -8,25 +8,39 @@ public class pl_throw_manager : MonoBehaviour
     [SerializeField] pl_throw_input_stick inputStick;
     [SerializeField] lv_pool pool;
     bool currentlyCharging;
-    public float currentCharge;
+
+    float currentChargeFloat;
+    public int currentChargeStep; //public for db
+
     public Vector2 currentAimDir;
 
     private void Update()
     {
-        if (currentlyCharging || !refs_global.Instance.ballInHand) return;
+        if(currentlyCharging)
+        {
+            indicator.UpdateRotation(currentAimDir);
+            return;
+        }
+
+        if(!refs_global.Instance.ballInHand)
+        {
+            return;
+        }
 
         //if (refs_global.Instance.ip.I.Play.AimStick.ReadValue<Vector2>() != Vector2.zero)
         if (refs_global.Instance.ip.I.Play.AimStick.ReadValue<Vector2>().sqrMagnitude > 0.49f)
         {
             currentlyCharging = true;
             inputStick.enabled = true;
-            indicator.ToggleIndicatorVisibility(true);
+            //indicator.ToggleIndicatorVisibility(true);
+            indicator.InitCharge();
         }
         else if(new Vector2(refs_global.Instance.ip.I.Play.AimX.ReadValue<float>(), refs_global.Instance.ip.I.Play.AimY.ReadValue<float>()) != Vector2.zero)
         {
             currentlyCharging = true;
             inputFlat.enabled = true;
-            indicator.ToggleIndicatorVisibility(true);
+            //indicator.ToggleIndicatorVisibility(true);
+            indicator.InitCharge();
         }
     }
 
@@ -35,36 +49,44 @@ public class pl_throw_manager : MonoBehaviour
         if (currentlyCharging)
         {
             Charge();
-            indicator.UpdateIndicator(currentAimDir, currentCharge);
+            //indicator.UpdateIndicator(currentAimDir, currentCharge);
         }
     }
-
 
 
     private void Charge()
     {
-        if (currentCharge >= refs.settings.ballThrow.forceMax)
+        if (currentChargeFloat >= refs.settings.ballThrow.chargeCounterBreakpoints[3])
         {
-            currentCharge = refs.settings.ballThrow.forceMax;
+            //currentChargeFloat = refs.settings.ballThrow.chargeCounterMax;
+            currentChargeStep = 3;
             //HandleThrow();
             return;
         }
 
-        currentCharge += refs.settings.ballThrow.forceAdd * Time.fixedDeltaTime;
-        indicator.UpdateIndicator(currentAimDir, currentCharge);
+        currentChargeFloat += refs.settings.ballThrow.chargeCounterAdd * Time.fixedDeltaTime;
+        if(currentChargeFloat >= refs.settings.ballThrow.chargeCounterBreakpoints[currentChargeStep + 1])
+        {
+            currentChargeStep++;
+            indicator.HandleNewStep();
+        }
+        //indicator.UpdateIndicator(currentAimDir, currentCharge);
     }
 
     public void Cancel()
     {
-        currentlyCharging = inputFlat.enabled = inputStick.enabled = false;
-        currentlyCharging = false;
-        currentCharge = 0;
+        Reset();
         indicator.HandleThrow();
+    }
+
+    private void Reset()
+    {
+        currentlyCharging = inputFlat.enabled = inputStick.enabled = false;
+        currentChargeFloat = currentChargeStep = 0;
     }
 
     public void HandleThrow()
     {
-        currentlyCharging = inputFlat.enabled = inputStick.enabled = false;
         refs_global.Instance.ballInHand = false;
 
         pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, true); // this is fucky
@@ -73,18 +95,20 @@ public class pl_throw_manager : MonoBehaviour
         indicator.HandleThrow();
 
         ApplyForce();
-        currentCharge = 0;
+        Reset();
     }
 
     private void ApplyForce()
     {
         // apply main force based on player input
-        refs_global.Instance.currentBallRefs.rb.AddForce(currentAimDir.normalized * currentCharge, ForceMode2D.Impulse);
+        //refs_global.Instance.currentBallRefs.rb.AddForce(currentAimDir.normalized * currentChargeFloat, ForceMode2D.Impulse);
+        refs_global.Instance.currentBallRefs.rb.AddForce(currentAimDir.normalized * refs.settings.ballThrow.forceSteps[currentChargeStep], ForceMode2D.Impulse);
 
         // if dir doesnt point downwards apply slight secondary upwards force
         if (currentAimDir.y >= 0)
         {
-            refs_global.Instance.currentBallRefs.rb.AddForce(Vector2.up * (currentCharge * 0.18f), ForceMode2D.Impulse);
+            //refs_global.Instance.currentBallRefs.rb.AddForce(Vector2.up * (currentChargeFloat * 0.18f), ForceMode2D.Impulse);
+            refs_global.Instance.currentBallRefs.rb.AddForce(Vector2.up * (refs.settings.ballThrow.forceSteps[currentChargeStep] * 0.18f), ForceMode2D.Impulse);
         }
     }
 }
