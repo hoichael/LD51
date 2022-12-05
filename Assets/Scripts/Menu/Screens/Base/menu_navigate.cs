@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class menu_navigate : MonoBehaviour
 {
+    [SerializeField] menu_settings settings;
     [SerializeField] private InputServer input;
     public menu_selectable currentSelection;
 
+    float selectionSwitchCooldown = 0.14f;
+
     bool canSwitch;
-    float switchCooldown = 0.14f;
 
     private void OnEnable()
     {
@@ -63,7 +65,7 @@ public class menu_navigate : MonoBehaviour
     private IEnumerator HandleCooldown()
     {
         canSwitch = false;
-        yield return new WaitForSeconds(switchCooldown);
+        yield return new WaitForSeconds(selectionSwitchCooldown);
         canSwitch = true;
     }
 }

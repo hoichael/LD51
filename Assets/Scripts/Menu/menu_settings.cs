@@ -8,4 +8,6 @@ public class menu_settings : MonoBehaviour
     [field: SerializeField] public AnimationCurve screenSwitchCurve { get; private set; }
 
     [field: SerializeField] public float camPosZ { get; private set; }
+
+    //[field: SerializeField, Header("General")] public float selectionSwitchCD { get; private set; }
 }

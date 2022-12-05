@@ -24,13 +24,13 @@ public class menu_lvselect_manager : menu_screen_base
     private void Start()
     {
         navigator.enabled = false;
+        this.enabled = false;
     }
 
     private void Update()
     {
         if(input.I.Menu.Exit.WasPressedThisFrame())
         {
-            //Exit();
             menuManager.SwitchScreen(worldSelectManager);
             return;
         }
@@ -45,18 +45,18 @@ public class menu_lvselect_manager : menu_screen_base
         navigator.enabled = true;
     }
 
-    //public void Init(int worldIDX)
-    //{
-    //    currentWorld = worldInfoList[worldIDX];
-    //    navigator.sprArr = bootstrapper.Init(currentWorld); // the whole sprite arr thing is rather... f u n c t i o n a l (read: scuffed as fuck) but whtv. its fine ***for now***
-    //    navigator.enabled = true;
-    //}
+    public override void OnSwitchToComplete()
+    {
+        base.OnSwitchToComplete();
+        this.enabled = true;
+    }
 
     public override void OnSwitchFromInit()
     {
         base.OnSwitchFromInit();
         navigator.enabled = false;
         worldSelectManager.enabled = true;
+        this.enabled = false;
     }
 
     public void HandleSelectionSwitch(int idx)

@@ -7,28 +7,26 @@ public class menu_worldselect : menu_screen_base
     [SerializeField] menu_manager menuManager;
     [SerializeField] SO_pd_session sessionData;
     [SerializeField] InputServer input;
+    [SerializeField] menu_main mainMenuManager;
     [SerializeField] menu_lvselect_manager lvSelectManager;
     [SerializeField] List<menu_worldselectinfo> worldInfoList;
     Vector2 elementScaleDefault, elementScaleActive;
     [SerializeField] Transform elementContainer;
     int currentlySelectedWorldIDX;
-    int newSelectedWorldIDX; // used for transition
+    int newSelectedWorldIDX;
 
     [SerializeField] menu_navigate navigator;
     [SerializeField] Transform camTrans;
 
     float selectMoveOffsetX;
-    float enterCamOffsetY = -54;
 
     [SerializeField] float transitionSpeedSwitch, transitionSpeedEnter;
     [SerializeField] AnimationCurve animCurve;
     float currentTransitionFactor;
     Vector2 elementContainerPosFrom, elementContainerPosTo;
-    bool inSwitchTransition, inEnterTransition;
+    bool inSwitchTransition;
 
-    float enterTransitionTarget;
-
-    private void Start()
+    private void Awake()
     {
         navigator.enabled = false;
 
@@ -45,15 +43,13 @@ public class menu_worldselect : menu_screen_base
             return;
         }
 
-        //if(inEnterTransition)
-        //{
-        //    HandleEnterTransition();
-        //    return;
-        //}
+        if(input.I.Menu.Exit.WasPressedThisFrame())
+        {
+            menuManager.SwitchScreen(mainMenuManager);
+        }
 
         if(input.I.Menu.Enter.WasPressedThisFrame())
         {
-            //EnterWorld(worldInfoList[currentlySelectedWorldIDX]);
             sessionData.selectedWorldIDX = currentlySelectedWorldIDX;
             menuManager.SwitchScreen(lvSelectManager);
         }
@@ -73,13 +69,9 @@ public class menu_worldselect : menu_screen_base
     private void InitSelectionSwitch(int switchDirection)
     {
         if (currentlySelectedWorldIDX + switchDirection < 0 || currentlySelectedWorldIDX + switchDirection == worldInfoList.Count) return;
-        //worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleDefault;
 
         newSelectedWorldIDX += switchDirection;
 
-        //worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = elementScaleActive;
-
-        //elementContainer.localPosition = new Vector2(elementContainer.localPosition.x + (selectMoveOffsetX * -switchDirection), elementContainer.localPosition.y);
         elementContainerPosFrom = elementContainer.localPosition;
         elementContainerPosTo = new Vector2(elementContainer.localPosition.x + (selectMoveOffsetX * -switchDirection), elementContainer.localPosition.y);
         currentTransitionFactor = 0;
@@ -93,21 +85,18 @@ public class menu_worldselect : menu_screen_base
         worldInfoList[currentlySelectedWorldIDX].selectElement.transform.localScale = Vector2.Lerp(
             elementScaleActive,
             elementScaleDefault,
-            //animCurve.Evaluate(currentTransitionFactor)
             currentTransitionFactor
             );
 
         worldInfoList[newSelectedWorldIDX].selectElement.transform.localScale = Vector2.Lerp(
             elementScaleDefault,
             elementScaleActive,
-            //animCurve.Evaluate(currentTransitionFactor)
             currentTransitionFactor
             );
 
         elementContainer.localPosition = Vector2.Lerp(
             elementContainerPosFrom,
             elementContainerPosTo,
-            //animCurve.Evaluate(currentTransitionFactor)
             currentTransitionFactor
             );
 
@@ -136,49 +125,6 @@ public class menu_worldselect : menu_screen_base
         base.OnSwitchToComplete();
         this.enabled = true;
     }
-
-    //private void HandleEnterTransition()
-    //{
-    //    currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, enterTransitionTarget, transitionSpeedEnter * Time.deltaTime);
-
-    //    camTrans.localPosition = Vector3.Lerp(
-    //        new Vector3(0, 0, -10),
-    //        new Vector3(0, enterCamOffsetY, -10),
-    //        animCurve.Evaluate(currentTransitionFactor)
-    //        );
-
-    //    if(currentTransitionFactor == enterTransitionTarget)
-    //    {
-    //        inEnterTransition = false;
-    //        if(enterTransitionTarget == 1)
-    //        {
-    //            //navigator.enabled = true;
-    //            this.enabled = false;
-    //        }
-    //    }
-    //}
-
-    //private void EnterWorld(menu_worldselectinfo worldToEnter)
-    //{
-    //    //worldToEnter.levelSelectContainer.SetActive(true);
-    //    //navigator.currentSelection = worldToEnter.initSelectable;
-
-    //    currentTransitionFactor = 0;
-    //    enterTransitionTarget = 1;
-    //    inEnterTransition = true;
-
-    //    //lvSelectManager.Init(0);
-    //    //lvSelectManager.Init(Mathf.Clamp(currentlySelectedWorldIDX, 0, 1));
-    //    lvSelectManager.Init(currentlySelectedWorldIDX);
-    //}
-
-    //public void LeaveWorld()
-    //{
-    //    currentTransitionFactor = 1;
-    //    enterTransitionTarget = 0;
-    //    inEnterTransition = true;
-    //}
-
 }
 
 [System.Serializable]
@@ -186,6 +132,4 @@ public class menu_worldselectinfo
 {
     public GameObject selectElement;
     public GameObject text;
-    //public GameObject levelSelectContainer;
-    //public menu_selectable initSelectable;
 }
