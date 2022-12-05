@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class menu_worldselect : MonoBehaviour
+public class menu_worldselect : menu_screen_base
 {
+    [SerializeField] menu_manager menuManager;
+    [SerializeField] SO_pd_session sessionData;
     [SerializeField] InputServer input;
     [SerializeField] menu_lvselect_manager lvSelectManager;
     [SerializeField] List<menu_worldselectinfo> worldInfoList;
@@ -33,7 +35,6 @@ public class menu_worldselect : MonoBehaviour
         elementScaleActive = worldInfoList[0].selectElement.transform.localScale;
         elementScaleDefault = worldInfoList[1].selectElement.transform.localScale;
         selectMoveOffsetX = elementScaleDefault.x * 2;
-        //InitSelectionSwitch(-1);
     }
 
     private void Update()
@@ -44,20 +45,19 @@ public class menu_worldselect : MonoBehaviour
             return;
         }
 
-        if(inEnterTransition)
-        {
-            HandleEnterTransition();
-            return;
-        }
+        //if(inEnterTransition)
+        //{
+        //    HandleEnterTransition();
+        //    return;
+        //}
 
-        //if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         if(input.I.Menu.Enter.WasPressedThisFrame())
         {
-            EnterWorld(worldInfoList[currentlySelectedWorldIDX]);
+            //EnterWorld(worldInfoList[currentlySelectedWorldIDX]);
+            sessionData.selectedWorldIDX = currentlySelectedWorldIDX;
+            menuManager.SwitchScreen(lvSelectManager);
         }
 
-        //float inputX = Input.GetAxisRaw("Horizontal");
-        //if (inputX != 0) InitSelectionSwitch((int)inputX);
         if (input.I.Menu.Right.IsPressed())
         {
             InitSelectionSwitch(1);
@@ -125,47 +125,59 @@ public class menu_worldselect : MonoBehaviour
         }
     }
 
-    private void HandleEnterTransition()
+    public override void OnSwitchFromInit()
     {
-        currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, enterTransitionTarget, transitionSpeedEnter * Time.deltaTime);
-
-        camTrans.localPosition = Vector3.Lerp(
-            new Vector3(0, 0, -10),
-            new Vector3(0, enterCamOffsetY, -10),
-            animCurve.Evaluate(currentTransitionFactor)
-            );
-
-        if(currentTransitionFactor == enterTransitionTarget)
-        {
-            inEnterTransition = false;
-            if(enterTransitionTarget == 1)
-            {
-                //navigator.enabled = true;
-                this.enabled = false;
-            }
-        }
+        base.OnSwitchFromInit();
+        this.enabled = false;
     }
 
-    private void EnterWorld(menu_worldselectinfo worldToEnter)
+    public override void OnSwitchToComplete()
     {
-        //worldToEnter.levelSelectContainer.SetActive(true);
-        //navigator.currentSelection = worldToEnter.initSelectable;
-
-        currentTransitionFactor = 0;
-        enterTransitionTarget = 1;
-        inEnterTransition = true;
-
-        //lvSelectManager.Init(0);
-        //lvSelectManager.Init(Mathf.Clamp(currentlySelectedWorldIDX, 0, 1));
-        lvSelectManager.Init(currentlySelectedWorldIDX);
+        base.OnSwitchToComplete();
+        this.enabled = true;
     }
 
-    public void LeaveWorld()
-    {
-        currentTransitionFactor = 1;
-        enterTransitionTarget = 0;
-        inEnterTransition = true;
-    }
+    //private void HandleEnterTransition()
+    //{
+    //    currentTransitionFactor = Mathf.MoveTowards(currentTransitionFactor, enterTransitionTarget, transitionSpeedEnter * Time.deltaTime);
+
+    //    camTrans.localPosition = Vector3.Lerp(
+    //        new Vector3(0, 0, -10),
+    //        new Vector3(0, enterCamOffsetY, -10),
+    //        animCurve.Evaluate(currentTransitionFactor)
+    //        );
+
+    //    if(currentTransitionFactor == enterTransitionTarget)
+    //    {
+    //        inEnterTransition = false;
+    //        if(enterTransitionTarget == 1)
+    //        {
+    //            //navigator.enabled = true;
+    //            this.enabled = false;
+    //        }
+    //    }
+    //}
+
+    //private void EnterWorld(menu_worldselectinfo worldToEnter)
+    //{
+    //    //worldToEnter.levelSelectContainer.SetActive(true);
+    //    //navigator.currentSelection = worldToEnter.initSelectable;
+
+    //    currentTransitionFactor = 0;
+    //    enterTransitionTarget = 1;
+    //    inEnterTransition = true;
+
+    //    //lvSelectManager.Init(0);
+    //    //lvSelectManager.Init(Mathf.Clamp(currentlySelectedWorldIDX, 0, 1));
+    //    lvSelectManager.Init(currentlySelectedWorldIDX);
+    //}
+
+    //public void LeaveWorld()
+    //{
+    //    currentTransitionFactor = 1;
+    //    enterTransitionTarget = 0;
+    //    inEnterTransition = true;
+    //}
 
 }
 

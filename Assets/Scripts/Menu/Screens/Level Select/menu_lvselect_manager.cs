@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class menu_lvselect_manager : MonoBehaviour
+public class menu_lvselect_manager : menu_screen_base
 {
+    [SerializeField] menu_manager menuManager;
     [SerializeField] List<SO_menu_worldinfo> worldInfoList;
     [SerializeField] menu_lvselect_bootstrap bootstrapper;
     [SerializeField] menu_lvselect_nav navigator;
@@ -29,23 +30,33 @@ public class menu_lvselect_manager : MonoBehaviour
     {
         if(input.I.Menu.Exit.WasPressedThisFrame())
         {
-            Exit();
+            //Exit();
+            menuManager.SwitchScreen(worldSelectManager);
             return;
         }
     }
 
-    public void Init(int worldIDX)
+    public override void OnSwitchToInit()
     {
-        currentWorld = worldInfoList[worldIDX];
+        base.OnSwitchToInit();
+        //Init(sessionData.selectedWorldIDX);
+        currentWorld = worldInfoList[sessionData.selectedWorldIDX];
         navigator.sprArr = bootstrapper.Init(currentWorld); // the whole sprite arr thing is rather... f u n c t i o n a l (read: scuffed as fuck) but whtv. its fine ***for now***
         navigator.enabled = true;
     }
 
-    private void Exit()
+    //public void Init(int worldIDX)
+    //{
+    //    currentWorld = worldInfoList[worldIDX];
+    //    navigator.sprArr = bootstrapper.Init(currentWorld); // the whole sprite arr thing is rather... f u n c t i o n a l (read: scuffed as fuck) but whtv. its fine ***for now***
+    //    navigator.enabled = true;
+    //}
+
+    public override void OnSwitchFromInit()
     {
+        base.OnSwitchFromInit();
         navigator.enabled = false;
         worldSelectManager.enabled = true;
-        worldSelectManager.LeaveWorld();
     }
 
     public void HandleSelectionSwitch(int idx)
