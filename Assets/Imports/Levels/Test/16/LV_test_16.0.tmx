@@ -87,21 +87,21 @@
   <object id="517" x="400" y="144" width="6" height="46"/>
  </objectgroup>
  <objectgroup id="2" name="C_Solid">
-  <object id="479" x="64" y="136" width="336" height="56"/>
+  <object id="479" x="64" y="144" width="336" height="48"/>
   <object id="480" x="0" y="0" width="568" height="64"/>
-  <object id="481" x="232" y="264" width="168" height="56"/>
-  <object id="482" x="400" y="136" width="8" height="8"/>
-  <object id="483" x="224" y="264" width="8" height="8"/>
+  <object id="481" x="232" y="272" width="168" height="48"/>
+  <object id="482" x="64" y="136" width="344" height="8"/>
+  <object id="483" x="224" y="264" width="176" height="8"/>
   <object id="484" x="400" y="288" width="168" height="32"/>
   <object id="485" x="0" y="64" width="272" height="72"/>
-  <object id="486" x="232" y="392" width="168" height="56"/>
+  <object id="486" x="232" y="400" width="168" height="48"/>
   <object id="488" x="64" y="416" width="168" height="32"/>
   <object id="489" x="568" y="0" width="64" height="320"/>
   <object id="491" x="0" y="136" width="64" height="312"/>
   <object id="492" x="232" y="520" width="168" height="56"/>
   <object id="493" x="0" y="448" width="232" height="128"/>
   <object id="495" x="400" y="544" width="232" height="32"/>
-  <object id="497" x="400" y="392" width="8" height="8"/>
+  <object id="497" x="232" y="392" width="176" height="8"/>
   <object id="498" x="632" y="520" width="392" height="56"/>
   <object id="500" x="632" y="0" width="392" height="136"/>
   <object id="501" x="960" y="136" width="64" height="384"/>

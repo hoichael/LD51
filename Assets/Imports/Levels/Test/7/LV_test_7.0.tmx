@@ -109,7 +109,7 @@
   <object id="21" x="496" y="328" width="32" height="104"/>
   <object id="51" x="328" y="432" width="368" height="16"/>
   <object id="52" x="256" y="448" width="512" height="16"/>
-  <object id="55" x="328" y="296" width="368" height="32"/>
+  <object id="55" x="360" y="296" width="304" height="32"/>
   <object id="60" x="472" y="328">
    <polygon points="0,0 24,0 24,24"/>
   </object>
@@ -122,15 +122,15 @@
   <object id="63" x="528" y="408">
    <polygon points="0,0 24,24 0,24"/>
   </object>
-  <object id="67" x="328" y="264" width="32" height="32"/>
-  <object id="68" x="664" y="264" width="32" height="32"/>
-  <object id="69" x="328" y="208" width="128" height="56"/>
-  <object id="73" x="568" y="208" width="128" height="56"/>
+  <object id="67" x="328" y="240" width="32" height="88"/>
+  <object id="68" x="664" y="240" width="32" height="88"/>
+  <object id="69" x="360" y="240" width="96" height="24"/>
+  <object id="73" x="568" y="240" width="96" height="24"/>
   <object id="75" x="488" y="296">
    <polygon points="0,0 24,-24 48,0"/>
   </object>
-  <object id="76" x="456" y="208" width="24" height="32"/>
-  <object id="77" x="544" y="208" width="24" height="32"/>
+  <object id="76" x="328" y="208" width="152" height="32"/>
+  <object id="77" x="544" y="208" width="152" height="32"/>
   <object id="79" x="544" y="240">
    <polygon points="0,0 24,0 24,24"/>
   </object>

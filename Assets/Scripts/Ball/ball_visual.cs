@@ -34,7 +34,7 @@ public class ball_visual : MonoBehaviour
 
     private float GetRotSpeed()
     {
-        return -refs.rb.velocity.x * 24f;
+        return -refs.rb.velocity.x * 27.5f;
     }
 
     private void OnDisable()

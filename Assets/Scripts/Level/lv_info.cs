@@ -10,4 +10,5 @@ public class lv_info : MonoBehaviour
     public Transform ballsContainer;
     public lv_goal goalManager;
     public lv_orb_manager orbManager;
+    public bool initPlayerFacingLeft;
 }

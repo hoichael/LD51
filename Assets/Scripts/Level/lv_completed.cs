@@ -32,15 +32,15 @@ public class lv_completed : MonoBehaviour
     public void Init(string finalTime)
     {
         timeText.text = finalTime;
-        navigator.enabled = true;
-        navigator.SwitchSelection(initSelectable);
         StartCoroutine(ShowUI());
     }
 
     public void Reset()
     {
-        uiContainer.localPosition = containerHiddenPos;
+        StopAllCoroutines();
         navigator.enabled = false;
+        inUITransition = false;
+        uiContainer.localPosition = containerHiddenPos;
     }
 
 
@@ -62,5 +62,7 @@ public class lv_completed : MonoBehaviour
         yield return new WaitForSeconds(uiShowDelay);
         currentTransitionFactor = 0;
         inUITransition = true;
+        navigator.enabled = true;
+        navigator.SwitchSelection(initSelectable);
     }
 }

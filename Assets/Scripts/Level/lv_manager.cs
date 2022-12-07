@@ -77,6 +77,7 @@ public class lv_manager : MonoBehaviour
         // handle player
         refs_global.Instance.playerTrans.localPosition = levelInfoList[idx].plSpawnPos;
         refs_global.Instance.playerRB.velocity = Vector2.zero;
+        refs_global.Instance.plFlipContainerTrans.localScale = new Vector3(levelInfoList[idx].initPlayerFacingLeft ? -1 : 1, 1, 1);
 
         // temp solution to provide legacy level support by also handling ballSpawnPosArr
         if(levelInfoList[idx].ballSpawnPosArr.Length != 0) // if-check so that accidental mix of legacy/new data format doesnt manifest in level

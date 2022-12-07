@@ -83,7 +83,7 @@
   <object id="513" x="168" y="240">
    <polygon points="0,0 96,-96 96,0"/>
   </object>
-  <object id="518" x="264" y="136" width="144" height="264"/>
+  <object id="518" x="264" y="144" width="144" height="256"/>
   <object id="521" x="0" y="0" width="112" height="336"/>
   <object id="523" x="112" y="152">
    <polygon points="0,0 136,-136 0,-136"/>
@@ -94,8 +94,7 @@
    <polygon points="0,0 168,168 0,168"/>
   </object>
   <object id="528" x="408" y="312" width="168" height="88"/>
-  <object id="529" x="256" y="136" width="8" height="8"/>
-  <object id="530" x="408" y="136" width="8" height="8"/>
+  <object id="529" x="256" y="136" width="160" height="8"/>
   <object id="532" x="472" y="16">
    <polygon points="0,0 128,128 256,0"/>
   </object>

@@ -8,5 +8,8 @@ public class cam_init : MonoBehaviour
     private void Awake()
     {
         cam.aspect = aspectRatio;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
     }
 }
