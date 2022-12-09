@@ -28,6 +28,18 @@ public class menu_button_config : menu_selectable
         configManager.HandleButtonSwitch(buttonType);
     }
 
+    public override void Activate()
+    {
+        base.Activate();
+
+        if (buttonType == menu_config_button_type.UNDEFINED)
+        {
+            print("UNDEFINED BUTTON TYPE in CONFIG MENU");
+            return;
+        }
+        configManager.HandleButtonPress();
+    }
+
     protected override void Exit()
     {
         base.Exit();

@@ -8,7 +8,7 @@ public class menu_selectable : MonoBehaviour
     private void Start()
     {
         //Exit(); // quick n dirty. maybe doesnt work for all button types
-        this.enabled = false;
+        //this.enabled = false;
     }
 
     private void OnEnable()

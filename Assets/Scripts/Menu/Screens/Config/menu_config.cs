@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class menu_config : menu_screen_base
 {
@@ -8,16 +9,18 @@ public class menu_config : menu_screen_base
     [SerializeField] menu_navigate navigator;
     [SerializeField] menu_selectable initSelectedButton;
     [SerializeField] menu_main mainMenuManager;
-    [SerializeField] menu_config_subscreen subscreenAudio, subscreenDisplay, subscreenControls;
+    [SerializeField] TextMeshPro descTextEl;
+    [SerializeField] string descDefaultText;
+    [SerializeField] subscreen_scene_data subscreenDataAudio, subscreenDataDisplay, subscreenDataControls;
 
-    Dictionary<menu_config_button_type, menu_config_subscreen> subscreenDict;
+    Dictionary<menu_config_button_type, subscreen_scene_data> subscreenDict;
+    menu_config_button_type currentSubscreenType;
     menu_config_subscreen currentActiveSubscreen;
 
     private void Awake()
     {
         SetupData();
-        currentActiveSubscreen = subscreenAudio;
-        this.enabled = false;
+        HandleInit();
     }
 
     public override void OnSwitchToInit()
@@ -43,11 +46,19 @@ public class menu_config : menu_screen_base
            type == menu_config_button_type.SelectControls)
         {
             SwitchSubscreen(type);
+
+            descTextEl.text = descDefaultText; // technically doesnt belong here but works well as a side effect. will prob keep it here until it doesnt align with the program flow anymore
         }
         else
         {
-            
+            currentActiveSubscreen.HandleSelectionSwitch(type);
         }
+    }
+
+    public void HandleButtonPress()
+    {
+        //print("CONFIG BUTTON PRESS");
+        currentActiveSubscreen.HandleSelectionActivate();
     }
 
     private void Update()
@@ -61,18 +72,41 @@ public class menu_config : menu_screen_base
     private void SwitchSubscreen(menu_config_button_type newSubscreenType)
     {
         if (subscreenDict == null) return; // idc
-        if (ReferenceEquals(subscreenDict[newSubscreenType], currentActiveSubscreen)) return;
+        //if (ReferenceEquals(subscreenDict[newSubscreenType], currentActiveSubscreen)) return;
+        if (newSubscreenType == currentSubscreenType) return;
+
         currentActiveSubscreen.enabled = false;
-        currentActiveSubscreen = subscreenDict[newSubscreenType];
+        subscreenDict[currentSubscreenType].buttonIndicator.gameObject.SetActive(false);
+
+        currentSubscreenType = newSubscreenType;
+        currentActiveSubscreen = subscreenDict[currentSubscreenType].subscreenManager;
+        subscreenDict[currentSubscreenType].buttonIndicator.gameObject.SetActive(true);
         currentActiveSubscreen.enabled = true;
     }
 
     private void SetupData()
     {
-        subscreenDict = new Dictionary<menu_config_button_type, menu_config_subscreen>();
-        subscreenDict.Add(menu_config_button_type.SelectAudio, subscreenAudio);
-        subscreenDict.Add(menu_config_button_type.SelectDisplay, subscreenDisplay);
-        subscreenDict.Add(menu_config_button_type.SelectControls, subscreenControls);
+        subscreenDict = new Dictionary<menu_config_button_type, subscreen_scene_data>();
+        subscreenDict.Add(menu_config_button_type.SelectAudio, subscreenDataAudio);
+        subscreenDict.Add(menu_config_button_type.SelectDisplay, subscreenDataDisplay);
+        subscreenDict.Add(menu_config_button_type.SelectControls, subscreenDataControls);
+    }
+
+    private void HandleInit()
+    {
+        foreach(KeyValuePair<menu_config_button_type, subscreen_scene_data> entry in subscreenDict)
+        {
+            entry.Value.buttonIndicator.gameObject.SetActive(false);
+        }
+
+        currentActiveSubscreen = subscreenDataAudio.subscreenManager;
+        currentSubscreenType = menu_config_button_type.SelectAudio;
+        subscreenDataAudio.buttonIndicator.gameObject.SetActive(true);
+
+        //descDefaultText = descTextEl.text;
+        descTextEl.text = descDefaultText;
+
+        this.enabled = false;
     }
 }
 
@@ -89,4 +123,11 @@ public enum menu_config_button_type
     VolumeSFX,
 
     Fullscreen
+}
+
+[System.Serializable]
+public class subscreen_scene_data
+{
+    public menu_config_subscreen subscreenManager;
+    public Transform buttonIndicator;
 }

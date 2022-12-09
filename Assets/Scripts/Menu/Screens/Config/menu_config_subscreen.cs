@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class menu_config_subscreen : MonoBehaviour
 {
     [SerializeField] Transform uiContainer;
-    menu_config_button_type currentActiveType;
+    [SerializeField] protected TextMeshPro descTextEl;
+    protected menu_config_button_type currentActiveType;
 
     private void Start()
     {
@@ -18,9 +20,14 @@ public class menu_config_subscreen : MonoBehaviour
         uiContainer.gameObject.SetActive(true);
     }
 
-    public void HandleSelectionSwitch(menu_config_button_type type)
+    public virtual void HandleSelectionSwitch(menu_config_button_type type)
     {
         currentActiveType = type;
+    }
+
+    public virtual void HandleSelectionActivate()
+    {
+
     }
 
     private void OnDisable()
@@ -28,7 +35,7 @@ public class menu_config_subscreen : MonoBehaviour
         DisableScreen();
     }
 
-    private void DisableScreen()
+    protected virtual void DisableScreen()
     {
         currentActiveType = menu_config_button_type.UNDEFINED;
         if (uiContainer == null) return;

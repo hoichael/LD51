@@ -36,7 +36,7 @@ public class menu_button_lvcompletion : menu_selectable
         switch(buttonType)
         {
             case Type.Menu:
-                SceneManager.LoadScene("sc_menu_0");
+                SceneManager.LoadScene("sc_menu_1");
                 break;
             case Type.Restart:
                 levelManager.InitLevel(levelManager.currentLevelIDX);

@@ -18,7 +18,8 @@ public class menu_main : menu_screen_base
     {
         base.OnSwitchToInit();
         //navigator.currentSelection = currentSelection;
-        navigator.currentSelection = initSelectedButton;
+        //navigator.currentSelection = initSelectedButton;
+        navigator.SwitchSelection(initSelectedButton);
         navigator.enabled = true;
         this.enabled = true;
     }
