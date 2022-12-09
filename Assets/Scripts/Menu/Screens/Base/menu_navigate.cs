@@ -17,6 +17,12 @@ public class menu_navigate : MonoBehaviour
         canSwitch = true;
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        canSwitch = true;
+    }
+
     void Update()
     {
         if (!canSwitch) return;

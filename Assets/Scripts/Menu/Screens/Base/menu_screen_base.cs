@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class menu_screen_base : MonoBehaviour
 {
     public Transform uiContainer;
+    public menu_manager menuManager;
 
     public virtual void OnSwitchToInit()
     {

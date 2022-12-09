@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class menu_worldselect : menu_screen_base
 {
-    [SerializeField] menu_manager menuManager;
     [SerializeField] SO_pd_session sessionData;
     [SerializeField] InputServer input;
     [SerializeField] menu_main mainMenuManager;

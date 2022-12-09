@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class menu_main : menu_screen_base
 {
-    [SerializeField] menu_manager menuManager;
     [SerializeField] menu_navigate navigator;
     [SerializeField] menu_selectable initSelectedButton;
     [SerializeField] menu_worldselect worldSelectScreen;
+    [SerializeField] menu_config configScreen;
     //menu_selectable currentSelection;
 
     private void Start()
@@ -38,6 +38,7 @@ public class menu_main : menu_screen_base
                 menuManager.SwitchScreen(worldSelectScreen);
                 break;
             case menu_main_button_type.Config:
+                menuManager.SwitchScreen(configScreen);
                 break;
             case menu_main_button_type.Exit:
                 #if UNITY_STANDALONE

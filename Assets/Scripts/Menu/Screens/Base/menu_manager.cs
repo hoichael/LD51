@@ -20,9 +20,9 @@ public class menu_manager : MonoBehaviour
         if (currentlySwitching) return;
         currentlySwitching = true;
 
+        currentScreen.OnSwitchFromInit();
         screenToSwitchTo = newScreen;
         screenToSwitchTo.OnSwitchToInit();
-        currentScreen.OnSwitchFromInit();
 
         screenSwitcher.Init(newScreen);
     }
@@ -31,8 +31,8 @@ public class menu_manager : MonoBehaviour
     {
         currentlySwitching = false;
 
-        screenToSwitchTo.OnSwitchToComplete();
         currentScreen.OnSwitchFromComplete();
+        screenToSwitchTo.OnSwitchToComplete();
 
         currentScreen = screenToSwitchTo;
         screenToSwitchTo = null;

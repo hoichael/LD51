@@ -5,7 +5,6 @@ using TMPro;
 
 public class menu_lvselect_manager : menu_screen_base
 {
-    [SerializeField] menu_manager menuManager;
     [SerializeField] List<SO_menu_worldinfo> worldInfoList;
     [SerializeField] menu_lvselect_bootstrap bootstrapper;
     [SerializeField] menu_lvselect_nav navigator;
@@ -55,7 +54,7 @@ public class menu_lvselect_manager : menu_screen_base
     {
         base.OnSwitchFromInit();
         navigator.enabled = false;
-        worldSelectManager.enabled = true;
+        //worldSelectManager.enabled = true;
         this.enabled = false;
     }
 

@@ -1,11 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class menu_button_main : menu_selectable
+public class menu_button_config : menu_selectable
 {
     [SerializeField] TextMeshPro textElement;
-    [SerializeField] menu_main mainMenuManager;
-    [SerializeField] menu_main_button_type buttonType;
+    [SerializeField] menu_config configManager;
+    [SerializeField] menu_config_button_type buttonType;
     [SerializeField] Color colorDefault, colorActive;
 
     private void Awake()
@@ -17,22 +19,18 @@ public class menu_button_main : menu_selectable
     {
         base.Enter();
         textElement.color = colorActive;
+
+        if (buttonType == menu_config_button_type.UNDEFINED)
+        {
+            print("UNDEFINED BUTTON TYPE in CONFIG MENU");
+            return;
+        }
+        configManager.HandleButtonSwitch(buttonType);
     }
 
     protected override void Exit()
     {
         base.Exit();
         textElement.color = colorDefault;
-    }
-
-    public override void Activate()
-    {
-        base.Activate();
-        if (buttonType == menu_main_button_type.UNDEFINED)
-        {
-            print("UNDEFINED BUTTON TYPE in MAIN MENU");
-            return;
-        }
-        mainMenuManager.HandleButton(buttonType);
     }
 }
