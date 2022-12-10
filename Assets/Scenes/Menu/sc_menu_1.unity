@@ -17675,6 +17675,7 @@ MonoBehaviour:
   uiContainer: {fileID: 879849182}
   descTextEl: {fileID: 1462966455}
   configData: {fileID: 11400000, guid: daf1dc643fe83984c955fc938d91b3c6, type: 2}
+  mixer: {fileID: 24100000, guid: c91d4ffbf879b544392ef107c9332fdb, type: 2}
   visualTogglesMaster:
   - {fileID: 1316983782}
   - {fileID: 1586796298}

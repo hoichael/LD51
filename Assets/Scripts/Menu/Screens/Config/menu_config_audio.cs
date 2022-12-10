@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio;
 
 public class menu_config_audio : menu_config_subscreen
 {
     [SerializeField] SO_config configData;
+    [SerializeField] AudioMixer mixer;
 
     // todo: generate these procedurally and get refs in the process
     [SerializeField] List<GameObject> visualTogglesMaster, visualTogglesMusic, visualTogglesSFX;
 
     int volumeMax = 10;
 
-    private void Awake()
+    private void Start()
     {
         SetVisualToggles(visualTogglesMaster, configData.audioVolumeMaster);
         SetVisualToggles(visualTogglesMusic, configData.audioVolumeMusic);
         SetVisualToggles(visualTogglesSFX, configData.audioVolumeSFX);
+        AdjustMixerVolume("volParamMaster", configData.audioVolumeMaster);
+        AdjustMixerVolume("volParamMusic", configData.audioVolumeMusic);
+        AdjustMixerVolume("volParamSFX", configData.audioVolumeSFX);
     }
 
     public void HandleButtonSelect(string descToSet)
@@ -33,14 +38,17 @@ public class menu_config_audio : menu_config_subscreen
             case menu_config_audio_volume_button_type.Master:
                 configData.audioVolumeMaster = Mathf.Clamp(configData.audioVolumeMaster + value, 0, volumeMax);
                 SetVisualToggles(visualTogglesMaster, configData.audioVolumeMaster);
+                AdjustMixerVolume("volParamMaster", configData.audioVolumeMaster);
                 break;
             case menu_config_audio_volume_button_type.Music:
                 configData.audioVolumeMusic = Mathf.Clamp(configData.audioVolumeMusic + value, 0, volumeMax);
                 SetVisualToggles(visualTogglesMusic, configData.audioVolumeMusic);
+                AdjustMixerVolume("volParamMusic", configData.audioVolumeMusic);
                 break;
             case menu_config_audio_volume_button_type.SFX:
                 configData.audioVolumeSFX = Mathf.Clamp(configData.audioVolumeSFX + value, 0, volumeMax);
                 SetVisualToggles(visualTogglesSFX, configData.audioVolumeSFX);
+                AdjustMixerVolume("volParamSFX", configData.audioVolumeSFX);
                 break;
             default:
                 break;
@@ -61,6 +69,12 @@ public class menu_config_audio : menu_config_subscreen
                 togglesList[i].SetActive(false);
             }
         }
+    }
+
+    private void AdjustMixerVolume(string mixerKey, int volumeValue)
+    {
+        float processedBaseValue = Mathf.Clamp(volumeValue * 0.1f, 0.0001f, 1);
+        mixer.SetFloat(mixerKey, Mathf.Log10(processedBaseValue) * 20);
     }
 }
 
