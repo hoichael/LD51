@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class menu_config_display : menu_config_subscreen
 {
+    [SerializeField] SO_config configData;
     [SerializeField] string fullscreenDescText;
     [SerializeField] GameObject fullscreenToggleVisual;
 
     menu_config_display_button_type currentActiveType;
+
+    private void Awake()
+    {
+        Screen.fullScreen = configData.fullscreen;
+        fullscreenToggleVisual.SetActive(configData.fullscreen);
+    }
 
     public void HandleSelectionSwitch(menu_config_display_button_type type)
     {
@@ -35,9 +42,11 @@ public class menu_config_display : menu_config_subscreen
         switch (currentActiveType)
         {
             case menu_config_display_button_type.Fullscreen:
-                Screen.fullScreen = !Screen.fullScreen;
+                configData.fullscreen = !configData.fullscreen;
+                Screen.fullScreen = configData.fullscreen;
                 //fullscreenToggleVisual.SetActive(Screen.fullScreen);
-                fullscreenToggleVisual.SetActive(!fullscreenToggleVisual.activeSelf);
+                //fullscreenToggleVisual.SetActive(!fullscreenToggleVisual.activeSelf);
+                fullscreenToggleVisual.SetActive(configData.fullscreen);
                 break;
             case menu_config_display_button_type.UNDEFINED:
 

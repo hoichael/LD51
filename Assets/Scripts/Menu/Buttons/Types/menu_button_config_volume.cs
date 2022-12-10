@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class menu_button_config_volume : menu_selectable
 {
+    [SerializeField] int value;
     [SerializeField] menu_config_audio audioSubscreenManager;
     [SerializeField] menu_config_audio_volume_button_type type;
     [SerializeField] SpriteRenderer sprRenderer;
@@ -33,7 +34,7 @@ public class menu_button_config_volume : menu_selectable
             print("UNDEFINED BUTTON TYPE in CONFIG AUDIO MENU");
             return;
         }
-        audioSubscreenManager.HandleSelectionActivate();
+        audioSubscreenManager.HandleButtonActivate(type, value);
     }
 
     protected override void Exit()
