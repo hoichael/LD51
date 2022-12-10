@@ -7,7 +7,7 @@ public class menu_config_subscreen : MonoBehaviour
 {
     [SerializeField] Transform uiContainer;
     [SerializeField] protected TextMeshPro descTextEl;
-    protected menu_config_button_type currentActiveType;
+    //protected menu_config_button_type currentActiveType;
 
     private void Start()
     {
@@ -20,10 +20,10 @@ public class menu_config_subscreen : MonoBehaviour
         uiContainer.gameObject.SetActive(true);
     }
 
-    public virtual void HandleSelectionSwitch(menu_config_button_type type)
-    {
-        currentActiveType = type;
-    }
+    //public virtual void HandleSelectionSwitch(menu_config_button_type type)
+    //{
+    //    currentActiveType = type;
+    //}
 
     public virtual void HandleSelectionActivate()
     {
@@ -37,7 +37,7 @@ public class menu_config_subscreen : MonoBehaviour
 
     protected virtual void DisableScreen()
     {
-        currentActiveType = menu_config_button_type.UNDEFINED;
+        //currentActiveType = menu_config_button_type.UNDEFINED;
         if (uiContainer == null) return;
         uiContainer.gameObject.SetActive(false);
     }

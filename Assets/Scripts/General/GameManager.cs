@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         // temp dev. currently only entry point to menu scene from gameplay scene
         if(refs_global.Instance.ip.I.Play.Pause.WasPressedThisFrame())
         {
-            SceneManager.LoadScene("sc_menu_0");
+            SceneManager.LoadScene("sc_menu_1");
         }
     }
 }

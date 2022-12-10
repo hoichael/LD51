@@ -5,17 +5,20 @@ using UnityEngine;
 public class menu_config_display : menu_config_subscreen
 {
     [SerializeField] string fullscreenDescText;
+    [SerializeField] GameObject fullscreenToggleVisual;
 
-    public override void HandleSelectionSwitch(menu_config_button_type type)
+    menu_config_display_button_type currentActiveType;
+
+    public void HandleSelectionSwitch(menu_config_display_button_type type)
     {
-        base.HandleSelectionSwitch(type);
 
         switch (type)
         {
-            case menu_config_button_type.Fullscreen:
+            case menu_config_display_button_type.Fullscreen:
                 descTextEl.text = fullscreenDescText;
+                currentActiveType = type;
                 break;
-            case menu_config_button_type.UNDEFINED:
+            case menu_config_display_button_type.UNDEFINED:
 
                 break;
             default:
@@ -31,10 +34,12 @@ public class menu_config_display : menu_config_subscreen
 
         switch (currentActiveType)
         {
-            case menu_config_button_type.Fullscreen:
-                print("FULLSCREEN TOGGLE PRESSED");
+            case menu_config_display_button_type.Fullscreen:
+                Screen.fullScreen = !Screen.fullScreen;
+                //fullscreenToggleVisual.SetActive(Screen.fullScreen);
+                fullscreenToggleVisual.SetActive(!fullscreenToggleVisual.activeSelf);
                 break;
-            case menu_config_button_type.UNDEFINED:
+            case menu_config_display_button_type.UNDEFINED:
 
                 break;
             default:
@@ -43,4 +48,10 @@ public class menu_config_display : menu_config_subscreen
         }
 
     }
+}
+
+public enum menu_config_display_button_type
+{
+    UNDEFINED,
+    Fullscreen
 }

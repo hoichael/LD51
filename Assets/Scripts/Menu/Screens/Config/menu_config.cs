@@ -41,18 +41,21 @@ public class menu_config : menu_screen_base
 
     public void HandleButtonSwitch(menu_config_button_type type)
     {
-        if(type == menu_config_button_type.SelectAudio ||
-           type == menu_config_button_type.SelectDisplay ||
-           type == menu_config_button_type.SelectControls)
-        {
-            SwitchSubscreen(type);
+        //if(type == menu_config_button_type.SelectAudio ||
+        //   type == menu_config_button_type.SelectDisplay ||
+        //   type == menu_config_button_type.SelectControls)
+        //{
+        //    SwitchSubscreen(type);
 
-            descTextEl.text = descDefaultText; // technically doesnt belong here but works well as a side effect. will prob keep it here until it doesnt align with the program flow anymore
-        }
-        else
-        {
-            currentActiveSubscreen.HandleSelectionSwitch(type);
-        }
+        //    descTextEl.text = descDefaultText; // technically doesnt belong here but works well as a side effect. will prob keep it here until it doesnt align with the program flow anymore
+        //}
+        ////else
+        ////{
+        ////    currentActiveSubscreen.HandleSelectionSwitch(type);
+        ////}
+
+        descTextEl.text = descDefaultText; // technically doesnt belong here but works well as a side effect. will prob keep it here until it doesnt align with the program flow anymore
+        SwitchSubscreen(type);
     }
 
     public void HandleButtonPress()
@@ -99,9 +102,11 @@ public class menu_config : menu_screen_base
             entry.Value.buttonIndicator.gameObject.SetActive(false);
         }
 
-        currentActiveSubscreen = subscreenDataAudio.subscreenManager;
-        currentSubscreenType = menu_config_button_type.SelectAudio;
-        subscreenDataAudio.buttonIndicator.gameObject.SetActive(true);
+        // initializing to controls subscreen instead of audio subscreen because fuckery. whtv no biggie
+        currentActiveSubscreen = subscreenDataControls.subscreenManager;
+        currentSubscreenType = menu_config_button_type.SelectControls;
+        subscreenDataControls.buttonIndicator.gameObject.SetActive(true);
+        currentActiveSubscreen.enabled = true;
 
         //descDefaultText = descTextEl.text;
         descTextEl.text = descDefaultText;
@@ -118,11 +123,11 @@ public enum menu_config_button_type
     SelectDisplay,
     SelectControls,
 
-    VolumeMaster,
-    VolumeMusic,
-    VolumeSFX,
+    //VolumeMaster,
+    //VolumeMusic,
+    //VolumeSFX,
 
-    Fullscreen
+    //Fullscreen
 }
 
 [System.Serializable]
