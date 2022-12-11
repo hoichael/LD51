@@ -16,6 +16,9 @@ public class lv_completed : MonoBehaviour
 
     [SerializeField] menu_selectable initSelectable;
 
+    [SerializeField] GameObject starTwoToggle, starThreeToggle;
+    [SerializeField] TextMeshPro starTwoText, starThreeText;
+
     public TextMeshPro timeText;
 
     private void Awake()
@@ -29,10 +32,12 @@ public class lv_completed : MonoBehaviour
         if (inUITransition) HandleShowUITransition();
     }
 
-    public void Init(string finalTime)
+    public void Init(string finalTimeAsString, float finalTimeInSeconds, lv_info levelInfo)
     {
-        timeText.text = finalTime;
+        timeText.text = finalTimeAsString;
         StartCoroutine(ShowUI());
+        HandleStarsText(levelInfo);
+        HandleStarsTime(finalTimeInSeconds, levelInfo);
     }
 
     public void Reset()
@@ -55,6 +60,36 @@ public class lv_completed : MonoBehaviour
             );
 
         if (currentTransitionFactor == 1) inUITransition = false;
+    }
+
+    private void HandleStarsText(lv_info levelInfo)
+    {
+        string starTwoTimeAsString = $"0 : {levelInfo.timeTwoStars.seconds} : {levelInfo.timeTwoStars.milliseconds}";
+        string starThreeTimeAsString = $"0 : {levelInfo.timeThreeStars.seconds} : {levelInfo.timeThreeStars.milliseconds}";
+
+        starTwoText.text = starTwoTimeAsString;
+        starThreeText.text = starThreeTimeAsString;
+    }
+
+    private void HandleStarsTime(float finalTimeInSeconds, lv_info levelInfo)
+    {
+        if(finalTimeInSeconds <= levelInfo.timeThreeStars.seconds + (float)(levelInfo.timeThreeStars.milliseconds * 0.001f))
+        {
+            starThreeToggle.SetActive(true);
+            starTwoToggle.SetActive(true);
+        }
+        else
+        {
+            starThreeToggle.SetActive(false);
+            if(finalTimeInSeconds <= levelInfo.timeTwoStars.seconds + (float)(levelInfo.timeTwoStars.milliseconds * 0.001f))
+            {
+                starTwoToggle.SetActive(true);
+            }
+            else
+            {
+                starTwoToggle.SetActive(false);
+            }
+        }
     }
 
     private IEnumerator ShowUI()

@@ -28,6 +28,11 @@ public class lv_manager : MonoBehaviour
         CheckForRelaod();
     }
 
+    public lv_info GetCurrentLevelInfo()
+    {
+        return levelInfoList[currentLevelIDX];
+    }
+
     private void CheckForRelaod()
     {
         //if (Input.GetKeyDown(KeyCode.R))

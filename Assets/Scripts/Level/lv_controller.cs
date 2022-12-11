@@ -45,14 +45,15 @@ public class lv_controller : MonoBehaviour
         playerHasCompleted = true;
 
         timer.Stop();
-        string finalTime = $"{timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds}";
+        float finalTimeInSeconds = (float)(timer.Elapsed.Minutes * 60) + timer.Elapsed.Seconds + (float)(timer.Elapsed.Milliseconds * 0.001f);
+        string finalTimeAsString = $"{timer.Elapsed.Minutes}:{timer.Elapsed.Seconds}:{timer.Elapsed.Milliseconds}";
 
         manager.timerText.color = Color.green;
         //manager.timerText.color = new Color(0, 0, 0, 0); // quick and dirty solution for hiding ingame timer upon level completion
-        manager.timerText.text = finalTime;
+        manager.timerText.text = finalTimeAsString;
 
-        print($"level completed in {finalTime}");
+        print($"level completed in {finalTimeAsString}");
 
-        completionManager.Init(finalTime);
+        completionManager.Init(finalTimeAsString, finalTimeInSeconds, manager.GetCurrentLevelInfo());
     }
 }
