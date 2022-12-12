@@ -12,7 +12,7 @@ public class lv_controller : MonoBehaviour
     public void Reset()
     {
         //print("enter level");
-        manager.timerText.color = Color.white;
+        manager.timerText.color = Color.black;
         manager.timerText.text = "0:00";
         playerHasMoved = playerHasCompleted = false;
     }
