@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class menu_button_lvcompletion : menu_selectable
 {
-    [SerializeField] Color colorDefault, colorActive;
+    //[SerializeField] Color colorDefault, colorActive;
+    [SerializeField] Sprite sprDefault, sprActive;
     [SerializeField] SpriteRenderer sprRenderer;
     [SerializeField] Type buttonType;
     [SerializeField] lv_manager levelManager;
@@ -11,13 +12,15 @@ public class menu_button_lvcompletion : menu_selectable
     protected override void Enter()
     {
         base.Enter();
-        sprRenderer.color = colorActive;
+        //sprRenderer.color = colorActive;
+        sprRenderer.sprite = sprActive;
     }
 
     protected override void Exit()
     {
         base.Exit();
-        sprRenderer.color = colorDefault;
+        //sprRenderer.color = colorDefault;
+        sprRenderer.sprite = sprDefault;
     }
 
     public override void Activate()
