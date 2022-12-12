@@ -4,6 +4,8 @@ using TMPro;
 
 public class lv_completed : MonoBehaviour
 {
+    [SerializeField] bool DEV_ignorevisuals;
+
     [SerializeField] Transform uiContainer;
     [SerializeField] menu_navigate navigator;
     [SerializeField] float uiShowDelay;
@@ -16,7 +18,11 @@ public class lv_completed : MonoBehaviour
 
     [SerializeField] menu_selectable initSelectable;
 
-    [SerializeField] GameObject starTwoToggle, starThreeToggle;
+    //[SerializeField] GameObject starTwoToggle, starThreeToggle;
+    [SerializeField] SpriteRenderer sprRendererStarTwo, sprRendererStarThree;
+    [SerializeField] Color colorDefaultStar;
+    [SerializeField] Material matStarTextDefault, matStarTextActive;
+
     [SerializeField] TextMeshPro starTwoText, starThreeText;
 
     public TextMeshPro timeText;
@@ -34,8 +40,10 @@ public class lv_completed : MonoBehaviour
 
     public void Init(string finalTimeAsString, float finalTimeInSeconds, lv_info levelInfo)
     {
-        timeText.text = finalTimeAsString;
+        timeText.text = "Completion Time : " + "<color=#ffffff>" + finalTimeAsString;
         StartCoroutine(ShowUI());
+
+        if (DEV_ignorevisuals) return;
         HandleStarsText(levelInfo);
         HandleStarsTime(finalTimeInSeconds, levelInfo);
     }
@@ -64,7 +72,7 @@ public class lv_completed : MonoBehaviour
 
     private void HandleStarsText(lv_info levelInfo)
     {
-        string starTwoTimeAsString = $"0 : {levelInfo.timeTwoStars.seconds} : {levelInfo.timeTwoStars.milliseconds}";
+        string starTwoTimeAsString = $"0 : {levelInfo.timeTwoStars.seconds} : {GetMillisecString(levelInfo.timeTwoStars.milliseconds)}";
         string starThreeTimeAsString = $"0 : {levelInfo.timeThreeStars.seconds} : {levelInfo.timeThreeStars.milliseconds}";
 
         starTwoText.text = starTwoTimeAsString;
@@ -75,21 +83,43 @@ public class lv_completed : MonoBehaviour
     {
         if(finalTimeInSeconds <= levelInfo.timeThreeStars.seconds + (float)(levelInfo.timeThreeStars.milliseconds * 0.001f))
         {
-            starThreeToggle.SetActive(true);
-            starTwoToggle.SetActive(true);
+            //starThreeToggle.SetActive(true);
+            //starTwoToggle.SetActive(true);
+            sprRendererStarThree.color = sprRendererStarTwo.color = Color.white;
+            starThreeText.fontMaterial = starTwoText.fontMaterial = matStarTextActive;
         }
         else
         {
-            starThreeToggle.SetActive(false);
-            if(finalTimeInSeconds <= levelInfo.timeTwoStars.seconds + (float)(levelInfo.timeTwoStars.milliseconds * 0.001f))
+            //starThreeToggle.SetActive(false);
+            sprRendererStarThree.color = colorDefaultStar;
+            starThreeText.fontMaterial = matStarTextDefault;
+            if (finalTimeInSeconds <= levelInfo.timeTwoStars.seconds + (float)(levelInfo.timeTwoStars.milliseconds * 0.001f))
             {
-                starTwoToggle.SetActive(true);
+                //starTwoToggle.SetActive(true);
+                sprRendererStarTwo.color = Color.white;
+                starTwoText.fontMaterial = matStarTextActive;
             }
             else
             {
-                starTwoToggle.SetActive(false);
+                //starTwoToggle.SetActive(false);
+                sprRendererStarTwo.color = colorDefaultStar;
+                starTwoText.fontMaterial = matStarTextDefault;
             }
         }
+    }
+
+    public string GetMillisecString(float ms)
+    {
+        if(ms < 10)
+        {
+            return "00" + ms;
+        }
+        else if(ms < 100)
+        {
+            return "0" + ms;
+        }
+
+        return "" + ms;
     }
 
     private IEnumerator ShowUI()
