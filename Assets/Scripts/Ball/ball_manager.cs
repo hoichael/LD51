@@ -23,10 +23,10 @@ public class ball_manager : MonoBehaviour
 
         refs.trail.emitting = false;
 
-        refs.visual.Reset();
+        refs.visual.HandlePickup();
     }
 
-    public void HandleThrow()
+    public void HandleThrow(int chargeStep)
     {
         //refs.trans.SetParent(null);
         refs.colSolid.enabled = true;
@@ -38,7 +38,7 @@ public class ball_manager : MonoBehaviour
 
         StartCoroutine(DelayedColHandler());
 
-        refs.visual.InitThrow();
+        refs.visual.InitThrow(chargeStep);
     }
 
     private void CreateRB()

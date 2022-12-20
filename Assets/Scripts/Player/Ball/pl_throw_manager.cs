@@ -91,7 +91,7 @@ public class pl_throw_manager : MonoBehaviour
 
         pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, true); // this is fucky
 
-        refs_global.Instance.currentBallRefs.manager.HandleThrow();
+        refs_global.Instance.currentBallRefs.manager.HandleThrow(currentChargeStep);
         indicator.HandleThrow();
 
         ApplyForce();

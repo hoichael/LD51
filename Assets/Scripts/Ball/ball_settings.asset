@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e1bdf370cbcc478a1e9ba0164770b, type: 3}
+  m_Name: ball_settings
+  m_EditorClassIdentifier: 
+  <rbGravityScale>k__BackingField: 5.6
+  <rbPhMat>k__BackingField: {fileID: 6200000, guid: 4ca424d12e6ac3141851f1d320e06ce6, type: 2}
+  <rbInterp>k__BackingField: 1
+  <rbColDetectMode>k__BackingField: 1
+  <rotSpeedMult>k__BackingField: 27.5
+  <circleColorDefault>k__BackingField: {r: 1, g: 0.6156863, b: 0, a: 1}
+  <trailColorDefault>k__BackingField: {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  <chargeStepColors>k__BackingField:
+  - {r: 0.9490196, g: 0.42745098, b: 0.12156863, a: 1}
+  - {r: 0.8784314, g: 0.25882354, b: 0.09019608, a: 1}
+  - {r: 0.7529412, g: 0.16862746, b: 0.09411765, a: 1}
+  - {r: 0.4862745, g: 0.011764706, b: 0, a: 1}
+  <colorLerpSpeedSteps>k__BackingField:
+  - 0.4
+  - 0.45
+  - 0.5
+  - 0.48
+  <velMagTrailCutoff>k__BackingField: 18
+  <trailInterpSpeed>k__BackingField: 0.315
+  <colEnableDelay>k__BackingField: 0.2

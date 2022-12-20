@@ -93,7 +93,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 159648762845044499}
-  - component: {fileID: 159648762845044498}
   - component: {fileID: 159648762845044497}
   m_Layer: 10
   m_Name: Data
@@ -117,27 +116,6 @@ Transform:
   m_Father: {fileID: 159648763285764017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &159648762845044498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159648762845044496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 310e1bdf370cbcc478a1e9ba0164770b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForceBase: 12
-  playerVelThrowForceMult: 0.8
-  throwForceAdd: 48
-  throwForceMax: 64
-  colEnableDelay: 0.2
-  rbGravityScale: 5.6
-  rbPhMat: {fileID: 6200000, guid: 4ca424d12e6ac3141851f1d320e06ce6, type: 2}
-  rbInterp: 1
-  rbColDetectMode: 1
 --- !u!114 &159648762845044497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c18f6d3820f4ba4d90774223a2ab2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 159648762845044498}
+  settings: {fileID: 11400000, guid: 5d962737e2079874997e737e0ae02b42, type: 2}
   manager: {fileID: 159648762885351622}
   visual: {fileID: 4962286716015127017}
   trans: {fileID: 159648763285764017}
@@ -218,6 +196,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 159648762845044497}
   spriteContainer: {fileID: 6319163998407469814}
+  circleSpriteRenderer: {fileID: 159648762339874412}
+  trail: {fileID: 159648763809460130}
+  circleColorDefault: {r: 0, g: 0, b: 0, a: 0}
+  trailColorDefault: {r: 0, g: 0, b: 0, a: 0}
+  chargeStepColors:
+  - {r: 0.9490196, g: 0.42745098, b: 0.12156863, a: 1}
+  - {r: 0.8784314, g: 0.25882354, b: 0.09019608, a: 1}
+  - {r: 0.7529412, g: 0.16862746, b: 0.09411765, a: 1}
+  - {r: 0.4862745, g: 0.011764706, b: 0, a: 1}
 --- !u!1 &159648763285764023
 GameObject:
   m_ObjectHideFlags: 0
