@@ -24,7 +24,11 @@ public class pl_jump_manager : MonoBehaviour
     {
         if (jumpActive)
         {
-            if (refs_global.Instance.ip.I.Play.Jump.WasReleasedThisFrame())
+            //if (refs_global.Instance.ip.I.Play.Jump.WasReleasedThisFrame())
+            //{
+            //    TerminateJump();
+            //}
+            if (!refs_global.Instance.ip.I.Play.Jump.IsPressed())
             {
                 TerminateJump();
             }
@@ -64,13 +68,15 @@ public class pl_jump_manager : MonoBehaviour
     public void InitJump()
     {
         if (refs.info.jumpUsedThisFrame || jumpActive) return;
+
+        jumpFlat.enabled = jumpSlope.enabled = false;
+        currentJumpTimer = 0;
+
         jumpActive = true;
         StartCoroutine(HandleJumpUsedThisFrame());
 
         refs.rb.drag = refs.settings.move.dragGround;
         refs.info.moveForceCurrent = refs.settings.move.forceGround;
-
-        currentJumpTimer = 0;
 
         if (refs.info.slope == 0)
         {

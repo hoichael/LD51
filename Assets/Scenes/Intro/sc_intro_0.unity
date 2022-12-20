@@ -7953,7 +7953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1233387196}
-  totalCount: 15
+  totalCount: 7
 --- !u!114 &216234303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26608,7 +26608,7 @@ MonoBehaviour:
   completionController: {fileID: 251561486}
   uiNavigator: {fileID: 713618418}
   levelInfoList:
-  - {fileID: 1040915200}
+  - {fileID: 1567813780}
   - {fileID: 444428226}
   - {fileID: 1908146249}
   - {fileID: 37320942}
@@ -26619,7 +26619,7 @@ MonoBehaviour:
   - {fileID: 1151667131}
   - {fileID: 1464082966}
   - {fileID: 1494155165}
-  - {fileID: 1567813780}
+  - {fileID: 1040915200}
   ballPrefab: {fileID: 159648763285764023, guid: 4c3cabc3c39cef44290bb046d11ce3bd, type: 3}
   sessionData: {fileID: 11400000, guid: 5d567f390bb83c44fa65f49185e1f21a, type: 2}
   pool: {fileID: 920506350}
@@ -34089,7 +34089,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.99956447
+    height: 0.99989545
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

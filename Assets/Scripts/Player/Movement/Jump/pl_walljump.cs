@@ -64,7 +64,8 @@ public class pl_walljump : MonoBehaviour
 
     private void ApplyForceBase(int dir)
     {
-        refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        //refs.rb.velocity = new Vector2(refs.rb.velocity.x, 0);
+        refs.rb.velocity = Vector2.zero;
 
         refs.rb.AddForce(
             new Vector2(refs.settings.walljump.dir.x * dir, refs.settings.walljump.dir.y).normalized
