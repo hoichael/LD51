@@ -4434,8 +4434,8 @@ MonoBehaviour:
   uiContainer: {fileID: 1562487936}
   menuManager: {fileID: 899211458}
   worldInfoList:
+  - {fileID: 11400000, guid: 868791643f1ff394cae0bad25ee0ddce, type: 2}
   - {fileID: 11400000, guid: b8862b67e6d9560459dc904dcd19eebf, type: 2}
-  - {fileID: 11400000, guid: 78dc950e6b70b7244895695016757ad5, type: 2}
   - {fileID: 11400000, guid: 78dc950e6b70b7244895695016757ad5, type: 2}
   - {fileID: 11400000, guid: 78dc950e6b70b7244895695016757ad5, type: 2}
   - {fileID: 11400000, guid: 78dc950e6b70b7244895695016757ad5, type: 2}
@@ -5481,7 +5481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v. 0.1.3
+  m_text: v. 0.1.4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13176,8 +13176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -11}
-  m_SizeDelta: {x: 52, y: 12}
+  m_AnchoredPosition: {x: 1, y: -12.2}
+  m_SizeDelta: {x: 56, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910099248
 MonoBehaviour:
@@ -13199,7 +13199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'desc for worlddddddddddddd 2 blabla blaaaa bla bleeeeh bruhhh bbbb blaeh
+  m_text: 'DEV PLACEHOLDER WORLD
 
 '
   m_isRightToLeft: 0
@@ -13235,7 +13235,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -14416,8 +14416,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -11}
-  m_SizeDelta: {x: 52, y: 12}
+  m_AnchoredPosition: {x: 1, y: -12.2}
+  m_SizeDelta: {x: 56, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969193452
 MonoBehaviour:
@@ -14439,7 +14439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'desc for worlddddddddddddd 2 blabla blaaaa bla bleeeeh bruhhh bbbb blaeh
+  m_text: 'DEV PLACEHOLDER WORLD
 
 '
   m_isRightToLeft: 0
@@ -14475,7 +14475,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -16394,8 +16394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087182633
 MonoBehaviour:
@@ -16462,7 +16462,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -24425,8 +24425,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483728359
 MonoBehaviour:
@@ -24493,7 +24493,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -28404,8 +28404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -11}
-  m_SizeDelta: {x: 52, y: 12}
+  m_AnchoredPosition: {x: 1, y: -12.2}
+  m_SizeDelta: {x: 56, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681016522
 MonoBehaviour:
@@ -28427,7 +28427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'desc for worlddddddddddddd 2 blabla blaaaa bla bleeeeh bruhhh bbbb blaeh
+  m_text: 'DEV PLACEHOLDER WORLD
 
 '
   m_isRightToLeft: 0
@@ -28463,7 +28463,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -28948,8 +28948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -11}
-  m_SizeDelta: {x: 52, y: 12}
+  m_AnchoredPosition: {x: 1, y: -12.2}
+  m_SizeDelta: {x: 56, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703182534
 MonoBehaviour:
@@ -28971,7 +28971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'desc for world 1 blabla blaaaa bla bleeeeh bruhhhhhhhh blaeh
+  m_text: 'WIP Tutorial Levels Introducing The Fundamentals Of The Game
 
 '
   m_isRightToLeft: 0
@@ -29007,7 +29007,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -30577,8 +30577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -11}
-  m_SizeDelta: {x: 52, y: 12}
+  m_AnchoredPosition: {x: 1, y: -12.2}
+  m_SizeDelta: {x: 56, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828299706
 MonoBehaviour:
@@ -30600,9 +30600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'desc for worlddddddddddddd 2 blabla blaaaa bla bleeeeh bruhhh bbbb blaeh
-
-'
+  m_text: WIP Test Levels Ranging In Difficulty From Medium To Hard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -30636,7 +30634,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -31239,8 +31237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889415724
 MonoBehaviour:
@@ -31262,7 +31260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'World Two
+  m_text: 'test world
 
 '
   m_isRightToLeft: 0
@@ -31307,7 +31305,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -32521,8 +32519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968093882
 MonoBehaviour:
@@ -32544,9 +32542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'World One
-
-'
+  m_text: intro world
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -32589,7 +32585,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -33287,8 +33283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007819665
 MonoBehaviour:
@@ -33355,7 +33351,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

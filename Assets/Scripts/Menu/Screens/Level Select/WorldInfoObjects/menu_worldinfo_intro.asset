@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fc4f1bb7d8d2741be1445adbb39b8b, type: 3}
+  m_Name: menu_worldinfo_intro
+  m_EditorClassIdentifier: 
+  worldSceneName: sc_intro_0
+  levelInfoList:
+  - name: Intro Level 1
+    thumbnail: {fileID: 21300000, guid: 31c04ca2c1ac3fe44b277db0c7ac89eb, type: 3}
+  - name: Intro Level 2
+    thumbnail: {fileID: 21300000, guid: 65fa10e9182c5aa4594e33f347db5d08, type: 3}
+  - name: Intro Level 3
+    thumbnail: {fileID: 21300000, guid: 058a665f99fb4f8428a61b9288b2b08d, type: 3}
+  - name: Intro Level 4
+    thumbnail: {fileID: 21300000, guid: 6e447fdb7448caa4a986b36259290ba6, type: 3}
+  - name: Intro Level 5
+    thumbnail: {fileID: 21300000, guid: 87d2d2823eaeed34c8fcf4f369f260ca, type: 3}
+  - name: Intro Level 6
+    thumbnail: {fileID: 21300000, guid: 91fca368069cc774d9b0f01fa61b536d, type: 3}
+  - name: Intro Level 7
+    thumbnail: {fileID: 21300000, guid: 2bd30b742013e604f9ab144e8277a065, type: 3}
+  - name: Intro Level 8
+    thumbnail: {fileID: 21300000, guid: 4e267adfe87d77d45a8a7cd42b01bd62, type: 3}
+  - name: Intro Level 9
+    thumbnail: {fileID: 21300000, guid: 89f5391476c4a444da378ae239f5a335, type: 3}
+  - name: Intro Level 10
+    thumbnail: {fileID: 21300000, guid: 3d3cc16819a40234f8b7d6fec0d8e593, type: 3}
+  - name: Intro Level 11
+    thumbnail: {fileID: 21300000, guid: 4377339d552118844b981bd4c8eb49a1, type: 3}
+  - name: Intro Level 12
+    thumbnail: {fileID: 21300000, guid: d2455e3f7333e7f48bc21affd2b38e29, type: 3}
