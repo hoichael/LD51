@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using SuperTiled2Unity;
 
 public class ed_lv_gen : EditorWindow
 {
@@ -12,7 +13,9 @@ public class ed_lv_gen : EditorWindow
     lv_orb_manager orbManagerInstance;
     GameObject orbPrefab;
 
+    Transform genSpikesContainerTrans;
     Transform colSpikesContainerTrans; // transform containing children with 2D collision boxes for SPIKES (output of tiled tmx importer)
+    GameObject spikePrefab;
 
     int solidLayer; // caching this for performance. assigned in Init()
     int spikeLayer; // caching this for performance. assigned in Init()
@@ -73,6 +76,10 @@ public class ed_lv_gen : EditorWindow
         EditorGUILayout.LabelField("Spikes", EditorStyles.boldLabel);
         colSpikesContainerTrans = EditorGUILayout.ObjectField("Col Spikes Container", colSpikesContainerTrans, typeof(Transform), true) as Transform;
         GUILayout.Space(4);
+        genSpikesContainerTrans = EditorGUILayout.ObjectField("Gen Spikes Container", genSpikesContainerTrans, typeof(Transform), true) as Transform;
+        GUILayout.Space(4);
+        spikePrefab = EditorGUILayout.ObjectField("Spike Prefab", spikePrefab, typeof(GameObject), true) as GameObject;
+        GUILayout.Space(4);
         if (GUILayout.Button("Setup Spikes"))
         {
             InitSpikes();
@@ -126,7 +133,7 @@ public class ed_lv_gen : EditorWindow
 
     private void InitSpikes()
     {
-        if (colSpikesContainerTrans == null)
+        if (colSpikesContainerTrans == null || genSpikesContainerTrans == null || spikePrefab == null)
         {
             Debug.Log("nullllllllllllllllllllll1111 spoikes");
         }
@@ -139,25 +146,6 @@ public class ed_lv_gen : EditorWindow
     #endregion
 
     #region HANDLERS
-    private void ClearContainer(Transform container)
-    {
-        if(container == null)
-        {
-            Debug.Log("NULL!");
-            return;
-        }
-
-        int counter = 0;
-        foreach (Transform sub in container)
-        {
-            counter++;
-            DestroyImmediate(sub.gameObject);
-        }
-        // i do this fuckery due to the foreach above being inconsistent and almost never catching all children in a single iteration. no idea why.
-        // current method potentially causes 1 unnecessary iteration. I don't care.
-        if (counter != 0) ClearContainer(container);
-    }
-
     private void HandleMeshes()
     {
         foreach (Transform sub in colSolidContainerTrans)
@@ -189,17 +177,45 @@ public class ed_lv_gen : EditorWindow
 
     private void HandleSpikes()
     {
+        ClearContainer(genSpikesContainerTrans);
+
         foreach (Transform sub in colSpikesContainerTrans)
         {
-            sub.gameObject.layer = spikeLayer;
-            sub.gameObject.tag = "Spike";
+            // instantiate spike GameObject as *PREFAB* -> maintaining prefab link
+            Selection.activeObject = PrefabUtility.InstantiatePrefab(spikePrefab as GameObject, genSpikesContainerTrans);
+            GameObject newSpikeObj = Selection.activeGameObject;
 
-            sub.gameObject.GetComponent<Collider2D>().isTrigger = true;
+            newSpikeObj.transform.position = sub.transform.position + new Vector3(sub.GetComponent<BoxCollider2D>().offset.x, sub.GetComponent<BoxCollider2D>().offset.y, 2);
+
+            // read and handle custom tiled object property (spike rotation)
+            SuperCustomProperties subTiledObjProperties = sub.gameObject.GetComponent<SuperCustomProperties>();
+            CustomProperty spikeRotProp;
+            subTiledObjProperties.TryGetCustomProperty("spikeRot", out spikeRotProp);
+            newSpikeObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, spikeRotProp.GetValueAsInt()));
         }
     }
     #endregion
 
     #region UTIL
+    private void ClearContainer(Transform container)
+    {
+        if (container == null)
+        {
+            Debug.Log("NULL!");
+            return;
+        }
+
+        int counter = 0;
+        foreach (Transform sub in container)
+        {
+            counter++;
+            DestroyImmediate(sub.gameObject);
+        }
+        // i do this fuckery due to the foreach above being inconsistent and almost never catching all children in a single iteration. no idea why.
+        // current method potentially causes 1 unnecessary iteration. I don't care.
+        if (counter != 0) ClearContainer(container);
+    }
+
     private void GenMeshFromBox(BoxCollider2D col)
     {
         GameObject planeObj = GameObject.CreatePrimitive(PrimitiveType.Plane);
