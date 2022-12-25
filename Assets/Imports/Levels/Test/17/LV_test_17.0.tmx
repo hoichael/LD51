@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="598">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="835">
  <tileset firstgid="1" source="../../../Sprites/Tiles/DEV/flat/T_spr_nv_flat_0.tsx"/>
- <layer id="1" name="T_Spikes" width="128" height="72">
+ <layer id="1" name="T_Spikes" width="128" height="72" visible="0">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -140,20 +140,1129 @@
    <polygon points="0,0 16,16 16,0"/>
   </object>
   <object id="570" x="664" y="448" width="8" height="112"/>
+  <object id="833" x="256" y="144" width="8" height="8"/>
+  <object id="834" x="408" y="144" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="6" name="C_Spikes">
-  <object id="565" x="576" y="312">
-   <polygon points="0,0 0,-4 -164,-168 -168,-168"/>
+  <object id="598" x="88" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
   </object>
-  <object id="589" x="88" y="552" width="912" height="8"/>
-  <object id="591" x="576" y="312" width="6" height="86"/>
-  <object id="594" x="168" y="240">
-   <polygon points="0,0 0,-8 88,-96 96,-96"/>
+  <object id="599" x="96" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
   </object>
-  <object id="595" x="112" y="152" width="6" height="184"/>
-  <object id="596" x="160" y="240" width="8" height="144"/>
-  <object id="597" x="112" y="152">
-   <polygon points="0,0 136,-136 136,-130 6,0"/>
+  <object id="600" x="104" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="601" x="112" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="602" x="120" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="603" x="128" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="604" x="176" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="605" x="168" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="606" x="160" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="607" x="152" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="608" x="144" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="609" x="136" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="610" x="232" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="611" x="240" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="612" x="248" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="613" x="256" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="614" x="264" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="615" x="272" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="616" x="224" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="617" x="216" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="618" x="208" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="619" x="200" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="620" x="192" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="621" x="184" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="622" x="376" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="623" x="384" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="624" x="392" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="625" x="400" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="626" x="408" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="627" x="416" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="628" x="464" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="629" x="456" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="630" x="448" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="631" x="440" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="632" x="432" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="633" x="424" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="634" x="328" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="635" x="336" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="636" x="344" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="637" x="352" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="638" x="360" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="639" x="368" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="640" x="320" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="641" x="312" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="642" x="304" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="643" x="296" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="644" x="288" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="645" x="280" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="646" x="488" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="647" x="496" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="648" x="504" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="649" x="512" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="650" x="520" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="651" x="528" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="652" x="480" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="653" x="472" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="654" x="632" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="655" x="640" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="660" x="656" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="661" x="648" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="662" x="584" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="663" x="592" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="664" x="600" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="665" x="608" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="666" x="616" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="667" x="624" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="668" x="576" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="669" x="568" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="670" x="560" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="671" x="672" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="672" x="680" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="673" x="688" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="674" x="736" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="675" x="728" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="676" x="720" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="677" x="712" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="678" x="704" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="679" x="696" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="680" x="760" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="681" x="768" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="682" x="752" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="683" x="744" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="684" x="784" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="685" x="792" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="686" x="800" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="687" x="848" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="688" x="840" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="689" x="832" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="690" x="824" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="691" x="816" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="692" x="808" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="693" x="872" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="694" x="880" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="695" x="864" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="696" x="856" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="697" x="896" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="698" x="904" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="699" x="912" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="700" x="960" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="701" x="952" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="702" x="944" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="703" x="936" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="704" x="928" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="705" x="920" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="706" x="984" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="707" x="992" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="708" x="976" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="709" x="968" y="552" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="710" x="576" y="392" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="711" x="576" y="384" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="712" x="576" y="376" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="713" x="576" y="368" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="714" x="576" y="360" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="715" x="576" y="352" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="716" x="576" y="344" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="717" x="576" y="336" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="718" x="576" y="320" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="719" x="576" y="312" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="720" x="576" y="328" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="721" x="112" y="232" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="722" x="112" y="224" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="723" x="112" y="216" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="724" x="112" y="208" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="725" x="112" y="200" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="726" x="112" y="192" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="727" x="112" y="184" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="728" x="112" y="176" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="729" x="112" y="168" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="730" x="112" y="160" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="731" x="112" y="152" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="732" x="112" y="320" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="733" x="112" y="312" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="734" x="112" y="304" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="735" x="112" y="296" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="736" x="112" y="288" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="737" x="112" y="280" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="738" x="112" y="272" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="739" x="112" y="264" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="740" x="112" y="256" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="741" x="112" y="248" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="742" x="112" y="240" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="743" x="112" y="328" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-90"/>
+   </properties>
+  </object>
+  <object id="745" x="160" y="376" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="746" x="160" y="368" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="747" x="160" y="360" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="748" x="160" y="352" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="749" x="160" y="344" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="750" x="160" y="336" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="751" x="160" y="328" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="752" x="160" y="320" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="753" x="160" y="312" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="754" x="160" y="304" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="755" x="160" y="296" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="756" x="160" y="288" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="757" x="160" y="280" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="758" x="160" y="272" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="759" x="160" y="264" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="760" x="160" y="256" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="761" x="160" y="248" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="762" x="160" y="240" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="763" x="193" y="201" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="764" x="199" y="195" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="765" x="205" y="189" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="766" x="211" y="183" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="767" x="217" y="177" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="768" x="223" y="171" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="769" x="229" y="165" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="770" x="235" y="159" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="771" x="241" y="153" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="772" x="247" y="147" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="778" x="163" y="231" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="779" x="169" y="225" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="780" x="175" y="219" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="781" x="181" y="213" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="782" x="187" y="207" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="45"/>
+   </properties>
+  </object>
+  <object id="783" x="465" y="195" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="784" x="477" y="207" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="785" x="471" y="201" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="786" x="453" y="183" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="787" x="447" y="177" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="788" x="459" y="189" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="789" x="435" y="165" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="790" x="429" y="159" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="791" x="441" y="171" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="792" x="417" y="147" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="793" x="423" y="153" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="794" x="531" y="261" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="795" x="543" y="273" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="796" x="537" y="267" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="797" x="519" y="249" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="798" x="513" y="243" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="799" x="525" y="255" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="800" x="501" y="231" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="801" x="495" y="225" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="802" x="507" y="237" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="803" x="483" y="213" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="804" x="489" y="219" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="805" x="549" y="279" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="806" x="555" y="285" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="807" x="561" y="291" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="808" x="567" y="297" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="809" x="573" y="303" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-45"/>
+   </properties>
+  </object>
+  <object id="810" x="195" y="67" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="811" x="201" y="61" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="812" x="207" y="55" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="813" x="213" y="49" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="814" x="219" y="43" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="815" x="225" y="37" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="816" x="231" y="31" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="817" x="237" y="25" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="818" x="243" y="19" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="819" x="141" y="121" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="820" x="147" y="115" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="821" x="153" y="109" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="822" x="159" y="103" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="823" x="165" y="97" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="824" x="171" y="91" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="825" x="177" y="85" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="826" x="183" y="79" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="827" x="189" y="73" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="829" x="117" y="145" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="830" x="123" y="139" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="831" x="129" y="133" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
+  </object>
+  <object id="832" x="135" y="127" width="8" height="8">
+   <properties>
+    <property name="spikeRot" type="int" value="-135"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup id="5" name="DEV" visible="0">
