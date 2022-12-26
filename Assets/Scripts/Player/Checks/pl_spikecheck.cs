@@ -8,7 +8,7 @@ public class pl_spikecheck : MonoBehaviour
         if(col.CompareTag("Spike"))
         {
             events.OnDeath();
-            refs_global.Instance.levelManager.InitLevel(refs_global.Instance.levelManager.currentLevelIDX);
+            //refs_global.Instance.levelManager.InitLevel(refs_global.Instance.levelManager.currentLevelIDX);
         }
     }
 }

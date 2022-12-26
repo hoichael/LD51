@@ -73,7 +73,11 @@ public class lv_manager : MonoBehaviour
         }
         refs_global.Instance.currentBallRefs = null;
         refs_global.Instance.ballInHand = false;
-        levelInfoList[currentLevelIDX].levelContainer.SetActive(false);
+
+        if(idx != currentLevelIDX) // currently this check only impacts spike col anim shenanigans - a lil fucky but doing this instead of disabling and re-enabling the same level container is more proper anyway
+        {
+            levelInfoList[currentLevelIDX].levelContainer.SetActive(false);
+        }
 
         // init new level
         levelInfoList[idx].levelContainer.SetActive(true);

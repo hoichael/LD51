@@ -74,5 +74,6 @@ public class pl_events : MonoBehaviour
     public void OnDeath()
     {
         throwManager.Cancel();
+        refs_global.Instance.levelManager.InitLevel(refs_global.Instance.levelManager.currentLevelIDX);
     }
 }
