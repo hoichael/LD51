@@ -241,7 +241,7 @@
  <objectgroup id="3" name="C_Balls">
   <object id="1081" x="888" y="208" width="8" height="8"/>
  </objectgroup>
- <objectgroup id="4" name="C_Orbs" visible="0">
+ <objectgroup id="4" name="C_Orbs">
   <object id="1087" x="670" y="52" width="8" height="8"/>
   <object id="1088" x="686" y="68" width="8" height="8"/>
   <object id="1089" x="702" y="84" width="8" height="8"/>

@@ -7,13 +7,19 @@ public class lv_orb : lv_colhandler_base
     [SerializeField] lv_orb_manager manager;
     [SerializeField] Transform activeContainer;
 
-    // OnEnable is triggered on level init because orb container is set active - orb objects themselves ALWAYS stay enabled
-    private void OnEnable()
+    // OLD: OnEnable is triggered on level init because orb container is set active - orb objects themselves ALWAYS stay enabled
+    // -> NOW: Reset() is called from lv_orb_manager to allow for reset without disabling level container/orb container
+    //private void OnEnable()
+    //{
+    //    Reset();
+    //}
+
+    private void Start()
     {
-        Reset();
+        manager.AddToOrbList(this);
     }
 
-    private void Reset()
+    public void Reset()
     {
         activeContainer.gameObject.SetActive(true);
     }

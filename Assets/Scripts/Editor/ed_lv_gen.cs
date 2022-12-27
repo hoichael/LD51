@@ -169,9 +169,14 @@ public class ed_lv_gen : EditorWindow
     {
         foreach (Transform sub in colOrbsContainerTrans)
         {
-            GameObject newOrbObject = Instantiate(orbPrefab, genOrbsContainerTrans);
+            // instantiate orb GameObject as *PREFAB* -> maintaining prefab link
+            Selection.activeObject = PrefabUtility.InstantiatePrefab(orbPrefab as GameObject, genOrbsContainerTrans);
+            GameObject newOrbObject = Selection.activeGameObject;
+
             newOrbObject.transform.position = sub.transform.position + new Vector3(sub.GetComponent<BoxCollider2D>().offset.x, sub.GetComponent<BoxCollider2D>().offset.y, 0);
-            newOrbObject.GetComponent<lv_orb>().SetManager(orbManagerInstance); // could handle the whole orb thing more efficiently but performance doesnt matter bc editor script
+
+            lv_orb orbSystem = newOrbObject.GetComponent<lv_orb>();
+            orbSystem.SetManager(orbManagerInstance);
         }
     }
 

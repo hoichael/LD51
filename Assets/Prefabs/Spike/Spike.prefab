@@ -1398,9 +1398,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.4}
-      - {x: -0.4, y: -0.4}
-      - {x: 0.4, y: -0.4}
+    - - {x: 0, y: 0.47}
+      - {x: -0.47, y: -0.5}
+      - {x: 0.47, y: -0.5}
 --- !u!114 &7213042729890051539
 MonoBehaviour:
   m_ObjectHideFlags: 0
