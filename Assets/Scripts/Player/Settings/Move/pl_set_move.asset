@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ab980e68d0a1749b1370832cfdc6cb, type: 3}
   m_Name: pl_set_move
   m_EditorClassIdentifier: 
-  <forceGround>k__BackingField: 86
-  <turnForceGround>k__BackingField: 92
+  <forceGround>k__BackingField: 4300
+  <turnForceGround>k__BackingField: 4600
   <groundVelResetFactor>k__BackingField: 31.5
   <dragGround>k__BackingField: 4.6
-  <forceAir>k__BackingField: 74
-  <turnForceAir>k__BackingField: 28
+  <forceAir>k__BackingField: 3700
+  <turnForceAir>k__BackingField: 1400
   <dragAir>k__BackingField: 3.45
