@@ -16,6 +16,7 @@ public class pl_move_modify : MonoBehaviour
         modFactorDrag = (modFactorDrag / 60) * 4f;
 
         modFactorMove = modFactorDrag * 40;
+        modFactorMove *= 50;
 
         if (Mathf.Abs(ballVel.x) < 1)
         {
@@ -24,9 +25,6 @@ public class pl_move_modify : MonoBehaviour
         }
 
         float ballMagFactor = Mathf.Clamp((60 - ballVel.magnitude) / 60, 0, 1);
-        print("ball mag: " + ballVel.magnitude);
-        print("processed mag factor: " + ballMagFactor);
-        print("____________________________________________________________________");
 
         //refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravity.forceBase) * 2, 3500, 6250);
         refs.gravity.gravCurrent = Mathf.Clamp((ballMagFactor * refs.settings.gravity.forceBase) * 2, 3500, refs.settings.gravity.forceBase);
@@ -43,7 +41,8 @@ public class pl_move_modify : MonoBehaviour
         //grav.gravCurrent = refs.settings.gravBaseWallJump;
         //modFactorGrav = refs.settings.gravAdd * 1.7f;
         modFactorDrag = 2f;
-        modFactorMove = 94f;
+        //modFactorMove = 94f;
+        modFactorMove = 4700;
     }
 
     public void HandleExitGround()
@@ -54,7 +53,8 @@ public class pl_move_modify : MonoBehaviour
 
     public void HandleForcepad()
     {
-        modFactorMove = 94f;
+        //modFactorMove = 94f;
+        modFactorMove = 4700;
         modFactorDrag = 0.9f;
     }
 
