@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="807">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="808">
  <tileset firstgid="1" source="../../../Sprites/Tiles/DEV/flat/T_spr_nv_flat_0.tsx"/>
  <layer id="1" name="T_Spikes" width="128" height="72" visible="0">
   <data encoding="csv">
@@ -1041,6 +1041,7 @@
  </objectgroup>
  <objectgroup id="3" name="C_Balls">
   <object id="531" x="448" y="304" width="8" height="8"/>
+  <object id="807" x="40" y="312" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="4" name="C_Orbs">
   <object id="530" x="208" y="408" width="8" height="8"/>

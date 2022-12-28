@@ -23,7 +23,17 @@ public class pl_move_modify : MonoBehaviour
             modFactorMove = 0;
         }
 
-        refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravity.forceBase) * 2, 70, 125);
+        float ballMagFactor = Mathf.Clamp((60 - ballVel.magnitude) / 60, 0, 1);
+        print("ball mag: " + ballVel.magnitude);
+        print("processed mag factor: " + ballMagFactor);
+        print("____________________________________________________________________");
+
+        //refs.gravity.gravCurrent = Mathf.Clamp((((60 - ballVel.magnitude) / 60) * refs.settings.gravity.forceBase) * 2, 3500, 6250);
+        refs.gravity.gravCurrent = Mathf.Clamp((ballMagFactor * refs.settings.gravity.forceBase) * 2, 3500, refs.settings.gravity.forceBase);
+
+        //refs.gravity.gravCurrent *= 50;
+        //print(refs.gravity.gravCurrent);
+
 
         modFactorGrav = refs.settings.gravity.forceAdd;
     }
