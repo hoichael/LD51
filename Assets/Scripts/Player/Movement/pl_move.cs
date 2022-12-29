@@ -64,18 +64,14 @@ public class pl_move : MonoBehaviour
     private void ApplyForce()
     {
         // apply base force
-        Vector2 moveForce = (processedDir * refs.info.moveForceCurrent) * slopeMult;
-
-        refs.rb.AddForce(moveForce * Time.deltaTime, ForceMode2D.Force);
+        refs.rb.AddForce((processedDir * refs.info.moveForceCurrent) * slopeMult, ForceMode2D.Force);
 
         // check for turn and apply add counter force if need be
         if (refs.info.recentWalljump) return; // if just performed walljump, return
         if (Mathf.Sign(currentInput) != Mathf.Sign(refs.rb.velocity.x))
         {
             float counterForce = refs.info.grounded ? refs.settings.move.turnForceGround : refs.settings.move.turnForceAir;
-            Vector2 processedCounterForce = Vector2.right * counterForce * currentInput;
-
-            refs.rb.AddForce(processedCounterForce * Time.deltaTime, ForceMode2D.Force);
+            refs.rb.AddForce(Vector2.right * counterForce  * currentInput, ForceMode2D.Force);
         }
     }
 }
