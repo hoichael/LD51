@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 913
+  controlID: 4801
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 989
+  controlID: 4728
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 990
+  controlID: 4729
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
+  m_EnterPlayModeBehavior: 1
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.019808449, y: 0.015591096, z: -0.0002655647, w: -0.9997423}
     speed: 2
-    m_Value: {x: -0.019807259, y: 0.015590159, z: -0.00026554876, w: -0.99968225}
+    m_Value: {x: -0.019808449, y: 0.015591096, z: -0.0002655647, w: -0.9997423}
   m_Size:
     m_Target: 52.922817
     speed: 2
@@ -708,7 +708,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6408dbffb69be5ff481be8ff4cc9f2ffe08df4ffe68df4ffe46af5ff34fbffff8e7a03006a830300de8c0300aea11e00e6d51e00
+      m_ExpandedIDs: 4a8eefff546af1ff5a6af1ff5847f2ffb2e8fcff7c7cfdff847cfdff1880fdff1a80fdff1e80fdff4e80fdff9afaffffc2f5020092fd0200e0040300b2726300967c6300388a6300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -773,22 +773,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Player/Settings/Jump
+    - Assets/Scripts/Player/Settings/Walljump
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Player/Settings/Jump
+  - Assets/Scripts/Player/Settings/Walljump
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\Game Dev\Unity\Projects\LD51
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 646}
-    m_SelectedIDs: 64050200
-    m_LastClickedID: 132452
-    m_ExpandedIDs: 00000000b4040200b6040200b8040200ba040200bc040200be040200c0040200c2040200c4040200c6040200c8040200ca040200cc040200ce040200d0040200d2040200d4040200d6040200d8040200da040200dc040200de040200e0040200e2040200e404020048050200
+    scrollPos: {x: 0, y: 708}
+    m_SelectedIDs: d6110300
+    m_LastClickedID: 201174
+    m_ExpandedIDs: 0000000020110300221103002411030026110300281103002a1103002c1103002e11030030110300321103003411030036110300381103003a1103003c1103003e11030040110300421103004411030046110300481103004a1103004c1103004e11030050110300b6110300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -816,7 +816,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b4040200b6040200b8040200ba040200bc040200be040200c0040200c2040200c4040200c6040200c8040200ca040200cc040200ce040200d0040200d2040200d4040200d6040200d8040200da040200dc040200de040200e0040200e2040200e4040200
+    m_ExpandedIDs: 0000000020110300221103002411030026110300281103002a1103002c1103002e11030030110300321103003411030036110300381103003a1103003c1103003e11030040110300421103004411030046110300481103004a1103004c1103004e11030050110300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

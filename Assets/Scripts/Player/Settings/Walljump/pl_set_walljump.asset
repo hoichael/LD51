@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <dir>k__BackingField: {x: 1, y: 1}
   <forceBase>k__BackingField: {x: 36, y: 64}
-  <forceAdd>k__BackingField: {x: 2600, y: 5150}
-  <addForceResetSpeed>k__BackingField: 3800
+  <forceAdd>k__BackingField: {x: 52, y: 103}
+  <addForceResetSpeed>k__BackingField: 76
   <drag>k__BackingField: 2.2
   <grav>k__BackingField: 8000
