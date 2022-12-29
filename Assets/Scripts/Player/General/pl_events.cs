@@ -42,8 +42,8 @@ public class pl_events : MonoBehaviour
         refs.rb.drag = refs.settings.walljump.drag;
         refs.info.moveForceCurrent = refs.settings.move.forceAir;
         refs.gravity.gravCurrent = refs.settings.walljump.grav;
-        //refs.info.moveForceCurrent = 20f;
-        refs.info.moveForceCurrent = 1000;
+        refs.info.moveForceCurrent = 20f;
+        //refs.info.moveForceCurrent = 1000;
 
         moveMod.HandleWalljump();
         fPadHandler.Cancel();
