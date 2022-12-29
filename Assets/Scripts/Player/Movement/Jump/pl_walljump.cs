@@ -77,10 +77,9 @@ public class pl_walljump : MonoBehaviour
     {
         currentAddForce = Vector2.MoveTowards(currentAddForce, Vector2.zero, refs.settings.walljump.addForceResetSpeed * Time.deltaTime);
 
-        refs.rb.AddForce(
-            new Vector2(refs.settings.walljump.dir.x * currentSide, refs.settings.walljump.dir.y).normalized
-            * currentAddForce,
-            ForceMode2D.Force);
+        Vector2 processedAddForce = new Vector2(refs.settings.walljump.dir.x * currentSide, refs.settings.walljump.dir.y).normalized * currentAddForce;
+
+        refs.rb.AddForce(processedAddForce * Time.deltaTime, ForceMode2D.Force);
     }
 
     private IEnumerator HandleWalljumpFlag()

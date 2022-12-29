@@ -16,7 +16,7 @@ public class pl_move_modify : MonoBehaviour
         modFactorDrag = (modFactorDrag / 60) * 4f;
 
         modFactorMove = modFactorDrag * 40;
-        //modFactorMove *= 50;
+        modFactorMove *= 50;
 
         if (Mathf.Abs(ballVel.x) < 1)
         {
@@ -41,8 +41,8 @@ public class pl_move_modify : MonoBehaviour
         //grav.gravCurrent = refs.settings.gravBaseWallJump;
         //modFactorGrav = refs.settings.gravAdd * 1.7f;
         modFactorDrag = 2f;
-        modFactorMove = 94f;
-        //modFactorMove = 4700;
+        //modFactorMove = 94f;
+        modFactorMove = 4700;
     }
 
     public void HandleExitGround()
@@ -53,8 +53,8 @@ public class pl_move_modify : MonoBehaviour
 
     public void HandleForcepad()
     {
-        modFactorMove = 94f;
-        //modFactorMove = 4700;
+        //modFactorMove = 94f;
+        modFactorMove = 4700;
         modFactorDrag = 0.9f;
     }
 

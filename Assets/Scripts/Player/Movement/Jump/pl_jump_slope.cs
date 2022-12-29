@@ -50,6 +50,6 @@ public class pl_jump_slope : MonoBehaviour
 
     private void ApplyForceAdd()
     {
-        refs.rb.AddForce(jumpDir * refs.settings.jump.slopeForceAdd, ForceMode2D.Force);
+        refs.rb.AddForce((jumpDir * refs.settings.jump.slopeForceAdd) * Time.deltaTime, ForceMode2D.Force);
     }
 }
