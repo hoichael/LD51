@@ -57,7 +57,7 @@ public class pl_move : MonoBehaviour
 
     private void LowerVelocity()
     {
-        float newVelX = Mathf.MoveTowards(refs.rb.velocity.x, 0, refs.settings.move.groundVelResetFactor * Time.fixedDeltaTime);
+        float newVelX = Mathf.MoveTowards(refs.rb.velocity.x, 0, refs.settings.move.groundVelResetFactor);
         refs.rb.velocity = new Vector2(newVelX, refs.rb.velocity.y);
     }
 

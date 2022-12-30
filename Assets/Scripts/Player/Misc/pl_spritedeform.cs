@@ -63,7 +63,7 @@ public class pl_spritedeform : MonoBehaviour
 
     private void HandleLandDeform()
     {
-        currentFactor = Mathf.MoveTowards(currentFactor, 1, landDeformSpeed * Time.deltaTime);
+        currentFactor = Mathf.MoveTowards(currentFactor, 1, landDeformSpeed);
 
         sprTrans.localScale = Vector3.Lerp(
             Vector3.one,
@@ -78,7 +78,7 @@ public class pl_spritedeform : MonoBehaviour
 
     private void HandleReset()
     {
-        sprTrans.localScale = Vector3.MoveTowards(sprTrans.localScale, Vector3.one, resetSpeed * Time.deltaTime);
+        sprTrans.localScale = Vector3.MoveTowards(sprTrans.localScale, Vector3.one, resetSpeed);
         if (sprTrans.localScale == Vector3.one) currentlyResetting = false;
     }
 

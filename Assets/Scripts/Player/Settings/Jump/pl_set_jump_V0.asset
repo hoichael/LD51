@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: pl_set_jump_V0
   m_EditorClassIdentifier: 
   <forceBase>k__BackingField: 38
-  <forceAdd>k__BackingField: 118
-  <addDuration>k__BackingField: 0.34
+  <forceAdd>k__BackingField: 118.5
+  <addDuration>k__BackingField: 0.355
   <termMult>k__BackingField: 0.8
   <slopeForceBase>k__BackingField: 44
   <slopeForceAdd>k__BackingField: 72
