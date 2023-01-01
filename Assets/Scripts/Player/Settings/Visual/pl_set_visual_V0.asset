@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f2837e25a337747a59e86753b8b3b7, type: 3}
+  m_Name: pl_set_visual_V0
+  m_EditorClassIdentifier: 
+  <f>k__BackingField: 0
+  <e>k__BackingField: 0
+  <maxDeformJump>k__BackingField: {x: 0.8, y: 1.22, z: 1}
+  <maxDeformLand>k__BackingField: {x: 3, y: 0.33, z: 1}
+  <resetSpeed>k__BackingField: 0.015
+  <landDeformSpeed>k__BackingField: 0.027
+  <forcePadDeform>k__BackingField: {x: 0.5, y: 2, z: 1}
+  <bodyOffsetY>k__BackingField: -0.5
+  <bodyRotZ>k__BackingField: 45
+  <transitionSpeed>k__BackingField: 6.8

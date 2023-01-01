@@ -10,7 +10,7 @@ public class pl_jump_manager : MonoBehaviour
     [SerializeField] pl_jump_slope jumpSlope;
     [SerializeField] pl_jump_buffer jumpBuffer;
 
-    [SerializeField] pl_spritedeform sprDeform;
+    [SerializeField] pl_bodydeform sprDeform;
 
     bool jumpActive;
     float currentJumpTimer;

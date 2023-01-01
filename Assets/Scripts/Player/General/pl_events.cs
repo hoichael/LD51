@@ -7,7 +7,7 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_refs refs;
     [SerializeField] pl_move_modify moveMod;
     [SerializeField] pl_fpadforce fPadHandler;
-    [SerializeField] pl_spritedeform sprDeform;
+    [SerializeField] pl_bodydeform sprDeform;
     [SerializeField] pl_jump_buffer jumpBufferHandler;
     [SerializeField] pl_walljump wallJump;
     [SerializeField] pl_throw_manager throwManager;

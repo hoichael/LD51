@@ -4,7 +4,7 @@ public class pl_groundcheck : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
 
-    [SerializeField] pl_spritedeform sprDeform; // this is terrible lol
+    [SerializeField] pl_bodydeform sprDeform; // this is terrible lol
     float mostRecentVelY; // this is terrible lol
 
     private void Update()
