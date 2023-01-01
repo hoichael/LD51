@@ -6,7 +6,7 @@ public class pl_bodydeform : MonoBehaviour
     [SerializeField] bool deformOnLand;
 
     [SerializeField] pl_refs refs;
-    [SerializeField] Transform sprTrans;
+    [SerializeField] Transform modelTrans;
 
     //[SerializeField] Vector3 maxDeformJump, maxDeformLand;
     //[SerializeField] float resetSpeed;
@@ -16,17 +16,25 @@ public class pl_bodydeform : MonoBehaviour
 
     Vector2 jumpDeformStartScale, landDeformTarget;
 
-    bool currentlyResetting, currentlyInLandDeform;
+    Vector3 landRotTarget;
+
+    bool currentlyResettingScale, currentlyResettingRot, currentlyInLandDeform;
 
     float currentFactor;
 
     private void FixedUpdate()
     {
-        if (currentlyResetting)
+        if (currentlyResettingScale)
         {
-            HandleReset();
+            HandleScaleReset();
         }
-        else if(currentlyInLandDeform)
+
+        if(currentlyResettingRot)
+        {
+            HandleRotReset();
+        }
+
+        if(currentlyInLandDeform)
         {
             HandleLandDeform();
         }
@@ -39,7 +47,7 @@ public class pl_bodydeform : MonoBehaviour
 
         currentFactor = 0.18f + (currentJumpTimer / refs.settings.jump.addDuration);
 
-        sprTrans.localScale = Vector3.Lerp(
+        modelTrans.localScale = Vector3.Lerp(
             jumpDeformStartScale,
             refs.settings.visual.maxDeformJump,
             currentFactor
@@ -48,16 +56,20 @@ public class pl_bodydeform : MonoBehaviour
 
     public void OnForcepadTrigger()
     {
-        sprTrans.localScale = refs.settings.visual.forcePadDeform;
-        currentlyResetting = true;
+        modelTrans.localScale = refs.settings.visual.forcePadDeform;
+        currentlyResettingScale = currentlyResettingRot = true;
     }
 
     public void OnJumpTrigger()
     {
         if (!deformOnJump) return;
 
-        jumpDeformStartScale = sprTrans.localScale;
+        jumpDeformStartScale = modelTrans.localScale;
+
+        modelTrans.localRotation = Quaternion.Euler(Vector3.zero);
+
         currentlyInLandDeform = false;
+        currentlyResettingRot = true;
         currentFactor = 0;
     }
 
@@ -65,21 +77,35 @@ public class pl_bodydeform : MonoBehaviour
     {
         currentFactor = Mathf.MoveTowards(currentFactor, 1, refs.settings.visual.landDeformSpeed);
 
-        sprTrans.localScale = Vector3.Lerp(
+        modelTrans.localScale = Vector3.Lerp(
             Vector3.one,
             landDeformTarget,
             Mathf.PingPong(currentFactor, 0.5f)
             );
 
-        sprTrans.localPosition = new Vector3(0, -((1 - sprTrans.localScale.y)), 0);
+        //modelTrans.localPosition = new Vector3(0, -((1 - modelTrans.localScale.y)), refs.settings.visual.playerModelBasePosZ);
+        modelTrans.localPosition = new Vector3(0, -((1 - modelTrans.localScale.y)), 0);
 
-        if (sprTrans.localScale == Vector3.one) currentlyInLandDeform = false;
+        modelTrans.localRotation = Quaternion.Lerp(
+            Quaternion.Euler(Vector3.zero),
+            Quaternion.Euler(landRotTarget),
+            Mathf.PingPong(currentFactor, 0.5f)
+            );
+
+        //if (modelTrans.localScale == Vector3.one) currentlyInLandDeform = false;
+        if (currentFactor == 1) currentlyInLandDeform = false;
     }
 
-    private void HandleReset()
+    private void HandleScaleReset()
     {
-        sprTrans.localScale = Vector3.MoveTowards(sprTrans.localScale, Vector3.one, refs.settings.visual.resetSpeed);
-        if (sprTrans.localScale == Vector3.one) currentlyResetting = false;
+        modelTrans.localScale = Vector3.MoveTowards(modelTrans.localScale, Vector3.one, refs.settings.visual.resetSpeed);
+        if (modelTrans.localScale == Vector3.one) currentlyResettingScale = false;
+    }
+
+    private void HandleRotReset()
+    {
+        modelTrans.localRotation = Quaternion.Euler(Vector3.MoveTowards(modelTrans.localRotation.eulerAngles, Vector3.zero, refs.settings.visual.resetSpeed));
+        if (modelTrans.localRotation.eulerAngles == Vector3.zero) currentlyResettingRot = false;
     }
 
     public void OnJumpTerminate()
@@ -87,24 +113,39 @@ public class pl_bodydeform : MonoBehaviour
         if (!deformOnJump) return;
 
         currentFactor = 0;
-        currentlyResetting = true;
+        currentlyResettingScale = true;
     }
 
     public void OnLand(float velY)
     {
         if (!deformOnLand) return;
 
-        if (currentlyResetting) return;
+        if (currentlyResettingScale) return;
         if (Mathf.Abs(velY) < 24) return;
 
         currentFactor = 0;
         currentlyInLandDeform = true;
 
         float factor = Mathf.Clamp(Mathf.Abs(velY) - 10, 5, 75) / 75;
+
         landDeformTarget = Vector3.Lerp(
             Vector3.one,
             refs.settings.visual.maxDeformLand,
             factor
             );
+
+        float rotAdd = Mathf.Lerp(
+            0,
+            Mathf.Abs(refs.settings.visual.maxRotLandAddY),
+            factor
+            );
+
+        //landRotTarget = Vector3.Lerp(
+        //    new Vector3(0, -30, 0),
+        //    refs.settings.visual.maxRotLand,
+        //    factor
+        //    );
+
+        landRotTarget = new Vector3(0, refs.settings.visual.minRotLandY - rotAdd, 0);
     }
 }

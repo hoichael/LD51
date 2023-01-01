@@ -16,8 +16,10 @@ MonoBehaviour:
   <e>k__BackingField: 0
   <maxDeformJump>k__BackingField: {x: 0.8, y: 1.22, z: 1}
   <maxDeformLand>k__BackingField: {x: 3, y: 0.33, z: 1}
-  <resetSpeed>k__BackingField: 0.015
-  <landDeformSpeed>k__BackingField: 0.027
+  <minRotLandY>k__BackingField: -32
+  <maxRotLandAddY>k__BackingField: -48
+  <resetSpeed>k__BackingField: 0.014
+  <landDeformSpeed>k__BackingField: 0.022
   <forcePadDeform>k__BackingField: {x: 0.5, y: 2, z: 1}
   <bodyOffsetY>k__BackingField: -0.5
   <bodyRotZ>k__BackingField: 45

@@ -12,7 +12,8 @@ public class lv_completed : MonoBehaviour
 
     [SerializeField] float uiTransitionSpeed;
     [SerializeField] AnimationCurve uiTransitionCurve;
-    Vector3 containerHiddenPos = new Vector3(0, -54, 0);
+    Vector3 containerHiddenPos = new Vector3(0, -72, -5);
+    Vector3 containerActivePos = new Vector3(0, 0, -5);
     bool inUITransition;
     float currentTransitionFactor;
 
@@ -63,7 +64,7 @@ public class lv_completed : MonoBehaviour
 
         uiContainer.localPosition = Vector3.Lerp(
             containerHiddenPos,
-            Vector3.zero,
+            containerActivePos,
             uiTransitionCurve.Evaluate(currentTransitionFactor)
             );
 
