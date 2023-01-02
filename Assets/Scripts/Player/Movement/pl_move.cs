@@ -16,7 +16,7 @@ public class pl_move : MonoBehaviour
         if (currentInput != 0)
         {
             refs.info.dir = refs_global.Instance.playerDir = (int)currentInput;
-            refs.FlipContainerTrans.localScale = new Vector3(refs.info.dir, 1, 1);
+            //refs.FlipContainerTrans.localScale = new Vector3(refs.info.dir, 1, 1); //now happens in pl_bodyturn
         }
     }
 

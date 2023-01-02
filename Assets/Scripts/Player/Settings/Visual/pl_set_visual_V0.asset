@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f2837e25a337747a59e86753b8b3b7, type: 3}
   m_Name: pl_set_visual_V0
   m_EditorClassIdentifier: 
-  <f>k__BackingField: 0
-  <e>k__BackingField: 0
+  <turnSpeed>k__BackingField: 5.9
   <maxDeformJump>k__BackingField: {x: 0.8, y: 1.22, z: 1}
   <maxDeformLand>k__BackingField: {x: 3, y: 0.33, z: 1}
-  <minRotLandY>k__BackingField: -32
+  <minVelYToDeformOnLand>k__BackingField: 18
+  <minRotLandY>k__BackingField: -8
   <maxRotLandAddY>k__BackingField: -48
   <resetSpeed>k__BackingField: 0.014
   <landDeformSpeed>k__BackingField: 0.022

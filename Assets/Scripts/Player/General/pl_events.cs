@@ -7,7 +7,8 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_refs refs;
     [SerializeField] pl_move_modify moveMod;
     [SerializeField] pl_fpadforce fPadHandler;
-    [SerializeField] pl_bodydeform sprDeform;
+    [SerializeField] pl_bodydeform bodyDeform;
+    [SerializeField] pl_bodyturn bodyTurn;
     [SerializeField] pl_jump_buffer jumpBufferHandler;
     [SerializeField] pl_walljump wallJump;
     [SerializeField] pl_throw_manager throwManager;
@@ -67,7 +68,7 @@ public class pl_events : MonoBehaviour
 
         moveMod.HandleForcepad();
         fPadHandler.Init();
-        sprDeform.OnForcepadTrigger();
+        bodyDeform.OnForcepadTrigger();
         wallJump.Cancel();
     }
 

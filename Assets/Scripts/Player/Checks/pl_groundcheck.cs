@@ -4,7 +4,8 @@ public class pl_groundcheck : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
 
-    [SerializeField] pl_bodydeform sprDeform; // this is terrible lol
+    [SerializeField] pl_bodydeform bodyDeform; // this is terrible lol
+    [SerializeField] pl_bodyturn bodyTurn; // this is terrible lol
     float mostRecentVelY; // this is terrible lol
 
     private void Update()
@@ -38,7 +39,8 @@ public class pl_groundcheck : MonoBehaviour
                 //refs.info.moveForceCurrent = refs.settings.moveForceGround;
 
                 refs.events.OnEnterGround();
-                sprDeform.OnLand(mostRecentVelY); // this is terrible lol
+                bodyDeform.OnLand(mostRecentVelY); // this is terrible lol
+                bodyTurn.OnLand(mostRecentVelY); // this is terrible lol
             }
         }
     }
