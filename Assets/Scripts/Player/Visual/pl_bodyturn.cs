@@ -14,8 +14,17 @@ public class pl_bodyturn : MonoBehaviour
 
     float currentLandLerpFactor = 1;
 
+    float currentThrowLerpfactor = 1;
+    float throwLerpRotYStart, throwLerpRotYTarget;
+
     private void FixedUpdate()
     {
+        if(currentThrowLerpfactor != 1)
+        {
+            HandleThrowLerp();
+            return;
+        }
+
         HandleTurn();
 
         if(currentLandLerpFactor != 1)
@@ -28,7 +37,7 @@ public class pl_bodyturn : MonoBehaviour
 
     private void HandleTurn()
     {
-        currentBaseRotY = Mathf.MoveTowards(currentBaseRotY, refs.info.dir == 1 ? 0 : fullTurnLeft, refs.settings.visual.turnSpeed);
+        currentBaseRotY = Mathf.MoveTowards(currentBaseRotY, refs.info.dir == 1 ? 0 : fullTurnLeft, refs.settings.visual.baseTurnSpeed);
     }
 
     private void HandleLandLerp()
@@ -57,6 +66,41 @@ public class pl_bodyturn : MonoBehaviour
         currentTargetLand = refs.settings.visual.minRotLandY - rotAdd;
 
         currentLandLerpFactor = 0;
+    }
+
+    public void OnThrow() // called from pl_throw_manager
+    {
+        currentThrowLerpfactor = 0;
+        currentLandLerpFactor = 1;
+
+        if(refs.info.dir == 1)
+        {
+            throwLerpRotYStart = 0;
+            throwLerpRotYTarget = -359;
+        }
+        else
+        {
+            throwLerpRotYStart = fullTurnLeft;
+            throwLerpRotYTarget = 359;
+        }
+    }
+
+    private void HandleThrowLerp()
+    {
+        currentThrowLerpfactor = Mathf.MoveTowards(currentThrowLerpfactor, 1, refs.settings.visual.throwTurnSpeed);
+
+        float newRotY = Mathf.Lerp(
+            throwLerpRotYStart,
+            throwLerpRotYTarget,
+            refs.settings.visual.throwTurnCurve.Evaluate(currentThrowLerpfactor)
+            );
+
+        if (currentThrowLerpfactor >= 0.98f)
+        {
+            newRotY = throwLerpRotYStart == 0 ? 0 : fullTurnLeft;
+        }
+
+        turnContainer.localRotation = Quaternion.Euler(new Vector3(0, newRotY, 0));
     }
 
     private void ApplyRot()

@@ -20,6 +20,12 @@ public class pl_throw_teleport : MonoBehaviour
         refs.bodyTrans.position = refs_global.Instance.currentBallRefs.trans.position;
         refs.rb.velocity = refs_global.Instance.currentBallRefs.rb.velocity * 1.15f;
 
+        // set pl dir (turn pl body) to ball x vel
+        if(Mathf.Abs(refs_global.Instance.currentBallRefs.rb.velocity.x) > 0.2f)
+        {
+            refs.info.dir = (int)Mathf.Sign(refs_global.Instance.currentBallRefs.rb.velocity.x);
+        }
+
         refs.events.OnTeleport();
 
         // dispose of ball

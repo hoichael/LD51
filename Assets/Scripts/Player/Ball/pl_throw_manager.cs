@@ -7,6 +7,7 @@ public class pl_throw_manager : MonoBehaviour
     [SerializeField] pl_throw_input_flat inputFlat;
     [SerializeField] pl_throw_input_stick inputStick;
     [SerializeField] lv_pool pool;
+    [SerializeField] pl_bodyturn bodyTurn;
     bool currentlyCharging;
 
     float currentChargeFloat;
@@ -87,6 +88,8 @@ public class pl_throw_manager : MonoBehaviour
 
     public void HandleThrow()
     {
+        bodyTurn.OnThrow();
+
         refs_global.Instance.ballInHand = false;
 
         pool.Return(lv_pool.PoolType.Ball, refs_global.Instance.currentBallRefs.trans, true); // this is fucky

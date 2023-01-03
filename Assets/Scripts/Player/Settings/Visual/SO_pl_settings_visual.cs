@@ -7,7 +7,10 @@ public class SO_pl_settings_visual : ScriptableObject
 {
     //[field: SerializeField, Header("General")] public float playerModelBasePosZ { get; private set; }
 
-    [field: SerializeField, Header("Turn")] public float turnSpeed { get; private set; }
+    [field: SerializeField, Header("Turn")] public float baseTurnSpeed { get; private set; }
+
+    [field: SerializeField, Header("Throw")] public float throwTurnSpeed { get; private set; }
+    [field: SerializeField] public AnimationCurve throwTurnCurve { get; private set; }
 
     [field: SerializeField, Header("Jump Deform")] public Vector3 maxDeformJump { get; private set; }
     [field: SerializeField] public Vector3 maxDeformLand { get; private set; }

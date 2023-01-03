@@ -22,7 +22,8 @@ public class pl_walljump : MonoBehaviour
                     refs.events.OnWallJump();
 
                     currentSide = wallCheckInt;
-                    refs.FlipContainerTrans.localScale = new Vector3(wallCheckInt, 1, 1);
+                    refs.info.dir = wallCheckInt;
+
                     ApplyForceBase(wallCheckInt);
                     StartCoroutine(HandleWalljumpFlag());
                     currentAddForce = refs.settings.walljump.forceAdd;

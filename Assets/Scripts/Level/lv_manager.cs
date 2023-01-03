@@ -11,6 +11,9 @@ public class lv_manager : MonoBehaviour
     [SerializeField] GameObject ballPrefab;
     [SerializeField] SO_pd_session sessionData;
     [SerializeField] lv_pool pool;
+
+    [SerializeField] pl_refs plRefs;
+
     public TextMeshPro timerText;
 
     public int currentLevelIDX;
@@ -86,10 +89,11 @@ public class lv_manager : MonoBehaviour
         // handle player
         refs_global.Instance.playerTrans.localPosition = levelInfoList[idx].plSpawnPos;
         refs_global.Instance.playerRB.velocity = Vector2.zero;
-        refs_global.Instance.plFlipContainerTrans.localScale = new Vector3(levelInfoList[idx].initPlayerFacingLeft ? -1 : 1, 1, 1);
+        //refs_global.Instance.plFlipContainerTrans.localScale = new Vector3(levelInfoList[idx].initPlayerFacingLeft ? -1 : 1, 1, 1);
+        plRefs.info.dir = levelInfoList[idx].initPlayerFacingLeft ? -1 : 1; // this is annoying. only use of pl_refs in entire script. leaving it like this for now but future me, REFACTOR THIS ! ! ! pls. . . 
 
         // temp solution to provide legacy level support by also handling ballSpawnPosArr
-        if(levelInfoList[idx].ballSpawnPosArr.Length != 0) // if-check so that accidental mix of legacy/new data format doesnt manifest in level
+        if (levelInfoList[idx].ballSpawnPosArr.Length != 0) // if-check so that accidental mix of legacy/new data format doesnt manifest in level
         {
             for (int i = 0; i < levelInfoList[idx].ballSpawnPosArr.Length; i++)
             {

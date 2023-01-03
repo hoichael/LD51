@@ -24,6 +24,8 @@ public class ball_manager : MonoBehaviour
         refs.trail.emitting = false;
 
         refs.visual.HandlePickup();
+
+        refs.trans.localScale = Vector3.one;
     }
 
     public void HandleThrow(int chargeStep)
