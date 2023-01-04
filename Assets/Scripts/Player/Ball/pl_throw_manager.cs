@@ -15,16 +15,35 @@ public class pl_throw_manager : MonoBehaviour
 
     public Vector2 currentAimDir;
 
+    [SerializeField] bool canCharge = true; // safety flag related to charging throw after charge was manually canceled
+
     private void Update()
     {
         if(currentlyCharging)
         {
+            if(refs_global.Instance.ip.I.Play.Teleport.WasPressedThisFrame())
+            {
+                CancelChargeManually();
+                return;
+            }
+
             indicator.UpdateRotation(currentAimDir);
             return;
         }
 
         if(!refs_global.Instance.ballInHand)
         {
+            return;
+        }
+
+        if(!canCharge)
+        {
+            if(new Vector2(refs_global.Instance.ip.I.Play.AimX.ReadValue<float>(), refs_global.Instance.ip.I.Play.AimY.ReadValue<float>()) == Vector2.zero
+               && refs_global.Instance.ip.I.Play.AimStick.ReadValue<Vector2>().sqrMagnitude < 0.45f)
+            {
+                canCharge = true;
+            }
+
             return;
         }
 
@@ -74,12 +93,6 @@ public class pl_throw_manager : MonoBehaviour
         //indicator.UpdateIndicator(currentAimDir, currentCharge);
     }
 
-    public void Cancel()
-    {
-        Reset();
-        indicator.HandleThrow();
-    }
-
     private void Reset()
     {
         currentlyCharging = inputFlat.enabled = inputStick.enabled = false;
@@ -99,6 +112,20 @@ public class pl_throw_manager : MonoBehaviour
 
         ApplyForce();
         Reset();
+    }
+
+    private void CancelChargeManually()
+    {
+        Reset();
+        indicator.HandleThrow();
+        canCharge = false;
+    }
+
+    public void CancelChargeFromReload()
+    {
+        Reset();
+        indicator.HandleThrow();
+        canCharge = true;
     }
 
     private void ApplyForce()
