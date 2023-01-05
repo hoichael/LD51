@@ -9,6 +9,7 @@ public class pl_events : MonoBehaviour
     [SerializeField] pl_fpadforce fPadHandler;
     [SerializeField] pl_bodydeform bodyDeform;
     [SerializeField] pl_bodyturn bodyTurn;
+    [SerializeField] pl_bodyslopetilt bodySlopeTilt;
     [SerializeField] pl_jump_buffer jumpBufferHandler;
     [SerializeField] pl_walljump wallJump;
     [SerializeField] pl_throw_manager throwManager;
@@ -76,5 +77,13 @@ public class pl_events : MonoBehaviour
     {
         throwManager.CancelChargeFromReload();
         refs_global.Instance.levelManager.InitLevel(refs_global.Instance.levelManager.currentLevelIDX);
+        OnLevelLoad();
+    }
+
+    public void OnLevelLoad()
+    {
+        bodyTurn.Reset();
+        bodyDeform.Reset();
+        bodySlopeTilt.Reset();
     }
 }

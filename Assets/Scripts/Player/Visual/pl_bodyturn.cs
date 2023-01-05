@@ -17,6 +17,8 @@ public class pl_bodyturn : MonoBehaviour
     float currentThrowLerpfactor = 1;
     float throwLerpRotYStart, throwLerpRotYTarget;
 
+    bool ignoreNextOnLand; // related to level reload
+
     private void FixedUpdate()
     {
         if(currentThrowLerpfactor != 1)
@@ -53,6 +55,12 @@ public class pl_bodyturn : MonoBehaviour
 
     public void OnLand(float velY) // called from called from pl_groundcheck
     {
+        if (ignoreNextOnLand)
+        {
+            ignoreNextOnLand = false;
+            return;
+        }
+
         if (Mathf.Abs(velY) < refs.settings.visual.minVelYToDeformOnLand) return;
 
         float factor = Mathf.Clamp(Mathf.Abs(velY) - 10, 5, 75) / 75;
@@ -106,5 +114,17 @@ public class pl_bodyturn : MonoBehaviour
     private void ApplyRot()
     {
         turnContainer.localRotation = Quaternion.Euler(new Vector3(0, currentBaseRotY + currentOffsetLand * refs.info.dir, 0));
+    }
+
+    public void Reset() // kinda fucky - called from lv_manager
+    {
+        currentLandLerpFactor = currentThrowLerpfactor = 1;
+        currentOffsetLand = 0;
+
+        // snap player rot to current facing dir
+        currentBaseRotY = refs.info.dir == 1 ? 0 : fullTurnLeft;
+
+        // quick n dirty solution to prevent deform on reload after falling into spikes (spikes dont have solid collisions so player rb retains falling speed until contact with ground after reload)
+        ignoreNextOnLand = true;
     }
 }

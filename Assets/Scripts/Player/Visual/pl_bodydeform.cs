@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class pl_bodydeform : MonoBehaviour
 {
-    [SerializeField] bool deformOnJump;
-    [SerializeField] bool deformOnLand;
-
     [SerializeField] pl_refs refs;
     [SerializeField] Transform modelTrans;
 
@@ -13,6 +10,8 @@ public class pl_bodydeform : MonoBehaviour
     bool currentlyResettingScale, currentlyInLandDeform;
 
     float currentFactor;
+
+    bool ignoreNextOnLand; // related to level reload
 
     private void FixedUpdate()
     {
@@ -30,8 +29,6 @@ public class pl_bodydeform : MonoBehaviour
     // called in FixedUpdate of jump_manager
     public void HandleJumpGrowth(float currentJumpTimer)
     {
-        if (!deformOnJump) return;
-
         currentFactor = 0.18f + (currentJumpTimer / refs.settings.jump.addDuration);
 
         modelTrans.localScale = Vector3.Lerp(
@@ -49,8 +46,6 @@ public class pl_bodydeform : MonoBehaviour
 
     public void OnJumpTrigger()
     {
-        if (!deformOnJump) return;
-
         jumpDeformStartScale = modelTrans.localScale;
 
         currentlyInLandDeform = false;
@@ -80,15 +75,17 @@ public class pl_bodydeform : MonoBehaviour
 
     public void OnJumpTerminate()
     {
-        if (!deformOnJump) return;
-
         currentFactor = 0;
         currentlyResettingScale = true;
     }
 
     public void OnLand(float velY) // called from pl_groundcheck
     {
-        if (!deformOnLand) return;
+        if(ignoreNextOnLand)
+        {
+            ignoreNextOnLand = false;
+            return;
+        }
 
         if (currentlyResettingScale) return;
         if (Mathf.Abs(velY) < refs.settings.visual.minVelYToDeformOnLand) return;
@@ -103,5 +100,15 @@ public class pl_bodydeform : MonoBehaviour
             refs.settings.visual.maxDeformLand,
             factor
             );
+    }
+
+    public void Reset()
+    {
+        currentlyInLandDeform = currentlyResettingScale = false;
+        currentFactor = 1;
+        modelTrans.localScale = Vector3.one;
+
+        // quick n dirty solution to prevent deform on reload after falling into spikes (spikes dont have solid collisions so player rb retains falling speed until contact with ground after reload)
+        ignoreNextOnLand = true;
     }
 }

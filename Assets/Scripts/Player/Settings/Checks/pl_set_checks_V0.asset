@@ -16,7 +16,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   <groundCheckSize>k__BackingField: {x: 1.75, y: 0.2}
-  <wallCheckSize>k__BackingField: {x: 0.76, y: 1.9}
+  <wallCheckSizeStatic>k__BackingField: {x: 0.7, y: 1.6}
+  <wallCheckSizeMove>k__BackingField: {x: 0.98, y: 1.6}
+  <wallCheckMoveThreshold>k__BackingField: 0.5
   <wallCheckOffset>k__BackingField: {x: 0.875, y: 0, z: 0}
   <slopeCheckLength>k__BackingField: 3.2
   <slopeCheckOffsetHor>k__BackingField: 0.85

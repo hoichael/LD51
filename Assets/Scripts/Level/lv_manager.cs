@@ -13,6 +13,7 @@ public class lv_manager : MonoBehaviour
     [SerializeField] lv_pool pool;
 
     [SerializeField] pl_refs plRefs;
+    [SerializeField] pl_events plEvents;
 
     public TextMeshPro timerText;
 
@@ -90,7 +91,8 @@ public class lv_manager : MonoBehaviour
         refs_global.Instance.playerTrans.localPosition = levelInfoList[idx].plSpawnPos;
         refs_global.Instance.playerRB.velocity = Vector2.zero;
         //refs_global.Instance.plFlipContainerTrans.localScale = new Vector3(levelInfoList[idx].initPlayerFacingLeft ? -1 : 1, 1, 1);
-        plRefs.info.dir = levelInfoList[idx].initPlayerFacingLeft ? -1 : 1; // this is annoying. only use of pl_refs in entire script. leaving it like this for now but future me, REFACTOR THIS ! ! ! pls. . . 
+        plRefs.info.dir = levelInfoList[idx].initPlayerFacingLeft ? -1 : 1; // this is annoying. only use of pl_refs in entire script. leaving it like this for now but future me, REFACTOR THIS ! ! ! pls. . .
+        plEvents.OnLevelLoad();
 
         // temp solution to provide legacy level support by also handling ballSpawnPosArr
         if (levelInfoList[idx].ballSpawnPosArr.Length != 0) // if-check so that accidental mix of legacy/new data format doesnt manifest in level

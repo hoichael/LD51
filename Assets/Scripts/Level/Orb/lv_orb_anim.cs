@@ -7,7 +7,7 @@ public class lv_orb_anim : MonoBehaviour
     [SerializeField] float animSpeed;
     [SerializeField] AnimationCurve animCurve;
 
-    [SerializeField] float currentLerpFactor;
+    float currentLerpFactor;
 
     private void OnEnable()
     {

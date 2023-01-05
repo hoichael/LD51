@@ -416,6 +416,7 @@ MonoBehaviour:
   bodyTurn: {fileID: 53490049565145215}
   currentChargeStep: 0
   currentAimDir: {x: 0, y: 0}
+  canCharge: 1
 --- !u!114 &53490049140344865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,6 +1227,7 @@ MonoBehaviour:
   fPadHandler: {fileID: 53490049409683504}
   bodyDeform: {fileID: 53490049565145214}
   bodyTurn: {fileID: 53490049565145215}
+  bodySlopeTilt: {fileID: 53490049565145212}
   jumpBufferHandler: {fileID: 53490050908714648}
   wallJump: {fileID: 53490050908714628}
   throwManager: {fileID: 53490049140344867}
@@ -1254,8 +1256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8958b440502e21449c62ec81f83af56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deformOnJump: 1
-  deformOnLand: 1
   refs: {fileID: 53490050326645987}
   modelTrans: {fileID: 53490050285440137}
 --- !u!114 &53490049565145215
@@ -2471,7 +2471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 53490050326645987}
-  currentAddForce: {x: 0, y: 0}
 --- !u!114 &53490050908714648
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,8 +6,7 @@ public class pl_walljump : MonoBehaviour
     [SerializeField] pl_refs refs;
     //[SerializeField] pl_gravity grav;
     int currentSide;
-    // public for db
-    public Vector2 currentAddForce;
+    Vector2 currentAddForce;
 
     private void Update()
     {
@@ -48,14 +47,22 @@ public class pl_walljump : MonoBehaviour
     // return int instead of bool because in case of wall, side of wall also needs to be known
     private int CheckForWall()
     {
-        // check right side for wall
-        if (Physics2D.OverlapBox(refs.bodyTrans.position + refs.settings.checks.wallCheckOffset, refs.settings.checks.wallCheckSize, 0, refs.settings.checks.solidLayer) != null)
+        Vector2 wallCheckSize; // variable wall check size dependent on player X vel
+
+        // determine wall check size for right wall and conduct check for right wall
+        wallCheckSize = refs.rb.velocity.x > refs.settings.checks.wallCheckMoveThreshold 
+            ? refs.settings.checks.wallCheckSizeMove : refs.settings.checks.wallCheckSizeStatic;
+
+        if (Physics2D.OverlapBox(refs.bodyTrans.position + refs.settings.checks.wallCheckOffset, wallCheckSize, 0, refs.settings.checks.solidLayer) != null)
         {
             return -1;
         }
 
-        // check left side for wall
-        if (Physics2D.OverlapBox(refs.bodyTrans.position - refs.settings.checks.wallCheckOffset, refs.settings.checks.wallCheckSize, 0, refs.settings.checks.solidLayer) != null)
+        // determine wall check size for left wall and conduct check for left wall
+        wallCheckSize = refs.rb.velocity.x < -refs.settings.checks.wallCheckMoveThreshold 
+            ? refs.settings.checks.wallCheckSizeMove : refs.settings.checks.wallCheckSizeStatic;
+
+        if (Physics2D.OverlapBox(refs.bodyTrans.position - refs.settings.checks.wallCheckOffset, wallCheckSize, 0, refs.settings.checks.solidLayer) != null)
         {
             return 1;
         }

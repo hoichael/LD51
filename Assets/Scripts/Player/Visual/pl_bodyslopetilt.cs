@@ -51,6 +51,12 @@ public class pl_bodyslopetilt : MonoBehaviour
             );
     }
 
+    public void Reset()
+    {
+        currentTransitionFactor = currentTransitionTarget = 0;
+        refs.FlipContainerTrans.localRotation = Quaternion.Euler(Vector3.zero);
+        refs.FlipContainerTrans.localPosition = Vector3.zero;
+    }
 
     //private void SnapSpriteTrans()
     //{
