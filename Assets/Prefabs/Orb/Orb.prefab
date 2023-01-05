@@ -127,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3556094471164716479}
   - component: {fileID: 3556094471164716476}
+  - component: {fileID: 1824544037095624868}
   m_Layer: 0
   m_Name: Orb
   m_TagString: Untagged
@@ -164,6 +165,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   activeContainer: {fileID: 3556094471132543697}
+  anim: {fileID: 1824544037095624868}
+  col: {fileID: 3556094471292897528}
+--- !u!114 &1824544037095624868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556094471164716478}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f398d5b11e51604ba9fce70567b5576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animSpeed: 0.01
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 1.2500001
+      outSlope: 1.2500001
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.24
+      value: 0.8
+      inSlope: 0.5833333
+      outSlope: 0.5833333
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.48
+      value: 0.78
+      inSlope: -0.79166675
+      outSlope: -0.79166675
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.5
+      outSlope: -1.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  currentLerpFactor: 0
 --- !u!1 &3556094471292897530
 GameObject:
   m_ObjectHideFlags: 0
