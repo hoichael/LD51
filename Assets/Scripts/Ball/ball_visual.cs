@@ -38,6 +38,7 @@ public class ball_visual : MonoBehaviour
     public void InitThrow(int chargeStep)
     {
         refs.rb.transform.localScale = Vector3.one;
+        refs.trans.localRotation = spriteContainer.localRotation = Quaternion.Euler(Vector3.zero);
 
         currentlyThrown = true;
         currentLerpFactor = 0;

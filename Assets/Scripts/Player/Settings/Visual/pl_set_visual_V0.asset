@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: pl_set_visual_V0
   m_EditorClassIdentifier: 
   <baseTurnSpeed>k__BackingField: 5.8
-  <throwTurnSpeed>k__BackingField: 0.03
+  <throwTurnSpeed>k__BackingField: 0.021
   <throwTurnCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
