@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refs: {fileID: 159648762845044497}
-  spriteContainer: {fileID: 297507849767656993}
-  circleSpriteRenderer: {fileID: 159648762339874412}
+  rotContainer: {fileID: 297507849767656993}
+  mRenderer: {fileID: 3639426307276563493}
   trail: {fileID: 159648763809460130}
 --- !u!1 &159648763285764023
 GameObject:
@@ -310,7 +310,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.81
+  m_Radius: 0.82
 --- !u!114 &1103143187155906974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 3372374758718300374}
   - component: {fileID: 6571317203253500848}
   m_Layer: 10
-  m_Name: Model_TEMP
+  m_Name: Model_PLAIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -771,7 +771,7 @@ Transform:
   m_GameObject: {fileID: 3930803691061115319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.65, y: 1.65, z: 1.65}
+  m_LocalScale: {x: 1.64, y: 1.64, z: 1.64}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 159648763285764017}
@@ -1172,6 +1172,11 @@ PrefabInstance:
 --- !u!4 &1952973901982655024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb781e2fdb2094a48872e533bf18ff64, type: 3}
+  m_PrefabInstance: {fileID: 2058393621844297179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3639426307276563493 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5903879472001850882, guid: bb781e2fdb2094a48872e533bf18ff64, type: 3}
   m_PrefabInstance: {fileID: 2058393621844297179}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2561864005298211598

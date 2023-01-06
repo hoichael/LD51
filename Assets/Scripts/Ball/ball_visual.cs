@@ -5,10 +5,13 @@ using UnityEngine;
 public class ball_visual : MonoBehaviour
 {
     [SerializeField] ball_refs refs;
-    [SerializeField] Transform spriteContainer;
+    [SerializeField] Transform rotContainer;
     Vector3 rotDir = new Vector3(0, 0, 1);
 
-    [SerializeField] SpriteRenderer circleSpriteRenderer;
+    //[SerializeField] SpriteRenderer circleSpriteRenderer;
+    [SerializeField] MeshRenderer mRenderer;
+    Material mat;
+
     [SerializeField] TrailRenderer trail;
 
     bool currentlyThrown;
@@ -18,9 +21,16 @@ public class ball_visual : MonoBehaviour
 
     Color currentLerpOriginCircle, currentLerpOriginTrail;
 
+    private void Awake()
+    {
+        mat = mRenderer.material;
+        mat.color = refs.settings.circleColorDefault;
+    }
+
     public void HandlePickup()
     {
         currentlyThrown = false;
+        rotContainer.localRotation = Quaternion.Euler(new Vector3(0, 55, 0));
     }
 
     public void Reset()
@@ -28,9 +38,10 @@ public class ball_visual : MonoBehaviour
         currentlyThrown = false;
         currentLerpFactor = 1;
 
-        spriteContainer.localRotation = Quaternion.Euler(Vector3.zero);
+        rotContainer.localRotation = Quaternion.Euler(Vector3.zero);
 
-        circleSpriteRenderer.color = refs.settings.circleColorDefault;
+        //circleSpriteRenderer.color = refs.settings.circleColorDefault;
+        mat.color = refs.settings.circleColorDefault;
 
         trail.startColor = trail.endColor = refs.settings.trailColorDefault;
     }
@@ -38,7 +49,7 @@ public class ball_visual : MonoBehaviour
     public void InitThrow(int chargeStep)
     {
         refs.rb.transform.localScale = Vector3.one;
-        refs.trans.localRotation = spriteContainer.localRotation = Quaternion.Euler(Vector3.zero);
+        refs.trans.localRotation = rotContainer.localRotation = Quaternion.Euler(Vector3.zero);
 
         currentlyThrown = true;
         currentLerpFactor = 0;
@@ -68,7 +79,8 @@ public class ball_visual : MonoBehaviour
     {
         currentLerpFactor = Mathf.MoveTowards(currentLerpFactor, 1, currentLerpSpeed * Time.deltaTime);
 
-        circleSpriteRenderer.color = Color.Lerp(
+        //circleSpriteRenderer.color = Color.Lerp(
+        mat.color = Color.Lerp(
             currentLerpOriginCircle,
             refs.settings.circleColorDefault,
             currentLerpFactor
@@ -89,7 +101,7 @@ public class ball_visual : MonoBehaviour
 
     private void RotateSprite()
     {
-        spriteContainer.Rotate((rotDir * GetRotSpeed()) * Time.deltaTime);
+        rotContainer.Rotate((rotDir * GetRotSpeed()) * Time.deltaTime);
     }
 
     private float GetRotSpeed()

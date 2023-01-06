@@ -31,13 +31,10 @@ public class lv_orb : lv_colhandler_base
 
     public override void HandleCol()
     {
-        print("asdfsdf");
         //activeContainer.gameObject.SetActive(false);
         manager.HandleCollect();
         col.enabled = false;
-        print(anim.enabled);
         anim.enabled = true;
-        print(anim.enabled);
     }
 
     // called from ed_lv_gen

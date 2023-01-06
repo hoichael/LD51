@@ -4,7 +4,7 @@ using UnityEngine;
 
 // this whole class should be static / designed to be a single generic instance used by all spike instances instead of sitting on each spike instance - needless multiples
 // - not static actually as it hooks into the update loop -> repeatedly calling anim func from update loop on spike instances would work (and be somewhat more optimized) but undercut the purpose of limiting duplicate code
-// will work something out. this is fine for now. realistically, the performance implications dont matter anyway 
+// will work something out. this is fine for now. realistically, the performance implications dont matter anyway
 
 public class lv_spike_anim : MonoBehaviour
 {

@@ -89,7 +89,8 @@ public class pl_bodyturn : MonoBehaviour
         else
         {
             throwLerpRotYStart = fullTurnLeft;
-            throwLerpRotYTarget = 359;
+            //throwLerpRotYTarget = 359;
+            throwLerpRotYTarget = 469;
         }
     }
 
@@ -106,6 +107,7 @@ public class pl_bodyturn : MonoBehaviour
         if (currentThrowLerpfactor >= 0.98f)
         {
             newRotY = throwLerpRotYStart == 0 ? 0 : fullTurnLeft;
+            currentThrowLerpfactor = 1;
         }
 
         turnContainer.localRotation = Quaternion.Euler(new Vector3(0, newRotY, 0));

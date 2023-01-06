@@ -17,10 +17,10 @@ MonoBehaviour:
   <rbInterp>k__BackingField: 1
   <rbColDetectMode>k__BackingField: 1
   <rotSpeedMult>k__BackingField: 27.5
-  <circleColorDefault>k__BackingField: {r: 1, g: 0.6156863, b: 0, a: 1}
-  <trailColorDefault>k__BackingField: {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  <circleColorDefault>k__BackingField: {r: 0.9960785, g: 0.37254903, b: 0, a: 1}
+  <trailColorDefault>k__BackingField: {r: 1, g: 0.61672306, b: 0.23137254, a: 1}
   <chargeStepColors>k__BackingField:
-  - {r: 0.9490196, g: 0.42745098, b: 0.12156863, a: 1}
+  - {r: 0.9960785, g: 0.37254903, b: 0, a: 1}
   - {r: 0.8784314, g: 0.25882354, b: 0.09019608, a: 1}
   - {r: 0.7529412, g: 0.16862746, b: 0.09411765, a: 1}
   - {r: 0.4862745, g: 0.011764706, b: 0, a: 1}
